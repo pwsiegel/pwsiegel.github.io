@@ -1,9 +1,9 @@
 ## Welcome to GitHub Pages
 
 Here's some math:
-\\[ \int_{\partial M} \omega = \int_M d\omega \\]
+$$ \frac{1}{x^2} $$
 
-Here's some inline math: \\( \lim_{n \to \infty} 1/n = 0 \\)
+Here's some inline math: $$ 1/x^2 $$
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
