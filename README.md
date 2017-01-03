@@ -1,5 +1,10 @@
 ## Welcome to GitHub Pages
 
+Here's some math:
+$$\int_{\partial M} \omega = \int_M d\omega$$
+
+Here's some inline math: $\lim_{n \to \infty} 1/n = 0$
+
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
