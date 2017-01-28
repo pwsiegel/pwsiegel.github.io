@@ -7,10 +7,10 @@ $$\frac{1}{x^2}$$
 Here's some inline math: $1/x^2$
 
 Here's a matrix:
-$$\begin{array}
+$\begin{array}
 a & b \\
 c & d
-\end{array}$$
+\end{array}$
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
