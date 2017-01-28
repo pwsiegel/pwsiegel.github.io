@@ -1,9 +1,9 @@
 ## Welcome to GitHub Pages
 
 Here's some math:
-\begin{equation*}
+$$\begin{equation*}
 \frac{1}{x^2}
-\end{equation*}
+\end{equation*}$$
 
 Here's some inline math: $$ 1/x^2 $$
 
