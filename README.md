@@ -1,6 +1,7 @@
 ## Welcome to GitHub Pages
 
 Here's some math:<br>
+
 $$\frac{1}{x^2}$$
 
 Here's some inline math: $$1/x^2$$
