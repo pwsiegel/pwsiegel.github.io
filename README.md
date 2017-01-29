@@ -2,7 +2,7 @@
 
 Here's some math:
 
-$$\frac{1}{x^2}$$
+$$\sum_{i=0}^\infty f(x_i)$$
 
 Here's some inline math: $1/x^2$
 
