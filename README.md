@@ -9,10 +9,9 @@ Here's some inline math: $1/x^2$
 Here's a matrix:
 
 $$
-\left(\begin{array}
- ab & bc \\
-cd & de
-\end{array}\right)
+\begin{equation}
+\frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\end{equation}
 $$
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
