@@ -9,10 +9,10 @@ Here's some inline math: $1/x^2$
 Here's a matrix:
 
 $$
-\begin{array}
-ab & bc \\
-cd & de
-\end{array}
+	\left(\begin{array}
+	ab & bc \\
+	cd & de
+	\end{array}\right)
 $$
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
