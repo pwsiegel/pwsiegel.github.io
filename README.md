@@ -9,6 +9,16 @@ Here's some inline math: $1/x^2$
 Here's a matrix:
 
 $$
+\left(
+\begin{array}{cc}
+a & b \\ c & d
+\end{array}
+\right)
+$$
+
+Here's an equation:
+
+$$
 \begin{equation}
 \frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
 \end{equation}
