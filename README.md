@@ -19,10 +19,12 @@ $$
 Here's an equation:
 
 $$
-\begin{equation}
+\begin{equation} \label{eqn}
 \frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
 \end{equation}
 $$
+
+Here I'm referring to equation \eqref{eqn}.
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
