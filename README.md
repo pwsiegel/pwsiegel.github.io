@@ -10,10 +10,10 @@ Here's a matrix:
 
 $$
 \begin{array}
-a & b \\
-c & d
+ab & bc \\
+cd & de
 \end{array}
-$$ 
+$$
 
 You can use the [editor on GitHub](https://github.com/pwsiegel/pwsiegel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
