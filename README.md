@@ -25,6 +25,7 @@ $$
 $$
 
 Here's an equation without a number:
+
 $$
 \begin{equation*}
 \int_a^b f(x)\, dx
