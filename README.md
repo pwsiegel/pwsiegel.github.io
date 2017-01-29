@@ -4,7 +4,7 @@ Here's some math:
 
 $$\sum_{i=0}^\infty f(x_i)$$
 
-Here's some inline math: $1/x^2$
+Here's some inline math: $$1/x^2$$
 
 Here's a matrix:
 
