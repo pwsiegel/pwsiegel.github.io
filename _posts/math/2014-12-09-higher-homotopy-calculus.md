@@ -5,10 +5,10 @@ title: Higher Homotopy Groups via Vector Calculus
 
 This semester I taught an undergraduate course on topology (continuity, compactness, connectedness, and basic homotopy theory) and on the last day of class I decided to give a brief introduction to the theory of higher homotopy groups. For motivation, consider the classical Brouwer fixed point theorem:
 
-<div class="Theorem">
+<div class="theorem">
 Every continuous function $f \colon B^2 \to B^2$ has a fixed point, where $B^2$ is the closed unit ball in the plane.
 </div>
-<div class="Proof">
+<div class="proof">
 Suppose $f$ has no fixed point point, meaning $x$ and $f(x)$ are distinct for every $x \in B^2$. Define a function $r \colon B^2 \to S^1$ (where $S^1$ is the boundary circle of $B^2$) as follows. Given $x \in B^2$ there is a unique line in the plane containing both $x$ and $f(x)$, so there is a unique line segment containing $x$ whose endpoints consist of $f(x)$ and a point on $S^1$. Define $r(x)$ to be the endpoint on $S^1$. Explicit calculations (using the continuity of $f$) show that $r(x)$ is continuous, and moreover if $x \in S^1$ then $r(x) = x$. A continuous function from a topological space $X$ to a subset $A \subseteq X$ which restricts to the identity on $A$ is called a <em>retraction</em>; we have shown that if there is a continuous function $f \colon B^2 \to B^2$ with no fixed points then there is is a retraction $r \colon B^2 \to S^1$.
 
 Let us use algebraic topology to prove that there is no such retraction. Let $i \colon S^1 \to B^2$ denote the inclusion map, so that $r \circ i \colon S^1 \to S^1$ is the identity. Passing to the induced homomorphism on fundamental groups, this shows that $r_* \circ i_* \colon \pi_1(S^1) \to \pi_1(S^1)$ is the identity and hence $r_*$ is surjective. But $\pi_1(B^2)$ is the trivial group since $B^2$ is contractible and $\pi_1(S^1) \cong \Z$, so $r_* \colon \pi_1(B^2) \to \pi_1(S^1)$ could not possibly be surjective, a contradiction.
@@ -31,7 +31,7 @@ To actually compute $\pi_n(S^n)$ one needs some rather powerful tools in algebra
 
 I will prove the following statement:
 
-<div class="Theorem">
+<div class="theorem">
 There is no continuous retraction $f \colon B^3 \to S^2$.
 </div>
 
@@ -45,13 +45,13 @@ Given such a homotopy, define $r \colon B^3 \to S^2$ by $r(x) = H(\frac{x}{|x|},
 
 To prove the main theorem we need a technical lemma:
 
-<div class="Lemma">
+<div class="lemma">
 If there is a continuous retraction $r \colon B^3 \to S^2$ then there is a smooth retraction.
 </div>
 
 The proof of this lemma uses some slightly complicated analysis, but ultimately it is fairly standard; see the final chapter of Gamelin and Greene's "Introduction to Topology", for example. The only other non-trivial input required to prove the main theorem is the divergence theorem from vector calculus:
 
-<div class="Theorem">
+<div class="theorem">
 Let $E$ be a compact subset of $\R^3$ whose boundary is a piecewise smooth surface $\partial E$, let $n$ denote the outward unit normal field on $\partial E$, and let $F$ be a smooth vector field on $E$. Then:
 
 $\int_{\partial E} F \cdot n\, dS = \int_E div F\, dV$
@@ -61,7 +61,7 @@ Here $div$ ("divergence") is the differential operator $div(P,Q,R) = P_x + Q_y +
 
 We are now ready to prove the main theorem, that there is no continuous retraction $B^3 \to S^2$.
 
-<div class="Proof">
+<div class="proof">
 By the previous lemma it suffices to show that there is no smooth retraction from $B^3$ to $S^2$, so suppose $r \colon B^3 \to S^2$ is such a retraction and denote its component functions by $r = (P,Q,R)$. Thus $r$ may be viewed as a smooth vector field on $B^3$; since $r(v) = v$ for $v \in \partial B^3 = S^2$ we have $P(x,y,z) = x$, $Q(x,y,z) = y$, and $R(x,y,z) = z$ for every $(x,y,z) \in S^2$.
 
 Consider the smooth vector field $F = P(\nabla Q \times \nabla R)$ where $\nabla$ is the gradient operator. We will compute the integral of $F$ over $S^2$ in two different ways and get two different answers, giving a contradiction. Both computations will use the divergence theorem:
