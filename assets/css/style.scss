@@ -63,6 +63,7 @@ body {
 .proof:after {
     content: "\25FC";
     // float:right;
+    align-content: right;
 }
 .definition {
     display: block;
