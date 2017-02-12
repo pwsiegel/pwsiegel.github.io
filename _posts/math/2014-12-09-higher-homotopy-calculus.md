@@ -18,7 +18,7 @@ One might wonder if the argument above works for the closed unit ball $B^{n+1} \
 In the proof of the Brouwer fixed point theorem above, we only needed three properties of the fundamental group:
 
 * Every continuous map $f \colon X \to Y$ induces a group homomorphism $f_\ast \colon \pi_1(X) \to \pi_1(Y)$.
-* If $f_1, f_2 \colon X \to Y$ are homotopic continuous maps then $(f_1)_\ast = (f_2)_\ast \colon \pi_1(X) \to \pi_1(Y)$.
+* If $f_1, f_2 \colon X \to Y$ are homotopic continuous maps then $\left( f_1 \right)_\ast = (f_2)_\ast \colon \pi_1(X) \to \pi_1(Y)$.
 * $\pi_1(S^1)$ is not the trivial group.
 
 The first two of these properties generalize to higher homotopy groups with almost identical proofs. The counterpart of the third property, namely that $\pi_n(S^n)$ is not the trivial group, is considerably more difficult. One typically computes $\pi_1(S^1)$ using covering space theory, but there is no counterpart of covering space theory for higher homotopy groups. (Well, such a theory does exist in a manner of speaking, but it is much more complicated than covering space theory.)
