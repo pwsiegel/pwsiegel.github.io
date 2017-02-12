@@ -1,5 +1,6 @@
 ---
 title: Higher Homotopy Groups via Vector Calculus
+date: 2014-12-09
 ---
 # Higher Homotopy Groups via Vector Calculus
 
