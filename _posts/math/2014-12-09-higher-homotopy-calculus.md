@@ -33,9 +33,9 @@ There is no continuous retraction $f \colon B^3 \to S^2$.
 
 This alone is enough to prove the Brouwer fixed point theorem for $B^3$ without having to worry about higher homotopy groups, but in fact it implies that $\pi_2(S^2)$ is nontrivial. Pick a base point $p \in S^2$ and consider the identity map $I \colon S^2 \to S^2$. This determines a class $[I] \in \pi_2(S^2,p)$, so if $\pi_2(S^2,p)$ is the trivial group then there is a base point preserving homotopy between $I$ and then constant map $e_p \colon S^2 \to S^2$ given by $e_p(x) = p$. This homotopy is a continuous map $H \colon S^2 \times [0,1] \to S^2$ which satisfies:
 
-* $H(x,0) = x$</li>
-* $H(x,1) = p$</li>
-* $H(p,t) = p$ for all $t$</li>
+* $H(x,0) = x$
+* $H(x,1) = p$
+* $H(p,t) = p$ for all $t$
 
 Given such a homotopy, define $r \colon B^3 \to S^2$ by $r(x) = H(\frac{x}{|x|}, |x|)$ if $x \neq 0$ and $r(0) = 0$. It is not hard to check that $r$ is a retraction, contradicting the main theorem.
 
