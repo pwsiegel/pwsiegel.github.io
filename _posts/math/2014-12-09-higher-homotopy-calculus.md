@@ -7,7 +7,8 @@ This semester I taught an undergraduate course on topology (continuity, compactn
 
 <div class="Theorem">
 Every continuous function $f \colon B^2 \to B^2$ has a fixed point, where $B^2$ is the closed unit ball in the plane.
-<em>Proof:</em>
+</div>
+<div class="Proof">
 Suppose $f$ has no fixed point point, meaning $x$ and $f(x)$ are distinct for every $x \in B^2$. Define a function $r \colon B^2 \to S^1$ (where $S^1$ is the boundary circle of $B^2$) as follows. Given $x \in B^2$ there is a unique line in the plane containing both $x$ and $f(x)$, so there is a unique line segment containing $x$ whose endpoints consist of $f(x)$ and a point on $S^1$. Define $r(x)$ to be the endpoint on $S^1$. Explicit calculations (using the continuity of $f$) show that $r(x)$ is continuous, and moreover if $x \in S^1$ then $r(x) = x$. A continuous function from a topological space $X$ to a subset $A \subseteq X$ which restricts to the identity on $A$ is called a <em>retraction</em>; we have shown that if there is a continuous function $f \colon B^2 \to B^2$ with no fixed points then there is is a retraction $r \colon B^2 \to S^1$.
 
 Let us use algebraic topology to prove that there is no such retraction. Let $i \colon S^1 \to B^2$ denote the inclusion map, so that $r \circ i \colon S^1 \to S^1$ is the identity. Passing to the induced homomorphism on fundamental groups, this shows that $r_* \circ i_* \colon \pi_1(S^1) \to \pi_1(S^1)$ is the identity and hence $r_*$ is surjective. But $\pi_1(B^2)$ is the trivial group since $B^2$ is contractible and $\pi_1(S^1) \cong \Z$, so $r_* \colon \pi_1(B^2) \to \pi_1(S^1)$ could not possibly be surjective, a contradiction.
