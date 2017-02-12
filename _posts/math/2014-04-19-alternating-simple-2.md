@@ -18,6 +18,7 @@ Let $\sigma = (a_1 a_2 \ldots a_k)$ be a cycle and let $\tau$ be any permutation
 </div>
 <div class="proof">
 For $i < k$ we have $\tau \sigma \tau^{-1}(\tau(a_i)) = \tau \sigma(a_i) = \tau(a_{i+1})$ and similarly $\tau \sigma \tau^{-1}(\tau(a_k)) = \tau(a_1)$.
+
 </div>
 
 The lemma extends easily to the case where $\sigma$ is the product of cycles, so we see that conjugation by $\tau$ preserves the cycle structure of $\sigma$ while relabelling the symbols in the cycle. In particular, two elements of $S_n$ are conjugate if and only if the number and lengths of cycles are the same. For instance, $(12)(345)$ is conjugate to $(124)(35)$ in $S_5$ but not to $(12345)$.
@@ -27,10 +28,11 @@ Note that conjugacy in $A_n$ is a little more subtle. A $k$-cycle is even if and
 To prove that $A_5$ is simple, we will need to determine the sizes of all of its conjugacy classes. We will do this using the following tool:
 
 <div class="lemma">
-Let $g$ be an element of a group $G$, let $Z_G(g)$ be the centralizer of $g$ (i.e. the set of all elements of $G$ which commute with $g$) and let $C_G(g)$ denote the conjugacy class of $g$. Then $|Z_G(g)| \cdot |C_G(g)| = |G|$
+Let $g$ be an element of a group $G$, let $Z_G(g)$ be the centralizer of $g$ (i.e. the set of all elements of $G$ which commute with $g$) and let $C_G(g)$ denote the conjugacy class of $g$. Then $|Z_G(g)| \cdot |C_G(g)| = |G|$.
 </div>
 <div class="proof">
 Let $G$ act on itself by conjugation.  The orbit of $g$ under this action is $C_G(g)$ and the stabilizer is $Z_G(g)$, so the result follows from the orbit-stabilizer theorem.
+
 </div>
 
 We will apply this lemma as follows.  First we will use our understanding of conjugacy in $S_n$ to identify the centralizer of a cycle.  From that it is easy to identify the centralizer of a cycle in $A_n$, and that will allow us to count the conjugates of a cycle in $A_n$.
@@ -40,7 +42,7 @@ Let $\sigma \in S_n$ be a $k$-cycle.  Then:
 $Z_{S_n}(\sigma) = \{\sigma^i \tau:\: 0 \leq i < k,\, \tau \in S_{n-k}\}$
 </div>
 <div class="proof">
-Proof: By Lemma 1, the conjugates of $\sigma$ in $S_n$ are precisely the $k$-cycles.  To specify a $k$-cycle one must specify the symbols in the $k$-cycle and the order in which they appear; there are $\frac{n!}{k!(n-k)!}$ ways to choose $k$ symbols and $k!$ different orders in which they can appear, though $k$ of the orders define the same cyclic permutation.  Thus there are $\frac{n!}{k!(n-k)!} \cdot (k-1)! = \frac{n!}{k \cdot (n-k)!}$ conjugates of $\sigma$; by Lemma 2, $|Z_{S_n}(\sigma)| = k \cdot (n-k)!$.
+Proof: By Lemma 1, the conjugates of $\sigma$ in $S_n$ are precisely the $k$-cycles.  To specify a $k$-cycle one must specify the symbols in the $k$-cycle and the order in which they appear; there are $\frac{n!}{k!(n-k)!}$ ways to choose $k$ symbols and $k!$ different orders in which they can appear, though $k$ of the orders define the same cyclic permutation.  Thus there are $\frac{n!}{k!(n-k)!} \cdot (k-1)! = \frac{n!}{k \cdot (n-k)!}$ conjugates of $\sigma$; by Lemma 2, $\abs{Z_{S_n}(\sigma)} = k \cdot (n-k)!$.
 
 The permutation $\sigma^i$ clearly commutes with $\sigma$.  Any permutation $\tau$ which fixes the $k$ symbols that $\sigma$ acts on also commutes with $\sigma$, and the subgroup of all such permutations is isomorphic to $S_{n-k}$.  Thus the permutations $\sigma^i \tau$, $\tau \in S_{n-k}$, all commute with $\sigma$; there are $k \cdot (n-k)!$ distinct permutations of this form, so they make up the entire centralizer of $\sigma$.
 </div>
