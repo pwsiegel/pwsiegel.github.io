@@ -19,9 +19,7 @@ One might wonder if the argument above works for the closed unit ball $B^{n+1} \
 In the proof of the Brouwer fixed point theorem above, we only needed three properties of the fundamental group:
 
 * Every continuous map $f \colon X \to Y$ induces a group homomorphism $f_\ast \colon \pi_1(X) \to \pi_1(Y)$.
-* If $f_1, f_2 \colon X \to Y$ are homotopic continuous maps then
-
-$${f_1}_\ast = {f_2}_\ast \colon \pi_1(X) \to \pi_1(Y)$$
+* If $f_1, f_2 \colon X \to Y$ are homotopic continuous maps then $${f_1}_\ast = {f_2}_\ast \colon \pi_1(X) \to \pi_1(Y)$$
 
 * $\pi_1(S^1)$ is not the trivial group.
 
