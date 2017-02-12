@@ -1,4 +1,5 @@
 theme: jekyll-theme-architect
+url: https://pwsiegel.github.io
 markdown: kramdown
 kramdown:
     parse_block_html: true

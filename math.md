@@ -1,4 +1,4 @@
-## Math
+# Math
 This page is where I keep my math...
 
 <ul>
