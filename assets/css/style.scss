@@ -4,7 +4,11 @@
 @import "{{ site.theme }}";
 
 body {
-    counter-reset: mathenv;
+    counter-reset: theorem;
+    counter-reset: proposition;
+    counter-reset: lemma;
+    counter-reset: conjecture;
+    counter-reset: definition;
 }
 
 .theorem {
@@ -13,8 +17,19 @@ body {
     font-style: italic;
 }
 .theorem:before {
-    counter-increment: mathenv;
-    content: "Theorem " counter(mathenv) ".";
+    counter-increment: theorem;
+    content: "Theorem " counter(theorem) ".";
+    font-weight: bold;
+    font-style: normal;
+}
+.proposition {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.proposition:before {
+    counter-increment: proposition;
+    content: "Proposition " counter(proposition) ".";
     font-weight: bold;
     font-style: normal;
 }
@@ -24,8 +39,19 @@ body {
     font-style: italic;
 }
 .lemma:before {
-    counter-increment: mathenv;
-    content: "Lemma " counter(mathenv) ".";
+    counter-increment: lemma;
+    content: "Lemma " counter(lemma) ".";
+    font-weight: bold;
+    font-style: normal;
+}
+.conjecture {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.conjecture:before {
+    counter-increment: conjecture;
+    content: "Conjecture " counter(conjecture) ".";
     font-weight: bold;
     font-style: normal;
 }
@@ -48,8 +74,18 @@ body {
     font-style: normal;
 }
 .definition:before {
-    counter-increment: mathenv;
-    content: "Definition " counter(mathenv) ".";
+    counter-increment: definition;
+    content: "Definition " counter(definition) ".";
+    font-weight: bold;
+    font-style: normal;
+}
+.remark {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.remark:before {
+    content: "Remark.";
     font-weight: bold;
     font-style: normal;
 }
