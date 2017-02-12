@@ -35,7 +35,7 @@ This alone is enough to prove the Brouwer fixed point theorem for $B^3$ without 
 
 * $H(x,0) = x$
 * $H(x,1) = p$
-* $H(p,t) = p$ for all
+* $H(p,t) = p$ for all $t$
 
 Given such a homotopy, define $r \colon B^3 \to S^2$ by $r(x) = H(\frac{x}{|x|}, |x|)$ if $x \neq 0$ and $r(0) = 0$. It is not hard to check that $r$ is a retraction, contradicting the main theorem.
 
