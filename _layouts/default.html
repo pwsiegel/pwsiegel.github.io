@@ -17,43 +17,37 @@
             processEscapes: true,
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         },
-        TeX: { equationNumbers: { autoNumber: "AMS" } },
+        TeX: {
+            equationNumbers: { autoNumber: "AMS" },
+            Macros: {
+                wt: "\\wildtilde",
+
+                into: "\\hookrightarrow",
+                onto: "\\twoheadrightarrow",
+
+                R: "\\mathbb{R}",
+                C: "\\mathbb{C}",
+                Q: "\\mathbb{Q}",
+                Z: "\\mathbb{Z}",
+                N: "\\mathbb{N}",
+
+                eps: "\\varepsilon",
+                abs: ["\\left| #1 \\right|", 1],
+                norm: ["\\left\\| #1 \\right\\|", 1],
+                inner: ["\\left\\langle #1 \\right\\rangle", 1],
+                B: "\\mathbb{B}",
+                K: "\\mathbb{K}",
+
+                Ad: "\\text{Ad}",
+                ad: "\\text{ad}",
+                Tr: "\\text{Tr}",
+                tr: "\\text{tr}",
+                real: "\\text{Re}",
+                imag: "\\text{Im}"
+            } 
+        },
         messageStyle: "none",
         "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-    });
-
-    // \newcommand{\wt}{\widetilde}
-    //
-    // \newcommand{\into}{\hookrightarrow}
-    // \newcommand{\onto}{\twoheadrightarrow}
-    //
-    // \newcommand{\R}{\mathbb{R}}
-    // \newcommand{\C}{\mathbb{C}}
-    // \newcommand{\Q}{\mathbb{Q}}
-    // \newcommand{\Z}{\mathbb{Z}}
-    // \newcommand{\N}{\mathbb{N}}
-    //
-    // \newcommand{\eps}{\varepsilon}
-    // \newcommand{\B}{\mathbb{B}}
-    // \newcommand{\K}{\mathbb{K}}
-    // \newcommand{\norm}[1]{\left\| #1 \right\|}
-    // \newcommand{\inner}[1]{\left\langle #1 \right\rangle}
-    // \newcommand{\abs}[1]{\left| #1 \right|}
-    //
-    // \newcommand{\Ad}{\text{Ad}}
-    // \newcommand{\ad}{\text{ad}}
-    // \newcommand{\Tr}{\text{Tr}}
-    // \newcommand{\tr}{\text{tr}}
-    // \newcommand{\real}{\text{Re}}
-    // \newcommand{\imag}{\text{Im}}
-
-    MathJax.Hub.Config({
-        TeX: {
-            Macros: {
-                R: "\\mathbb{R}",
-                inner: ["\\left\\langle #1 \\right\\rangle", 1]
-            }
-        }
     });
     </script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
