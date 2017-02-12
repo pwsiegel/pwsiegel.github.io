@@ -9,7 +9,10 @@ I will now conclude my series of posts about the alternating group by proving th
 We are going to use again and again the formula for conjugating permutations from my last post, so I will repeat it here for reference:
 
 <div class="lemma">
-Let $\sigma = (a_1 a_2 \ldots a_k)$ be a cycle and let $\tau$ be any permutation. Then $\tau \sigma \tau^{-1} = (\tau(a_1) \tau(a_2) \ldots \tau(a_k))$
+Let $\sigma = (a_1 a_2 \ldots a_k)$ be a cycle and let $\tau$ be any permutation. Then
+
+$$\tau \sigma \tau^{-1} = (\tau(a_1) \tau(a_2) \ldots \tau(a_k))$$
+
 </div>
 
 Let us jump right into the proof of the main result:
