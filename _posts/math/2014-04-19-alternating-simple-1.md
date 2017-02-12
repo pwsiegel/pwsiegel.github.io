@@ -25,7 +25,7 @@ Aside from their role in the classification program, the alternating groups play
 
 Everyone learns in high school algebra that there is a formula for the roots of a quadratic equation $ax^2 + bx + c = 0$:
 
-$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 Less well known is that there is also a <a href="http://en.wikipedia.org/wiki/Cubic_formula#General_formula_for_roots">cubic formula</a> and <a href="http://en.wikipedia.org/wiki/Quartic_formula">quartic formula</a> for degree three and four equations, respectively.  These formulas date back to the 16th century, and it was a frustratingly difficult open problem to find a formula for the roots of a polynomial equation of degree five.  It wasn't until the 19th century that Abel and Galois independently realized that no such formula exists!  Abel's proof came first, but I don't know what it was; Galois' argument is the one that survived.  Here is a brief sketch.
 
@@ -37,7 +37,7 @@ Galois' key idea was to focus on the symmetries exhibited by the roots of a poly
 
 Of course, one can make all this precise using the language of field extensions.  The upshot is that the symmetry groups help characterize what it means to find a formula for the roots of a polynomial equation.  As in the example above, equations of the form $x^n - a = 0$ have cyclic symmetry group $C_n$.  So if the quintic formula had the form $\sqrt[5]{a + \sqrt[3]{b}}$, for instance, then the symmetry group could be decomposed into a $C_5$ part and a $C_3$ part corresponding to the fifth root and cube root, respectively.  More precisely, a polynomial equation can be solved by radicals if and only if its symmetry group $G$ has a decomposition
 
-$G = G_0 \supseteq G_1 \supseteq \ldots \supseteq G_n = \{1\}$
+$$G = G_0 \supseteq G_1 \supseteq \ldots \supseteq G_n = \{1\}$$
 
 where $G_i$ is a normal subgroup of $G_{i-1}$ and $G_{i-1}/G_i$ is cyclic.  Groups with this property are said to be _solvable_ due to the connection with solving equations.  
 
