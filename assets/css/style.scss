@@ -4,11 +4,7 @@
 @import "{{ site.theme }}";
 
 body {
-    counter-reset: thm;
-    counter-reset: proposition;
-    counter-reset: lemma;
-    counter-reset: conjecture;
-    counter-reset: definition;
+    counter-reset: theorem proposition lemma conjecture definition;
 }
 
 .theorem {
@@ -17,8 +13,8 @@ body {
     font-style: italic;
 }
 .theorem:before {
-    counter-increment: thm;
-    content: "Theorem " counter(thm) ".";
+    counter-increment: theorem;
+    content: "Theorem " counter(theorem) ".";
     font-weight: bold;
     font-style: normal;
 }
