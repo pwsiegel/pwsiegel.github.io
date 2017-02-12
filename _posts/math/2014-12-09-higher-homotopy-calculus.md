@@ -38,7 +38,7 @@ This alone is enough to prove the Brouwer fixed point theorem for $B^3$ without 
 * $H(x,1) = p$
 * $H(p,t) = p$ for all $t$
 
-Given such a homotopy, define $r \colon B^3 \to S^2$ by $r(x) = H(\frac{x}{\abs{x}}, \abs{x})$ if $x \neq 0$ and $r(0) = 0$. It is not hard to check that $r$ is a retraction, contradicting the main theorem.
+Given such a homotopy, define $r \colon B^3 \to S^2$ by $r(x) = H\left(\frac{x}{\abs{x}}, \abs{x}\right)$ if $x \neq 0$ and $r(0) = 0$. It is not hard to check that $r$ is a retraction, contradicting the main theorem.
 
 To prove the main theorem we need a technical lemma:
 
