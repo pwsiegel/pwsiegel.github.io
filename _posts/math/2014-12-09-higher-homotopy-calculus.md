@@ -10,7 +10,7 @@ This semester I taught an undergraduate course on topology (continuity, compactn
 Every continuous function $f \colon B^2 \to B^2$ has a fixed point, where $B^2$ is the closed unit ball in the plane.
 </div>
 <div class="proof">
-Suppose $f$ has no fixed point point, meaning $x$ and $f(x)$ are distinct for every $x \in B^2$. Define a function $r \colon B^2 \to S^1$ (where $S^1$ is the boundary circle of $B^2$) as follows. Given $x \in B^2$ there is a unique line in the plane containing both $x$ and $f(x)$, so there is a unique line segment containing $x$ whose endpoints consist of $f(x)$ and a point on $S^1$. Define $r(x)$ to be the endpoint on $S^1$. Explicit calculations (using the continuity of $f$) show that $r(x)$ is continuous, and moreover if $x \in S^1$ then $r(x) = x$. A continuous function from a topological space $X$ to a subset $A \subseteq X$ which restricts to the identity on $A$ is called a <em>retraction</em>; we have shown that if there is a continuous function $f \colon B^2 \to B^2$ with no fixed points then there is is a retraction $r \colon B^2 \to S^1$.<br><br>
+Suppose $f$ has no fixed point point, meaning $x$ and $f(x)$ are distinct for every $x \in B^2$. Define a function $r \colon B^2 \to S^1$ (where $S^1$ is the boundary circle of $B^2$) as follows. Given $x \in B^2$ there is a unique line in the plane containing both $x$ and $f(x)$, so there is a unique line segment containing $x$ whose endpoints consist of $f(x)$ and a point on $S^1$. Define $r(x)$ to be the endpoint on $S^1$. Explicit calculations (using the continuity of $f$) show that $r(x)$ is continuous, and moreover if $x \in S^1$ then $r(x) = x$. A continuous function from a topological space $X$ to a subset $A \subseteq X$ which restricts to the identity on $A$ is called a <em>retraction</em>; we have shown that if there is a continuous function $f \colon B^2 \to B^2$ with no fixed points then there is is a retraction $r \colon B^2 \to S^1$.
 
 Let us use algebraic topology to prove that there is no such retraction. Let $i \colon S^1 \to B^2$ denote the inclusion map, so that $r \circ i \colon S^1 \to S^1$ is the identity. Passing to the induced homomorphism on fundamental groups, this shows that $r_* \circ i_* \colon \pi_1(S^1) \to \pi_1(S^1)$ is the identity and hence $r_*$ is surjective. But $\pi_1(B^2)$ is the trivial group since $B^2$ is contractible and $\pi_1(S^1) \cong \Z$, so $r_* \colon \pi_1(B^2) \to \pi_1(S^1)$ could not possibly be surjective, a contradiction.
 </div>
@@ -60,7 +60,7 @@ Here $div$ ("divergence") is the differential operator $div(P,Q,R) = P_x + Q_y +
 We are now ready to prove the main theorem, that there is no continuous retraction $B^3 \to S^2$.
 
 <div class="proof">
-By the previous lemma it suffices to show that there is no smooth retraction from $B^3$ to $S^2$, so suppose $r \colon B^3 \to S^2$ is such a retraction and denote its component functions by $r = (P,Q,R)$. Thus $r$ may be viewed as a smooth vector field on $B^3$; since $r(v) = v$ for $v \in \partial B^3 = S^2$ we have $P(x,y,z) = x$, $Q(x,y,z) = y$, and $R(x,y,z) = z$ for every $(x,y,z) \in S^2$.<br><br>
+By the previous lemma it suffices to show that there is no smooth retraction from $B^3$ to $S^2$, so suppose $r \colon B^3 \to S^2$ is such a retraction and denote its component functions by $r = (P,Q,R)$. Thus $r$ may be viewed as a smooth vector field on $B^3$; since $r(v) = v$ for $v \in \partial B^3 = S^2$ we have $P(x,y,z) = x$, $Q(x,y,z) = y$, and $R(x,y,z) = z$ for every $(x,y,z) \in S^2$.
 
 Consider the smooth vector field $F = P(\nabla Q \times \nabla R)$ where $\nabla$ is the gradient operator. We will compute the integral of $F$ over $S^2$ in two different ways and get two different answers, giving a contradiction. Both computations will use the divergence theorem:
 
@@ -74,13 +74,13 @@ The second term on the right-hand side vanishes by the product rule for the dive
 
 $$div(\nabla Q \times \nabla R) = \nabla R \cdot curl(\nabla Q) + \nabla Q \cdot curl(\nabla R) = 0$$
 
-Here we used the fact that the curl of the gradient of any smooth function is the zero vector.<br><br>
+Here we used the fact that the curl of the gradient of any smooth function is the zero vector.
 
 According to the standard "triple product" formula from vector algebra, the first term $\nabla P \cdot (\nabla Q \times \nabla R)$ is the determinant of the Jacobian matrix $J_F$ associated to $F$ whose rows consist of $\nabla P$, $\nabla Q$, and $\nabla R$. I claim that this determinant is zero. Since $F$ takes values in $S^2$ we have that $P^2 + Q^2 + R^2 = 1$; differentiating both sides of this equation with respect to $x$ gives $P P_x + Q Q_x + R R_x = 0$, or equivalently $F \cdot F_x = 0$. Similarly $F \cdot F_y = 0$ and $F \cdot F_z = 0$, so the vectors $F_x$, $F_y$, and $F_z$ are all orthogonal to the same nonzero vector $F$ and hence there is a nontrivial dependence relation between them. But $F_x$, $F_y$, and $F_z$ are the columns of $J_F$, so it follows that $\det(J_F) = 0$. We conclude:
 
 $$\int_{S^2} F \cdot n\, dS = 0$$
 
-by the divergence theorem. (The various identities used in this argument all appear in the Wikipedia page on <a href="http://en.wikipedia.org/wiki/Vector_calculus_identities">Vector Calculus Identities</a>, with the notation $div F = \nabla \cdot F$ and $curl F = \nabla \times F$.) <br><br>
+by the divergence theorem. (The various identities used in this argument all appear in the Wikipedia page on <a href="http://en.wikipedia.org/wiki/Vector_calculus_identities">Vector Calculus Identities</a>, with the notation $div F = \nabla \cdot F$ and $curl F = \nabla \times F$.)
 
 Now let us compute the same integral using the fact that $F(x,y,z) = (x,y,z)$ on $S^2$. Using $P = x$, $Q = y$, and $R = z$ we calculate that $P (\nabla Q \times \nabla R) = (x,0,0)$ and hence $div(P (\nabla Q \times \nabla R)) = 1$. By the divergence theorem we get:
 
