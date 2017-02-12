@@ -30,7 +30,7 @@ To prove that $A_5$ is simple, we will need to determine the sizes of all of its
 <div class="lemma">
 Let $g$ be an element of a group $G$, let $Z_G(g)$ be the centralizer of $g$ (i.e. the set of all elements of $G$ which commute with $g$) and let $C_G(g)$ denote the conjugacy class of $g$. Then
 
-$$|Z_G(g)| \cdot |C_G(g)| = |G|$%
+$$|Z_G(g)| \cdot |C_G(g)| = |G|$$
 </div>
 <div class="proof">
 Let $G$ act on itself by conjugation.  The orbit of $g$ under this action is $C_G(g)$ and the stabilizer is $Z_G(g)$, so the result follows from the orbit-stabilizer theorem.
