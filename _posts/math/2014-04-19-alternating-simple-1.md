@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Alternating Group is Simple I
+abstract: A gentle introduction to the alternating group and its role in mathematics.
 date: 2014-04-19
 categories: math
 ---

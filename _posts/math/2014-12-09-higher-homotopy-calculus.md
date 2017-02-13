@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Higher Homotopy Groups via Vector Calculus
+abstract: A proof that $\pi_2(S^2)$ is nontrivial using the divergence theorem, with a discussion of the Brouwer fixed point theorem.
 date: 2014-12-09
-categories: data_science
+categories: math
 ---
 
 This semester I taught an undergraduate course on topology (continuity, compactness, connectedness, and basic homotopy theory) and on the last day of class I decided to give a brief introduction to the theory of higher homotopy groups. For motivation, consider the classical Brouwer fixed point theorem:

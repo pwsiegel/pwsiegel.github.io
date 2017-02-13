@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Alternating Group is Simple III
+abstract: A detailed proof (by induction) that $A_n$ is simple for $n > 5$.
 date: 2014-04-19
 categories: math
 ---
