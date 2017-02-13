@@ -2,6 +2,7 @@
 layout: post
 title: Higher Homotopy Groups via Vector Calculus
 date: 2014-12-09
+categories: data_science
 ---
 
 This semester I taught an undergraduate course on topology (continuity, compactness, connectedness, and basic homotopy theory) and on the last day of class I decided to give a brief introduction to the theory of higher homotopy groups. For motivation, consider the classical Brouwer fixed point theorem:

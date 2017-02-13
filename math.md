@@ -1,8 +1,7 @@
 # Math
-This page is where I keep my math...
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories.math %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: '%B %d, %Y' }}
     </li>
