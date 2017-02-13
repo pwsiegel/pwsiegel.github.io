@@ -25,7 +25,7 @@ It was only within the last decade or so that this technique for artificially ge
 Armed with a reasonable model for the production of language, Shannon turned to the problem of measuring the rate at which it produces information.  I am going to express Shannon's idea using language and intuition invented later by Myron Tribus, but this description differs only cosmetically from Shannon's.  The basic idea is quite straightforward:
 
 <center>
-*A signal has high information if we would be surprised to learn that it was generated randomly.*
+<p><em>A signal has high information if we would be surprised to learn that it was generated randomly.</em></p>
 </center>
 
 Stepping back from the theory of communication, let us imagine how we would produce a measurement $S(E)$ of how "surprised" we are that an event $E$ occurred.  Such a measurement ought to have two properties:
