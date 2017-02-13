@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Information Theory: the Basics
+title: Information Theory&#58 the Basics
 abstract: Claude Shannon invented information theory in the 1940's to answer practical questions about the design of communication systems.  Today it is part of the foundation of computational linguistics and machine learning, as well as the theory of dynamical systems and the very idea of computation itself.
 date: 2017-02-12
 categories: math data_science
