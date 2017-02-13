@@ -1,7 +1,7 @@
 # Hello
 My name is Paul Siegel.  Here's a summary of my life so far.
 
-* 1984 - 2003: **Dude who grew up in Lansing, Michigan.**  Enjoyed math, postmodern critical theory, and long walks not on the beach.
+* 1984 - 2003: **Dude who grew up in Lansing, Michigan.**  Enjoyed math, programming, postmodern critical theory, and long walks not on the beach.
 * 2003 - 2007: **Undergraduate at the University of Michigan**, double majoring in math and more math.  No, I never went to a single football game.
 * 2007 - 2012: **PhD student in mathematics at Penn State** studying geometry, topology, and operator algebras under John Roe.  Still never went to a football game.
 * 2012 - 2015: **Assistant professor of mathematics at Columbia University** - similar research interests as above, but with a dash of geometry / probability theory on large graphs.
