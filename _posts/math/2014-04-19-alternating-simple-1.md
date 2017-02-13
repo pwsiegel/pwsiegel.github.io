@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Alternating Group is Simple I
-abstract: A gentle introduction to the alternating group and its role in mathematics.
+abstract: They may be easy to define, but the alternating groups are key players in modern algebra.
 date: 2014-04-19
 categories: math
 ---

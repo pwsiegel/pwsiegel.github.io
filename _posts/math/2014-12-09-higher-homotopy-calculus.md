@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Higher Homotopy Groups via Vector Calculus
-abstract: A proof that $\pi_2(S^2)$ is nontrivial using the divergence theorem, with a discussion of the Brouwer fixed point theorem.
+abstract: Calculating higher homotopy groups of spheres is infamously hard.  Here is a proof which uses only undergraduate vector calculus.
 date: 2014-12-09
 categories: math
 ---
