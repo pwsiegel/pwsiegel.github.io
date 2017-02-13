@@ -15,9 +15,9 @@ To begin, Shannon needed a mathematical model for how messages are constructed. 
 
 Shannon noted that one can play the same game with sequences of words instead of characters, and he generated a random sentence according to the word transition probabilities for English:
 
-<center>
+<center><p>
 THE HEAD AND IN FRONTAL ATTACK ON AN ENGLISH WRITER THAT THE CHARACTER OF THIS POINT IS THEREFORE ANOTHER METHOD FOR THE LETTERS THAT THE TIME OF WHO EVER TOLD THE PROBLEM FOR AN UNEXPECTED.
-</center>
+</p></center>
 
 It was only within the last decade or so that this technique for artificially generating language was supplanted as the state-of-the-art.
 
