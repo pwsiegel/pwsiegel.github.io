@@ -25,7 +25,7 @@ In the proof of the Brouwer fixed point theorem above, we only needed three prop
 
 The first two of these properties generalize to higher homotopy groups with almost identical proofs. The counterpart of the third property, namely that $\pi_n(S^n)$ is not the trivial group, is considerably more difficult. One typically computes $\pi_1(S^1)$ using covering space theory, but there is no counterpart of covering space theory for higher homotopy groups. (Well, such a theory does exist in a manner of speaking, but it is much more complicated than covering space theory.)
 
-To actually compute $\pi_n(S^n)$ one needs some rather powerful tools in algebraic topology, such as the Freudenthal suspension theorem or the Hurewicz isomorphism. The difficulty of this computation is still a bit mysterious to me, and was the subject of one of my recent <a href="http://mathoverflow.net/questions/184920/why-is-it-so-hard-to-compute-pi-nsn">MathOverflow questions</a>. Even the more modest goal of proving that $\pi_n(S^n)$ is non-trivial is quite a bit more challenging for $n > 1$ than for $n = 1$. Nevertheless, I came up with an argument in the case $n = 3$ based on vector calculus which is suitable for undergraduates; I don't think I've seen this exact argument written down anywhere else, so I thought I would write it up here. It is adapted from a more standard argument involving Stokes' theorem on manifolds which works in any dimension (but which requires a semester's worth of manifold theory to understand).
+To actually compute $\pi_n(S^n)$ one needs some rather powerful tools in algebraic topology, such as the Freudenthal suspension theorem or the Hurewicz isomorphism. The difficulty of this computation is still a bit mysterious to me, and was the subject of one of my recent [Mathoverflow questions](http://mathoverflow.net/questions/184920/why-is-it-so-hard-to-compute-pi-nsn "Mathoverflow"). Even the more modest goal of proving that $\pi_n(S^n)$ is non-trivial is quite a bit more challenging for $n > 1$ than for $n = 1$. Nevertheless, I came up with an argument in the case $n = 3$ based on vector calculus which is suitable for undergraduates; I don't think I've seen this exact argument written down anywhere else, so I thought I would write it up here. It is adapted from a more standard argument involving Stokes' theorem on manifolds which works in any dimension (but which requires a semester's worth of manifold theory to understand).
 
 I will prove the following statement:
 
@@ -80,7 +80,7 @@ According to the standard "triple product" formula from vector algebra, the firs
 
 $$\int_{S^2} F \cdot n\, dS = 0$$
 
-by the divergence theorem. (The various identities used in this argument all appear in the Wikipedia page on <a href="http://en.wikipedia.org/wiki/Vector_calculus_identities">Vector Calculus Identities</a>, with the notation $div F = \nabla \cdot F$ and $curl F = \nabla \times F$.)
+by the divergence theorem. (The various identities used in this argument all appear in the Wikipedia page on [vector calculus identities](http://en.wikipedia.org/wiki/Vector_calculus_identities "vector calculus identities"), with the notation $div F = \nabla \cdot F$ and $curl F = \nabla \times F$.)
 
 Now let us compute the same integral using the fact that $F(x,y,z) = (x,y,z)$ on $S^2$. Using $P = x$, $Q = y$, and $R = z$ we calculate that $P (\nabla Q \times \nabla R) = (x,0,0)$ and hence $div(P (\nabla Q \times \nabla R)) = 1$. By the divergence theorem we get:
 

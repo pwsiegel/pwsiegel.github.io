@@ -7,7 +7,7 @@ date: 2014-04-19
 In my last post I described the alternating group and its place in the world of groups. I will now prove that $A_5$ is simple, and in the third and final post of this series I will prove that $A_n$ is simple for $n \geq 5$. The plan of attack is as follows: first I will carry out some preliminary analysis of conjugacy in $S_n$ and $A_n$, and then by identifying all conjugacy classes in $A_5$ I will prove that $A_5$ is simple. I will then prove that $A_n$ is simple for $n \geq 5$ by induction. I'm not sure who invented this argument; all I know is that I learned it in Dummit & Foote.
 
 ## Conjugacy Classes in the Alternating Group
-To understand the normal subgroups of a group it is very useful to first think carefully about its conjugacy classes; this is because a normal subgroup is by definition the union of conjugacy classes. Fortunately conjugation in the symmetric group is easy to understand using "cycle notation". A _$k$-cycle_ in $S_n$ is a permutation which fixes all but $k$ symbols $a_1, \ldots, a_k$ which acts on these symbols as:
+To understand the normal subgroups of a group it is very useful to first think carefully about its conjugacy classes; this is because a normal subgroup is by definition the union of conjugacy classes. Fortunately conjugation in the symmetric group is easy to understand using "cycle notation". A *$k$-cycle* in $S_n$ is a permutation which fixes all but $k$ symbols $a_1, \ldots, a_k$ which acts on these symbols as:
 
 $$a_1 \to a_2 \to \ldots \to a_k \to a_1$$
 
