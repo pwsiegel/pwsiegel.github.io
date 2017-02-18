@@ -43,5 +43,4 @@ S(E_1 \cap E_2) &= -C \log \P(E_1 \cap E_2) \\
 &= S(E_1) + S(E_2)
 \end{align*}
 $$
-
 </div>
