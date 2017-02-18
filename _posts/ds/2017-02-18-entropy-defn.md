@@ -7,4 +7,4 @@ date: 2017-02-18
 categories: stage
 ---
 
-[Link to previous post]({{ site.baseurl }}){% link _posts/2017-02-18-info-theory-basics %}
+[Link to previous post]({{ site.baseurl }}){% post_url ds/2017-02-12-info-theory-basics %}
