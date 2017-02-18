@@ -57,7 +57,7 @@ $$H(X) = -C \sum_{i=1}^{27} \frac{1}{27} \log \frac{1}{27} = C \log 27$$
 
 It can be shown that this is the largest possible value that $H(X)$ can take for a probability distribution $X$ on a $27$ point set.  Intuitively, we have no way to guess the next character so the output is always surprising.
 
-The reader may already be familiar with the concept of entropy in statistical physics which describes how "disordered" the system is.  The examples above suggest a connection between the information theoretic and physical notions of entropy: the languages with minimal entropy are the most structured (they always output the same character) while the language with maximal entropy is the most disordered (there is no way to predict the next character, even knowing the last $n$ characters).  Indeed, this connection can be formalized, but doing so is outside of the scope of this post.
+The reader may already be familiar with the concept of entropy in statistical physics, which describes how "disordered" the system is.  The examples above suggest a connection between the information theoretic and physical notions of entropy: the languages with minimal entropy are the most structured (they always output the same character) while the language with maximal entropy is the most disordered (there is no way to predict the next character, even knowing the last $n$ characters).  Indeed, this connection can be formalized, but doing so is outside of the scope of this post.
 
 ## Applications
 Let us return to Shannon's original problem: optimizing the transmission of information.  Shannon's fundamental theorem of communication is as follows:
