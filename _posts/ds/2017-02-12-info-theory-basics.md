@@ -46,9 +46,18 @@ for some positive constant $C$.
 
 $$H(X) = \E(I_X) = -C \sum_i p_i \log p_i$$
 
-where $p_i := \P(X = x_i)$.  In other words, the entropy of a random variable $X$ represents how surprising observations drawn from $X$ are on average.  
+where $p_i := \P(X = x_i)$ and we define $0 \log 0 = 0$.  In other words, the entropy of a random variable $X$ represents how surprising observations drawn from $X$ are on average.  
 
-It should be noted that the concept of entropy originates in Boltzmann's and Gibbs' work in thermodynamics, and there is a strong analogy between the thermodynamic and information theoretic notions of entropy.  Just as the information theorist is led to invent entropy by considering how surprising an event is given the random model which produces it, the physicist is led to invent entropy by considering how surprising a configuration of particles which comprise a gas is given the gas' macroscopic measurements (pressure, temperature, volume, etc.)  In fact mathematicians have invented a formalism which subsumes both notions of entropy, though that formalism is outside the scope of this post.
+Returning to language, let $X$ be the random variable which represents the $n+1$st character in a message given the first $n$ characters (as per Shannon's stochastic model).  Let us work out the entropy for a couple of basic languages:
+
+* Suppose $X$ takes the value 'a' with probability $1$ and all other characters with probability $0$.  A simple calculation shows that the entropy of this language is $0$, and this is the smallest possible value that $H$ can take.  Intuitively, we are never surprised by the output of $X$ because the output is always 'a'.
+* Suppose $X$ outputs all 27 characters (English letters together with space) with equal probability.  Then:
+
+$$H(X) = -C \sum_{i=1}^27 \frac{1}{27} \log \frac{1}{27} = C \log 27$$
+
+It can be shown that this is the largest possible value that $H(X)$ can take for a probability distribution $X$ on a $27$ point set.  Intuitively, we have no way to guess the next character so the output is always surprising.
+
+The reader may already be familiar with the concept of entropy in statistical physics which describes how "disordered" the system is.  The examples above suggest a connection between the information theoretic and physical notions of entropy: the languages with minimal entropy are the most structured (they always output the same character) while the language with maximal entropy is the most disordered (there is no way to predict the next character, even knowing the last $n$ characters).  Indeed, this connection can be formalized, but doing so is outside of the scope of this post.
 
 ## Applications
 Let us return to Shannon's original problem: optimizing the transmission of information.  Shannon's fundamental theorem of communication is as follows:
@@ -61,7 +70,7 @@ The capacity can be regarded as an engineering constraint: there are physical li
 
 Since 1948, Shannon's ideas have found applications in areas that he probably could not have envisioned - natural language processing, machine learning, artificial intelligence, etc.  The structures that Shannon's notion of entropy captures are found not just in human language but also a plethora of other data sources, and today data scientists use it to extract signals for a variety of classification and inference problems.  I will explore some of these applications in future posts, but I will list a few examples here.
 
-* **The principle of maximum entropy.** Informally, this asserts that after all priors have been accounted for the distribution which best models a random process is the one which maximizes entropy.  The principle explains the effectiveness of many common models; for instance the normal distribution is the distribution of maximal entropy given a prescribed mean and variance, and logistic regression is the classifier of maximal entropy for independent observations.
+* **The principle of maximum entropy.** Informally, this asserts that after all priors have been accounted for the distribution which best models a random process is the one which maximizes entropy.  The principle explains the effectiveness of many common models; for instance the normal distribution is the distribution of maximal entropy given a prescribed variance, and logistic regression is the classifier of maximal entropy for independent observations.
 * **Feature selection.** Shannon also defined *relative* notions of information and entropy in his paper for the purpose of comparing the information content of jointly distributed random variables.  These tools can be used to extract small sets of features from data which describe different aspects of the data while still collectively explaining most of its variability.
 * **Coding theory.** Though communication technology has advanced by leaps and bounds since 1948, the storage and bandwidth demands on communication networks have scaled comparably.  As a result it is just as important today as it was in Shannon's day to efficiently compress signals in a way which is robust to corruption and noise, and Shannon's framework still provides the theoretical and practical backbone for these tools.
 
