@@ -53,7 +53,7 @@ Returning to language, let $X$ be the random variable which represents the $n+1$
 * Suppose $X$ takes the value 'a' with probability $1$ and all other characters with probability $0$.  A simple calculation shows that the entropy of this language is $0$, and this is the smallest possible value that $H$ can take.  Intuitively, we are never surprised by the output of $X$ because the output is always 'a'.
 * Suppose $X$ outputs all 27 characters (English letters together with space) with equal probability.  Then:
 
-$$H(X) = -C \sum_{i=1}^27 \frac{1}{27} \log \frac{1}{27} = C \log 27$$
+$$H(X) = -C \sum_{i=1}^{27} \frac{1}{27} \log \frac{1}{27} = C \log 27$$
 
 It can be shown that this is the largest possible value that $H(X)$ can take for a probability distribution $X$ on a $27$ point set.  Intuitively, we have no way to guess the next character so the output is always surprising.
 
