@@ -39,7 +39,7 @@ Condition 1 in the definition of surprise function is obvious from the formula f
 $$
 \begin{align*}
 S(E_1 \cap E_2) &= -C \log \P(E_1 \cap E_2) \\
-&= -C \log \left(\P(E_1) \P(E_2)) \\
+&= -C \log \left( \P(E_1) \P(E_2) \right) \\
 &= -C \log \P(E_1) - C \log \P(E_2) \\
 &= S(E_1) + S(E_2)
 \end{align}
