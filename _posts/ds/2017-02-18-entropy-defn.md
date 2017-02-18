@@ -6,4 +6,4 @@ abstract: The definition of Shannon entropy admits a variety of appealing charac
 date: 2017-02-18
 categories: stage
 ---
-[Link to previous post]({{ site.basurl }}){% link _posts/info-theory-basics %}
+stuff
