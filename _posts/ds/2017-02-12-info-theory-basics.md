@@ -43,7 +43,7 @@ $$S(E) = -C \log \P(E)$$
 for some positive constant $C$.
 </div>
 
-(The logarithm may be taken with any base since changing the base corresponds to scaling by a positive constant.)  Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisingness $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
+(The logarithm may be taken with any base since changing the base corresponds to scaling by a positive constant.)  Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisal $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
 
 $$H(X) = \E(I_X) = -C \sum_i p_i \log p_i$$
 
@@ -81,9 +81,6 @@ Consider a language with entropy $H$ (calculated according to Shannon's stochast
 > A more detailed analysis shows that if we assume the constraints imposed by the language are of a rather chaotic and random nature, large crossword puzzles are just possible when the redundancy is 50%. If the redundancy is 33%, three-dimensional crossword puzzles should be possible, etc.
 
 So crossword puzzles were not an inevitable pastime - they are made possible by the information theoretic structure of language!
-
-
-
 
 
 [1]: http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf "Shannon's original paper"
