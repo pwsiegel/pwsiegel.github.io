@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: /alternating-simple-1/
 title: The Alternating Group is Simple I
 abstract: They may be easy to define, but the alternating groups are key players in modern algebra.
 date: 2014-04-19
