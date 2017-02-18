@@ -18,9 +18,9 @@ Let $(\Omega, \Sigma, \P)$ be a probability space, meaning $(\Omega, \Sigma)$ is
 <div class="definition">
 A *surprise function* on a probability space $(\Omega, \Sigma, \P)$ is a function $S \colon \Sigma \to \R$ with the following properties:
 
-    1. $S(E_1) = S(E_2)$ whenever $\P(E_1) = \P(E_2)$.
-    2. $S(E_1) < S(E_2)$ whenever $\P(E_1) > \P(E_2)$.
-    3. If $E_1$ and $E_2$ are independent events then $S(E_1 \cap E_2) = S(E_1) + S(E_2)$.
+1. $S(E_1) = S(E_2)$ whenever $\P(E_1) = \P(E_2)$.
+2. $S(E_1) < S(E_2)$ whenever $\P(E_1) > \P(E_2)$.
+3. If $E_1$ and $E_2$ are independent events then $S(E_1 \cap E_2) = S(E_1) + S(E_2)$.
 
 </div>
 
