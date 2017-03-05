@@ -137,7 +137,7 @@ $$H(X) = -\int_0^1 2x \log(2x)\, dx = \frac{1}{2} - \log 2$$
 
 (Note, by the way, that the entropy is negative - it is hard to reconcile this with the interpretation of entropy as "average information"!)  Suppose we apply a coordinate change, such as $u = x^2$; the cumulative distribution function written in the coordinate $u$ is $G(u) = F(\sqrt{u}) = u$, so the density function is $G'(u) = 1$.  It follows that the entropy in this coordinate system is:
 
-$$H(X) = -\infty_0^1 1 \log 1\, dx = 0$$
+$$H(X) = -\int_0^1 1 \log 1\, dx = 0$$
 
 This is a bit of a disaster, and as a result I initially found it almost impossible to believe that differential entropy could be good for much of anything.  But as pointed out in a [mathoverflow question][3] it in fact has lots of applications and is still used quite a lot.  
 
