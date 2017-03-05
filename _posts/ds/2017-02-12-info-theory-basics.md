@@ -31,9 +31,9 @@ Armed with a reasonable model for the production of language, Shannon turned to 
 
 Stepping back from the theory of communication, let us imagine how we would produce a measurement $S(E)$ of how "surprised" we are that an event $E$ occurred.  Such a measurement ought to have three basic properties:
 
-    1. $S(E)$ depends only on the probability $P(E)$ that the event occurs.
-    2. Low probability events are more surprising than high probability events, so $S(E_1) < S(E_2)$ whenever $\P(E_1) > \P(E_2)$.
-    3. If two independent events are equally surprising, then it is twice as surprising when both of them happen as it is when either one of them happens.  More generally, $S(E_1 \cap E_2) = S(E_1) + S(E_2)$ whenever $E_1$ and $E_2$ are independent.
+1. $S(E)$ depends only on the probability $P(E)$ that the event occurs.
+2. Low probability events are more surprising than high probability events, so $S(E_1) < S(E_2)$ whenever $\P(E_1) > \P(E_2)$.
+3. If two independent events are equally surprising, then it is twice as surprising when both of them happen as it is when either one of them happens.  More generally, $S(E_1 \cap E_2) = S(E_1) + S(E_2)$ whenever $E_1$ and $E_2$ are independent.
 
 <div class="proposition">
 The function
