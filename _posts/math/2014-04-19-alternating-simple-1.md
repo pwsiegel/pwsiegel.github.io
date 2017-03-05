@@ -5,6 +5,7 @@ title: The Alternating Group is Simple I
 abstract: They may be easy to define, but the alternating groups are key players in modern algebra.
 date: 2014-04-19
 categories: math
+comments: true
 ---
 
 This past week I covered an abstract algebra course at Columbia, and I decided to prove that the alternating group $A_n$ is simple.  I in fact did this in the same algebra class last year, but in the intervening months I almost entirely forgot how the argument goes.  So I decided to write it up here while it's still fresh in my mind.  It's a very nice - and fairly elementary - little application of some important ideas in group theory.  In this post I'm going to give some background and explain the significance of the simplicity of $A_n$, and in the sequel I will go through the proof.

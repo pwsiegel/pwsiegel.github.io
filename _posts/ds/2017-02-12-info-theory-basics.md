@@ -5,6 +5,7 @@ title: Information Theory - the Basics
 abstract: Claude Shannon invented information theory in the 1940's to answer practical questions about the design of communication systems.  Today it is part of the foundation of computational linguistics and machine learning, as well as the theory of dynamical systems and the very idea of computation itself.
 date: 2017-02-12
 categories: math data_science
+comments: true
 ---
 
 Claude Shannon's 1948 paper [*A Mathematical Theory of Communication*][1] is undoubtedly near the top of my list of best mathematics papers of all time.  (Not just because Shannon is an alumnus of the University of Michigan math department.)  It isn't that theorems in the paper are particularly deep; indeed, they are probably accessible to anyone with some background in basic probability.  But theorems aren't really the most important products of mathematical labor: true progress is made through the creation of good definitions, and theorems and their proofs are just evidence that the right definitions have been chosen.  Shannon's achievement was to precisely formulate many of the key questions that arise from practical considerations in the design of robust communication systems, and in the process he invented a language that today's engineers and data scientists still use to extract usable signals from noisy data.

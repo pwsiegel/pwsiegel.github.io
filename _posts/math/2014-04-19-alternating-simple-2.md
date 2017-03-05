@@ -5,6 +5,7 @@ title: The Alternating Group is Simple II
 abstract: A detailed proof that $A_5$ is simple.
 date: 2014-04-19
 categories: math
+comments: true
 ---
 
 In my last post I described the alternating group and its place in the world of groups. I will now prove that $A_5$ is simple, and in the third and final post of this series I will prove that $A_n$ is simple for $n \geq 5$. The plan of attack is as follows: first I will carry out some preliminary analysis of conjugacy in $S_n$ and $A_n$, and then by identifying all conjugacy classes in $A_5$ I will prove that $A_5$ is simple. I will then prove that $A_n$ is simple for $n \geq 5$ by induction. I'm not sure who invented this argument; all I know is that I learned it in Dummit & Foote.

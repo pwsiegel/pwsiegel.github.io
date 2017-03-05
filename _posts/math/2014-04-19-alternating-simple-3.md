@@ -5,6 +5,7 @@ title: The Alternating Group is Simple III
 abstract: A detailed proof (by induction) that $A_n$ is simple for $n > 5$.
 date: 2014-04-19
 categories: math
+comments: true
 ---
 
 I will now conclude my series of posts about the alternating group by proving that $A_n$ is simple for $n \geq 5$.  Just as with $A_5$ I stole this argument from Dummit & Foote; while I feel I might have been able to come up with the argument for $A_5$ on my own, the argument for $A_n$ is a bit too clever for me.  If anyone knows who discovered it, please let me know.
