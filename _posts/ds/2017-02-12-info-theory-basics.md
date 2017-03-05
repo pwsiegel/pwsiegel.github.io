@@ -36,25 +36,25 @@ Stepping back from the theory of communication, let us imagine how we would prod
 3. If two independent events are equally surprising, then it is twice as surprising when both of them happen as it is when either one of them happens.  More generally, $S(E_1 \cap E_2) = S(E_1) + S(E_2)$ whenever $E_1$ and $E_2$ are independent.
 
 <div class="proposition">
-Any function $S$ which satisfies the two conditions above must have the form
+The only function $S$ which satisfies the two conditions above is:
 
-$$S(E) = -C \log \P(E)$$
+$$S(E) = -\log_b \P(E)$$
 
-for some positive constant $C$.
+(where the base $b$ is arbitrary.)
 </div>
 
-(The logarithm may be taken with any base since changing the base corresponds to scaling by a positive constant.)  Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisal $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
+Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisal $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
 
-$$H(X) = \E(I_X) = -C \sum_i p_i \log p_i$$
+$$H(X) = \E(I_X) = -\sum_i p_i \log p_i$$
 
-where $p_i := \P(X = x_i)$ and we define $0 \log 0 = 0$.  In other words, the entropy of a random variable $X$ represents how surprising observations drawn from $X$ are on average.  
+where $p_i := \P(X = x_i)$ and we define $0 \log 0 = 0$.  In other words, the entropy of a random variable $X$ represents how surprising observations drawn from $X$ are on average.  The base of the logarithm (omitted from the notation above) determines the units of entropy and is generally fixed at the outset; common choices include $2$, $10$, and $e$.
 
 Returning to language, let $X$ be the random variable which represents the $n+1$st character in a message given the first $n$ characters (as per Shannon's stochastic model).  Let us work out the entropy for a couple of basic languages:
 
 * Suppose $X$ takes the value 'a' with probability $1$ and all other characters with probability $0$.  A simple calculation shows that the entropy of this language is $0$, and this is the smallest possible value that $H$ can take.  Intuitively, we are never surprised by the output of $X$ because the output is always 'a'.
 * Suppose $X$ outputs all 27 characters (English letters together with space) with equal probability.  Then:
 
-$$H(X) = -C \sum_{i=1}^{27} \frac{1}{27} \log \frac{1}{27} = C \log 27$$
+$$H(X) = -\sum_{i=1}^{27} \frac{1}{27} \log \frac{1}{27} = \log 27$$
 
 It can be shown that this is the largest possible value that $H(X)$ can take for a probability distribution $X$ on a $27$ point set.  Intuitively, we have no way to guess the next character so the output is always surprising.
 
