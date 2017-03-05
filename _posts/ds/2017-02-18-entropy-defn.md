@@ -3,8 +3,8 @@ layout: post
 permalink: /entropy-defn/
 title: On the Definition of Shannon Entropy
 abstract: The definition of Shannon entropy admits a variety of appealing characterizations; here I will explore the characterization via "average surprisal".
-date: 2017-02-18
-categories: stage
+date: 2017-03-05
+categories: math data_science
 ---
 
 In a [previous post]({{ site.baseurl }}{% post_url ds/2017-02-12-info-theory-basics %}) I went through some of the key ideas in Shannon's landmark paper *A Mathematical Theory of Communication*.  Perhaps the most enduring innovation in that paper is Shannon's definition of the *entropy* of a random variable which Shannon used as a measure of how much information the random variable produces.
@@ -119,11 +119,7 @@ $$
 
 But what about continuous probability spaces?  It is tempting to use \eqref{entropyRV} as a guide and define the entropy of a continuous random variable $X$ by:
 
-$$
-\begin{equation} \label{diffentropy}
-H(X) = -\int_{-\infty}^\infty f(x) \log f(x)\, dx
-\end{equation}
-$$
+$$H(X) = -\int_{-\infty}^\infty f(x) \log f(x)\, dx$$
 
 This quantity is called the *differential entropy* of $X$, and it was first considered by Shannon in his paper *A Mathematical Theory of Communication*.  But there are a number of problems with this definition, many of which were first identified by Jaynes (see [here][2], for instance).
 
