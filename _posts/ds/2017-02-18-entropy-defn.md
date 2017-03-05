@@ -79,6 +79,7 @@ Second, let us show that $f$ satisfies the identity:
 $$
 \begin{equation} \label{funceqn}
 f(a_1 a_2) = f(a_1) + f(a_2)
+\end{equation}
 $$
 
 for all real numbers $a_1$ and $a_2$ in $[0,1]$.  Let $(\Omega_1, \Sigma_1, \P_1)$ denote the biased coin flip probability space with $\Omega_1 = \br{H_1, T_1}$ and probabilities $\P_1(H_1) = a_1$, $\P_1(T_1) = 1 - a_1$.  Define $(\Omega_2, \Sigma_2, \P_2)$ similarly but with $\P_2(H_2) = a_2$.  Finally define $(\Omega, \Sigma, \P)$ to be the product of these two probability spaces; in this space the event $H_1$ is independent of the event $H_2$, so we have:
@@ -99,7 +100,7 @@ Thus $f(x)$ is a decreasing function which satisfies the functional equation \eq
 Let $(\Omega, \Sigma, \P)$ be a discrete probability space, and consider the function $\Omega \to \R$ given by $\omega \mapsto -\log \P(\omega)$.  This function defines a random variable which we will call $I$ for *information* (though it is really just the surprise function described above), and we define the *entropy* of the probability space to be:
 
 $$
-\being{equation} \label{entropy}
+\begin{equation} \label{entropy}
 H = \E(I) = -\sum_{\omega \in \Omega} \P(\omega) \log \P(\omega)
 \end{equation}
 $$
