@@ -141,7 +141,7 @@ $$H(X) = -\infty_0^1 1 \log 1\, dx = 0$$
 
 This is a bit of a disaster, and as a result I initially found it almost impossible to believe that differential entropy could be good for much of anything.  But as pointed out in a [mathoverflow question][3] it in fact has lots of applications and is still used quite a lot.  
 
-That said, there is a standard way to "fix" differential entropy, called the *Kullback-Leibler Divergence* or alternatively *relative entropy*.  This quantity depends on two random variables $X$ and $Y$, and it measures the amount of information gained by replacing $X$ with $Y$.  In the continuous setting it has all of the nice properties lacked by differential entropy, including coordinate invariance and positivity, and in the case where $X$ is uniformly distributed it recovers the differential entropy of $Y$.  So I suspect that relative entropy is the "right" quantity to work with, and I intend to write a follow-up post about it.
+That said, there is a standard way to "fix" differential entropy, called the *Kullback-Leibler Divergence* or alternatively *relative entropy*.  This quantity depends on two random variables $X$ and $Y$, and it measures the amount of information gained by replacing $X$ with $Y$.  In the continuous setting it has all of the nice properties lacked by differential entropy, including coordinate invariance and positivity, and unlike ordinary entropy it is possible to view the relative entropy of continuous random variables as the limit of discrete counterparts.  So I suspect that relative entropy is the "right" quantity to work with, and I intend to write a follow-up post about it.
 
 
 [1]: https://archive.org/details/FoundationsOfModernAnalysis_578 "Foundations of Modern Analysis"
