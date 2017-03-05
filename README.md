@@ -1,6 +1,4 @@
-<center><p>
-*"Everything in moderation, including moderation." - Oscar Wilde*
-</p></center>
+>"Everything in moderation, including moderation." - Oscar Wilde
 
 # Hello
 My name is Paul Siegel.  Here's a summary of my life so far.
