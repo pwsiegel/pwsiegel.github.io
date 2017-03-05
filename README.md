@@ -1,6 +1,6 @@
 <blockquote>
-<p>"Everything in moderation, including moderation."</p>
-<p align="right">Oscar Wilde</p>
+<p>*"Everything in moderation, including moderation."*</p>
+<p align="right">-Oscar Wilde</p>
 </blockquote>
 
 # Hello
