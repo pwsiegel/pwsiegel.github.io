@@ -43,11 +43,11 @@ $$S(E) = -\log_b \P(E)$$
 (where the base $b$ is arbitrary) is a surprise function on any probability space.
 </div>
 
-Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisal $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
+Now, consider a discrete random variable $X$ with possible values $\br{x_1, \ldots, x_n\}$.  We can define a new random variable $I_X$ (the *information* of $X$) by $I_X(x_i) = S(X = x_i)$, and Shannon defines the *entropy* of X to be the expected value of this random variable:
 
 $$H(X) = \E(I_X) = -\sum_i p_i \log p_i$$
 
-where $p_i := \P(X = x_i)$ and we define $0 \log 0 = 0$.  In other words, the entropy of a random variable $X$ represents how surprising observations drawn from $X$ are on average.  The base of the logarithm (omitted from the notation above) determines the units of entropy and is generally fixed at the outset; common choices include $2$, $10$, and $e$.
+where $p_i := \P(X = x_i)$ and we define $0 \log 0 = 0$.  In other words, the entropy of a random variable $X$ represents how surprising measurements drawn from $X$ are on average.  The base of the logarithm (omitted from the notation above) determines the units of entropy and is generally fixed at the outset; common choices include $2$, $10$, and $e$.
 
 Returning to language, let $X$ be the random variable which represents the $n+1$st character in a message given the first $n$ characters (as per Shannon's stochastic model).  Let us work out the entropy for a couple of basic languages:
 
