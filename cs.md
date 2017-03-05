@@ -1,4 +1,4 @@
-# Computer Science
+# Technology
 
 <ul>
   {% for post in site.categories.computer-science %}
