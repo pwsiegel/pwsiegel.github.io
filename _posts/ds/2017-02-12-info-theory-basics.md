@@ -36,11 +36,11 @@ Stepping back from the theory of communication, let us imagine how we would prod
 3. If two independent events are equally surprising, then it is twice as surprising when both of them happen as it is when either one of them happens.  More generally, $S(E_1 \cap E_2) = S(E_1) + S(E_2)$ whenever $E_1$ and $E_2$ are independent.
 
 <div class="proposition">
-The only function $S$ which satisfies the two conditions above is:
+The function
 
 $$S(E) = -\log_b \P(E)$$
 
-(where the base $b$ is arbitrary.)
+(where the base $b$ is arbitrary) is a surprise function on any probability space.
 </div>
 
 Now, consider a discrete random variable $X$ with possible values $x_1, \ldots, x_n$.  $X$ determines a collection of events $E_i = \{X = x_i\}$, and we can measure the surprisal $S(E_i)$ of each event.  This determines a new random variable $I_X$ via the condition $I_X(E_i) = S(E_i)$.  Shannon defines the *entropy* of X to be the expected value of this random variable:
