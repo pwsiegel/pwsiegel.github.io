@@ -58,7 +58,7 @@ But $S(E) = -\log \P(E)$ is in a sense the unique *universal* surprise function.
 Suppose $f \colon [0,1] \to \R^\pm$ is a function with the property that $S(E) = f(\P(E))$ is a surprise function on any probability space $(\Omega, \Sigma, \P)$.  Then $f(x) = -\log x$.
 </div>
 <div class="proof">
-First, let us show that $f$ is decreasing.  Take $a_1$ and $a_2$ in $[0,1]$ with $a_1 < a_2$.  Set $p_1 = \frac{a_1}{2}$ and $p_2 = \frac{a_2}{2}; we have $0 \leq p_1, p_2 \leq \frac{1}{2}$.  Consider the probability space with $\Omega = \br{\omega_1, \ldots, \omega_5}$ and probabilities:
+First, let us show that $f$ is decreasing.  Take $a_1$ and $a_2$ in $[0,1]$ with $a_1 < a_2$.  Set $p_1 = \frac{a_1}{2}$ and $p_2 = \frac{a_2}{2}$; we have $0 \leq p_1, p_2 \leq \frac{1}{2}$.  Consider the probability space with $\Omega = \br{\omega_1, \ldots, \omega_5}$ and probabilities:
 
 $$
 \begin{align*}
