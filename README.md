@@ -1,5 +1,7 @@
->"Everything in moderation, including moderation."
->- Oscar Wilde
+<blockquote>
+<p>"Everything in moderation, including moderation."</p>
+<p align="right">Oscar Wilde</p>
+</blockquote>
 
 # Hello
 My name is Paul Siegel.  Here's a summary of my life so far.
