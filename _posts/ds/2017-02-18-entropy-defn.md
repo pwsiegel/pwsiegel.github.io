@@ -119,20 +119,31 @@ $$
 
 But what about continuous probability spaces?  It is tempting to use \eqref{entropyRV} as a guide and define the entropy of a continuous random variable $X$ by:
 
-$$H(X) = -\int_{-\infty}^\infty f(x) \log f(x)\, dx$$
+$$
+\begin{equation} \label{diffentropy}
+H(X) = -\int_{-\infty}^\infty f(x) \log f(x)\, dx
+\end{equation}
+$$
 
 This quantity is called the *differential entropy* of $X$, and it was first considered by Shannon in his paper *A Mathematical Theory of Communication*.  But there are a number of problems with this definition, many of which were first identified by Jaynes (see [here][2], for instance).
 
-The first problem (which bugged me so much that it motivated me to write this post) is that the definition apparently does not emerge naturally from measure theoretic first principles.  The concept of a surprise function makes sense on an arbitrary probability space, but it is not clear
+## Problems with Differential Entropy
 
+The first problem (which bugged me so much that it motivated me to write this post) is that the definition apparently does not emerge naturally from measure theoretic first principles.  The concept of a surprise function makes sense on an arbitrary probability space, but it is not clear in general how to define a random variable $I$ as in \eqref{entropy} so that its expected value is entropy.
 
+Perhaps a more serious issue is that differential entropy is not coordinate invariant.  Let $X$ be the random variable on $[0,1]$ whose cumulative distribution function is $F(x) = x^2$, meaning $\P(X \leq x) = x^2$ for $x \in [0,1]$.  The density function of this random variable is $F'(x) = 2x$, so its entropy is:
 
+$$H(X) = -\int_0^1 2x \log(2x)\, dx = \frac{1}{2} - \log 2$$
 
+(Note, by the way, that the entropy is negative - it is hard to reconcile this with the interpretation of entropy as "average information"!)  Suppose we apply a coordinate change, such as $u = x^2$; the cumulative distribution function written in the coordinate $u$ is $G(u) = F(\sqrt{u}) = u$, so the density function is $G'(u) = 1$.  It follows that the entropy in this coordinate system is:
 
+$$H(X) = -\infty_0^1 1 \log 1\, dx = 0$$
 
+This is a bit of a disaster, and as a result I initially found it almost impossible to believe that differential entropy could be good for much of anything.  But as pointed out in a [mathoverflow question][3] it in fact has lots of applications and is still used quite a lot.  
 
-
+That said, there is a standard way to "fix" differential entropy, called the *Kullback-Leibler Divergence* or alternatively *relative entropy*.  This quantity depends on two random variables $X$ and $Y$, and it measures the amount of information gained by replacing $X$ with $Y$.  In the continuous setting it has all of the nice properties lacked by differential entropy, including coordinate invariance and positivity, and in the case where $X$ is uniformly distributed it recovers the differential entropy of $Y$.  So I suspect that relative entropy is the "right" quantity to work with, and I intend to write a follow-up post about it.
 
 
 [1]: https://archive.org/details/FoundationsOfModernAnalysis_578 "Foundations of Modern Analysis"
 [2]: http://bayes.wustl.edu/etj/articles/prior.pdf "Prior Probabilities"
+[3]: http://mathoverflow.net/questions/162301/intrinsic-significance-of-differential-entropy "Intrinsic significance of differential entropy"
