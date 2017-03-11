@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<h1>{{ page.title }} {{ site[page.level] }}</h1>
-<p align="right">{{ page.date | date: '%B %d, %Y' }}</p>
+<h1>{{ page.title }}</h1>
+<p align="right">{{ site[page.level] }}{{ page.date | date: '%B %d, %Y' }}</p>
 
 {{ content }}
 
