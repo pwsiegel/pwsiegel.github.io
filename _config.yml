@@ -3,3 +3,5 @@ url: https://pwsiegel.github.io
 markdown: kramdown
 kramdown:
     parse_block_html: true
+gems:
+  - jemoji
