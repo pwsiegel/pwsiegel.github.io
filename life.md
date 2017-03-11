@@ -1,11 +1,7 @@
-# Life
-Content may appear here when I get one of these.
+---
+layout: navigation
+title: life
+category: data_science
+---
 
-<ul>
-  {% for post in site.categories.life %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: '%B %d, %Y' }}
-      <p>{{ post.abstract }}</p>
-    </li>
-  {% endfor %}
-</ul>
+Content may appear here when I get one of these.
