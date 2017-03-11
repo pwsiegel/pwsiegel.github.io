@@ -5,7 +5,7 @@ kramdown:
     parse_block_html: true
 gems:
     - jemoji
-easy: ":smile_cat:"
-medium: ":crying_cat_face:"
-hard: ":pouting_cat:"
+easy: ":heart_eyes_cat:"
+medium: ":smile_cat:"
+hard: ":crying_cat_face:"
 expert: ":scream_cat:"

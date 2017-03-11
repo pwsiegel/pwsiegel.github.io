@@ -11,7 +11,7 @@ Each post is marked with a cat face indicating its difficulty level, as per the 
 <ul>
   {% for post in site.categories.math %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: '%B %d, %Y' }}
+      <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
       <p>{{ post.abstract }}</p>
     </li>
   {% endfor %}
