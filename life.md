@@ -1,6 +1,6 @@
 ---
 layout: navigation
-title: life
+title: Life
 category: data_science
 ---
 
