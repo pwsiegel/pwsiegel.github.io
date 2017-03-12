@@ -32,8 +32,16 @@ $$\log P(\omega) - \log Q(\omega) = \log \frac{P(\omega)}{Q(\omega)}$$
 where $\omega$ is the event above.  Just as we defined entropy to be average surprise, the main quantity of interest is the average *relative* surprise:
 
 <div class="definition">
-Let $P$ and $Q$ be discrete probability measures on the same measurable space $(\Omega, \Sigma)$, and suppose that $P(\omega) = 0$ whenever $Q(\omega) = 0$.  The *Kullback-Leibler divergence* of $P$ from $Q$ is defined to be:
+Let $P$ and $Q$ be discrete probability measures on the same measurable space $(\Omega, \Sigma)$, and suppose that $P(\omega) = 0$ whenever $Q(\omega) = 0$.  The *Kullback-Leibler (KL) divergence* of $P$ from $Q$ is defined to be:
 
 $$D_{KL}(P||Q) = \E_P \left( \log \frac{P}{Q} \right) = \sum_\omega P(\omega) \log \frac{P(\omega)}{Q(\omega)}$$
 
 </div>
+
+Thus the KL-divergence is large precisely when (relatively) surprising events tend to have high probability according to the measure $P$.  We could in principle have taken a $Q$-average instead, but it would have been a bit contradictory: an event is surprising precisely when $P$ thinks it is much more likely than $Q$, so the $Q$-average would emphasize unsurprising events.
+
+## Measure-theoretic construction
+
+The plan for the rest of this post is to show that the KL-divergence behaves much better than ordinary entropy, but that ordinary entropy is nearly a special case anyway (as are many other important concepts in information theory).  All of this happiness flows naturally from the fact that the definition for discrete distributions given above is a special case of a more general measure theoretic construction.  We will need to review a bit of measure theory first.
+
+Let $(\Omega, \Sigma)$ be a measurable space equipped with two $\sigma$-finite measures $\mu$ and $\nu$.  
