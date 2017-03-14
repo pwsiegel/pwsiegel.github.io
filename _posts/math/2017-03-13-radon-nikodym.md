@@ -55,11 +55,16 @@ So we conclude:
 
 $$\eta_1(E) = \nu(E \cap A_\eta) = \tau_1(E \cap A_\eta) \leq \tau_1(E)$$
 
-This forces $\tau_0 \leq \eta_0$, so consider the measure:
+This means that the formula
 
 $$\chi = \tau_1 - \eta_1 = \eta_0 - \tau_0$$
 
-$\chi$ is absolutely continuous with respect to $\mu$ since both $\eta_0$ and $\tau_0$ are.  I claim that $\chi$ is also mutually singular with respect to $\mu$.  We have:
+defines a measure on $(\Omega, \Sigma)$.  This measure is absolutely continuous with respect to $\mu$ since both $\eta_0$ and $\tau_0$ are; I claim that it is also mutually singular with respect to $\mu$.  We have:
+
+$$\nu(E) = \eta_0(E) + \eta_1(E) = \eta_0(B_\eta) + \eta_1(A_\eta)$$
+
+$$\nu(E) = \tau_0(E) + \tau_1(E) = \tau_0(B_\eta) + \tau_1(E)$$
+
 </div>
 
 <div class="theorem">
