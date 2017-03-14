@@ -81,7 +81,7 @@ This shows that $\phi$ is a bounded linear functional, so by the Riesz represent
 
 $$
 \begin{equation} \label{riesz1}
-\int_\Omega f\, d\nu &= \phi(f) = \inner{f, g} = \int_\Omega fg\, d(\mu + \nu)
+\int_\Omega f\, d\nu = \phi(f) = \inner{f, g} = \int_\Omega fg\, d(\mu + \nu)
 \end{equation}
 $$
 
@@ -117,7 +117,7 @@ $$\mu(A) = \int_A (g - 1)\, d(\mu + \nu) = 0$$
 
 since $g = 1$ on $A$ by definition.  Clearly $\eta_1(B) = 0$, so we have proved that $\eta_1 \perp \mu$.  It remains only to show that $\eta_0 \ll \mu$.
 
-To that end, let $E \in \Sigma$ be any set of $\mu$-measure $0.  Certainly $\eta_0(E \cap A) = 0$, so it suffices to show that $\eta_0(E \cap B) = \nu(E \cap B) = 0$, i.e. that any set $F \subseteq B$ of $\mu$-measure $0$ necessarily has $\nu$-measure $0$.  For any such $F$ we have:
+To that end, let $E \in \Sigma$ be any set of $\mu$-measure $0$.  Certainly $\eta_0(E \cap A) = 0$, so it suffices to show that $\eta_0(E \cap B) = \nu(E \cap B) = 0$, i.e. that any set $F \subseteq B$ of $\mu$-measure $0$ necessarily has $\nu$-measure $0$.  For any such $F$ we have:
 
 $$\nu(F) = \int_F g d(\mu + \nu) = \int_F g\, d\nu$$
 
