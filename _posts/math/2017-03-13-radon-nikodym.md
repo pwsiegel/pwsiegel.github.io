@@ -88,13 +88,13 @@ Rearranging, we get:
 
 $$
 \begin{equation} \label{riesz2}
-\int_\Omega f\, d\mu = \int_\Omega f(g - 1)\, d(\mu + \nu)
+\int_\Omega f\, d\mu = \int_\Omega f(1 - g)\, d(\mu + \nu)
 \end{equation}
 $$
 
 Let $X$ be the subset of $\Omega$ where $g$ takes negative values; $X$ is measurable since $g$ is measurable, and by \eqref{riesz1} we have:
 
-$$\nu(X) = \int_\Omega 1_X\, d\nu = \int_\Omega 1_X g\, d(\mu + \nu) = \int_X g d(\mu + \nu)$$
+$$\nu(X) = \int_\Omega 1_X\, d\nu = \int_\Omega 1_X g\, d(\mu + \nu) = \int_X g\, d(\mu + \nu)$$
 
 If $(\mu + \nu)(X) > 0$ then the integral on the right-hand side would be negative since $g$ is by definition negative on $X$, but $\nu(X) \geq 0$ since $\nu$ is a measure.  So we must have $(\mu + \nu)(X) = 0$.  Similarly, if we let $Y$ be the set where $g$ takes values greater than $1$ then using \eqref{riesz2} we get:
 
@@ -108,7 +108,7 @@ $$\eta_0(E) = \nu(E \cap B), \quad \eta_1(E) = \nu(E \cap A)$$
 
 It is clear that $\nu = \eta_0 + \eta_1$.  Using \eqref{riesz2} we get:
 
-$$\mu(A) = \int_A (g - 1)\, d(\mu + \nu) = 0$$
+$$\mu(A) = \int_A (1 - g)\, d(\mu + \nu) = 0$$
 
 since $g = 1$ on $A$ by definition.  Clearly $\eta_1(B) = 0$, so we have proved that $\eta_1 \perp \mu$.  It remains only to show that $\eta_0 \ll \mu$.
 
@@ -130,3 +130,11 @@ The theorem can be strengthened in a few straightforward ways.
 * It extends to $\sigma$-finite measures: express $\Omega$ as the increasing union of measurable sets on which both measures are finite and extract decompositions on each set; by uniqueness these decompositions will extend to measures on all of $\Omega$.  
 
 None of these generalizations are necessary for the applications to probability theory that currently interest me, so I won't dwell on them any further for now.
+
+## The Radon-Nikodym Theorem
+
+Our main result - the Radon-Nikodym theorem - is a fairly straightforward consequence of the Lebesgue decomposition theorem.
+
+<div class="theorem">
+Let $\mu$ and $\nu$ be finite measures on a measure space $(\Omega, \Sigma)$.  
+</div>
