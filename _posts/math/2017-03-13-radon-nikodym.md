@@ -123,4 +123,10 @@ $$\nu(F) = \int_F g\, d\nu < \int_F 1\, d\nu = \nu(F)$$
 a contradiction.
 </div>
 
-The theorem can be strengthened in a few straightforward ways.  It can be extended to signed measures by combining decompositions for the positive and negative parts.  I am fairly sure it can be extended to complex-valued measures by extracting decompositions for their real and imaginary parts, though I confess that I haven't checked the details.  It also extends to $\sigma$-finite measures: express $\Omega$ as the increasing union of measurable sets on which both measures are finite and extract decompositions on each set; by uniqueness these decompositions will extend to measures on all of $\Omega$.  None of these generalizations are necessary for the applications to probability theory that currently interest me, so I won't dwell on them any further for now.
+The theorem can be strengthened in a few straightforward ways.  
+
+* It can be extended to signed measures by combining decompositions for the positive and negative parts.  
+* I am fairly sure it can be extended to complex-valued measures by extracting decompositions for their real and imaginary parts, though I confess that I haven't checked the details.  
+* It extends to $\sigma$-finite measures: express $\Omega$ as the increasing union of measurable sets on which both measures are finite and extract decompositions on each set; by uniqueness these decompositions will extend to measures on all of $\Omega$.  
+
+None of these generalizations are necessary for the applications to probability theory that currently interest me, so I won't dwell on them any further for now.
