@@ -55,26 +55,16 @@ So we conclude:
 
 $$\eta_1(E) = \nu(E \cap A_\eta) = \tau_1(E \cap A_\eta) \leq \tau_1(E)$$
 
-This means that the formula
-
-$$\chi = \tau_1 - \eta_1 = \eta_0 - \tau_0$$
-
-defines a measure on $(\Omega, \Sigma)$.  This measure is absolutely continuous with respect to $\mu$ since both $\eta_0$ and $\tau_0$ are; I claim that it is also mutually singular with respect to $\mu$.  We have:
-
-$$\nu(E) = \eta_0(E) + \eta_1(E) = \eta_0(B_\eta) + \eta_1(A_\eta)$$
-
-$$\nu(E) = \tau_0(E) + \tau_1(E) = \tau_0(B_\eta) + \tau_1(E)$$
-
+But the same argument, using a singular decomposition of $\Omega$ for $\mu$ and $\tau_1$ instead of $\mu$ and $\eta_1$, implies that $\tau_1(E) \leq \eta_1(E)$ for every $E \in \Sigma$.  It follows that $\eta_1 = \tau_1$ and hence $\eta_0 = \nu - \eta_1 = \nu - \tau_1 = \tau_0$.  
 </div>
+
+Existence is a bit trickier.  To see where the idea comes from, note that if $\mu$ and $\nu$ are mutually singular via a decomposition $\Omega = A \cup B$ then the Hilbert space $L^2(\Omega, \mu + \nu)$ decomposes as the orthogonal direct sum of the closed subspaces $L^2(A, \mu + \nu)$ and $L^2(B, \mu + \nu)$.  If $\mu$ and $\nu$ are not mutually singular then we instead manufacture an orthogonal decomposition and recover the measures $\eta_0$ and $\eta_1$ using the Riesz representation theorem.  Here are all of the details:
 
 <div class="theorem">
-Let $\mu$ and $\nu$ be finite measures on a measurable space $(\Omega, \Sigma)$.  Then there is a unique pair of finite measures $\eta_0$ and $\eta_1$ such that:
-* $\nu = \eta_0 + \eta_1$
-* $\eta_0 \ll \mu$
-* $\eta_1 \perp \mu$
+Every pair $\mu$, $\nu$ of finite measures on a measurable space $(\Omega, \Sigma)$ admits a unique Lebesgue decomposition.
 </div>
 <div class="proof">
-Consider the Hilbert space $H = L^2(\mu + \nu)$.  Define a linear functional $\phi \colon H \to \R$ by:
+We already proved uniqueness.  For existence, consider the Hilbert space $H = L^2(\mu + \nu)$.  Define a linear functional $\phi \colon H \to \R$ by:
 
 $$\phi(f) = \int_\Omega f\, d\nu$$
 
@@ -132,3 +122,5 @@ $$\nu(F) = \int_F g\, d\nu < \int_F 1\, d\nu = \nu(F)$$
 
 a contradiction.
 </div>
+
+The theorem can be strengthened in a few straightforward ways.  It can be extended to signed measures by combining decompositions for the positive and negative parts.  I am fairly sure it can be extended to complex-valued measures by extracting decompositions for their real and imaginary parts, though I confess that I haven't checked the details.  It also extends to $\sigma$-finite measures: express $\Omega$ as the increasing union of measurable sets on which both measures are finite and extract decompositions on each set; by uniqueness these decompositions will extend to measures on all of $\Omega$.  None of these generalizations are necessary for the applications to probability theory that currently interest me, so I won't dwell on them any further for now.
