@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 body {
-    counter-reset: theorem proposition lemma conjecture definition;
+    counter-reset: theorem proposition lemma conjecture definition example;
 }
 
 .theorem {
@@ -81,6 +81,17 @@ body {
 }
 .remark:before {
     content: "Remark.";
+    font-weight: bold;
+    font-style: normal;
+}
+.example {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.example:before {
+    counter-increment: example;
+    content: "Example " counter(example) ".";
     font-weight: bold;
     font-style: normal;
 }
