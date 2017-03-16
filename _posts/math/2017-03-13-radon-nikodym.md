@@ -92,9 +92,9 @@ Indeed, for any measurable set $E$ we have:
 $$
 \begin{align*}
 \int_E g\, d\nu &= \int_\Omega g 1_E\, d\nu \\
-&= \int_\Omega g 1_E (1 - h)\, d(\mu + \nu) \\ \quad \text{by \eqref{riesz2}}
+&= \int_\Omega g 1_E (1 - h)\, d(\mu + \nu) \quad \text{by \eqref{riesz2}} \\
 &= \int_\Omega h 1_E\, d(\mu + \nu) \\
-&= \int_\Omega 1_E\, d\mu \\ \quad \text{by \eqref{riesz1}}
+&= \int_\Omega 1_E\, d\mu \quad \text{by \eqref{riesz1}} \\
 &= \mu(E)
 \end{align*}
 $$
