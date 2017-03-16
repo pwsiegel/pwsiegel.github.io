@@ -9,28 +9,99 @@ categories: stage
 comments: true
 ---
 
-Let $\mu$ and $\nu$ be two measures on the same measurable space $(\Omega, \Sigma)$.  We say that $\mu$ is *absolutely continuous* with respect to $\nu$ (written $\mu \ll \nu$) if $\mu(E) = 0$ whenever $\nu(E) = 0$ for $E \in \Sigma$.  Given $\nu$, there is a simple way to generate a new measure which is absolutely continuous with respect to $\nu$: take any measurable function $f \colon \Omega \to \R$ and define
+Let $\mu$ and $\nu$ be two measures on the same measurable space $(\Omega, \Sigma)$.  We say that $\mu$ is *absolutely continuous* with respect to $\nu$ (written $\mu \ll \nu$) if $\mu(E) = 0$ whenever $\nu(E) = 0$ for $E \in \Sigma$.  Given $\nu$, there is a simple way to generate a new measure which is absolutely continuous with respect to $\nu$: take any measurable function $g \colon \Omega \to \R$ and define
 
-$$\mu_f(E) = \int_E f\, d\nu$$
+$$\mu_g(E) = \int_E g\, d\nu$$
 
-It is a standard exercise in measure theory that $\mu_f$ is a measure and that $\mu_f(E) = 0$ whenever $\nu(E) = 0$.
+It is a standard exercise in measure theory that $\mu_g$ is a measure and that $\mu_g(E) = 0$ whenever $\nu(E) = 0$.
 
-The Radon-Nikodym theorem asserts that under mild hypotheses *every* measure $\mu$ which is absolutely continuous with respect to $\nu$ has this form for a unique measurable function $f$, called the *Radon-Nikodym derivative* of $\nu$ with respect to $\mu$, often written $\frac{d\nu}{d\mu}$.  The theorem is an important part of the structure theory of measures, and the Radon-Nikodym derivative comes up frequently in applications.  Indeed, I was reminded of this theorem because of its role in another blog post that I was writing about KL-divergence.
+The Radon-Nikodym theorem asserts that under mild hypotheses *every* measure $\mu$ which is absolutely continuous with respect to $\nu$ has this form for a unique measurable function $g$, called the *Radon-Nikodym derivative* of $\nu$ with respect to $\mu$, often written $\frac{d\nu}{d\mu}$.  The theorem is an important part of the structure theory of measures, and the Radon-Nikodym derivative comes up frequently in applications.  Indeed, I was reminded of this theorem because of its role in another blog post that I was writing about KL-divergence.
 
 The plan for this post is to give a proof of the Radon-Nikodym theorem and then discuss some applications and examples.  The proof, which I learned in graduate school, uses Hilbert spaces to do most of the work; I think it is originally due to von Neumann.
 
-## The Lebesgue Decomposition Theorem
+## Warm-up
 
-The proof of the Radon-Nikodym theorem will pass through the Lebesgue decomposition theorem, and to state this theorem we need to review a little bit more language.  Recall that two measures $\mu$ and $\nu$ on $(\Omega, \Sigma)$ are *mutually singular* (written $\mu \perp \nu$) if $\Omega$ is the disjoint union of two measurable sets $A$ and $B$ such that $\mu(A) = \nu(B) = 0$.
+The proof of the theorem in its full generality inevitably uses some reasonably serious measure theory and/or functional analysis.  But I think it is instructive to first work it out in a simple special case: measures on finite sets.
 
-<div class="definition">
-Let $\mu$ and $\nu$ be two measures on $(\Omega, \Sigma)$.  A *Lebesgue decomposition* of $\nu$ with respect to $\mu$ is a pair of measures $\eta_0$ and $\eta_1$ with the following properties:
-* $\nu = \eta_0 + \eta_1$
-* $\eta_0 \ll \mu$
-* $\eta_1 \perp \mu$
+So let $\Omega = \br{x_1, \ldots x_n}$ be a finite set and let $\Sigma$ be the power set of $\Omega$.  A measure $\mu$ on $\Omega$ is determined by its values on each one point set $\br{x_i}$, so it is nothing more than a vector in $\R^n$ whose entries are all nonnegative.  Let us use the notation $\mu_i$ for the components of $\mu$, meaning $\mu_i = \mu(\br{x_i})$.
+
+Given two measures $\mu$ and $\nu$, we have that $\mu$ is absolutely continuous with respect to $\nu$ if and only if $\mu_i = 0$ whenever $\nu_i = 0$.  We would like to find a measurable function $g \colon \Omega \to \R$ - which is also just a vector in $\R^n$ - with the property that:
+
+$$\mu(E) = \int_E g\, d\nu$$
+
+for every $E \in \Sigma$.  Applying this to the one point sets $E_i = \br{x_i}$, we get:
+
+$$\mu_i = \mu(E_i) = \int_{E_i} g\, d\nu = g_i \nu_i$$
+
+If $\nu_i = 0$ then necessarily $\mu_i = 0$ by absolute continuity, so we are free to pick any value for $g_i$; let us choose $g_i = 0$.  Otherwise we just set $g_i = \frac{\mu_i}{\nu_i}$, and we are done.
+
+So the theorem is quite straightforward and explicit for measures on finite sets.  Moreover if we look at this calculation in the right way it gives us a hint for how to handle the general case.  The equation $\mu_i = g_i \nu_i$ implies that for any function $f$ on $\Omega$ we have
+
+$$\int_\Omega f\, d\mu = \int_\Omega f g\, d\nu = \inner{f, g}_\nu$$
+
+where $\inner{\cdot, \cdot}_\nu$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
+
+## Proof of the Radon-Nikodym theorem
+
+Without further ado, let us jump into the proof.
+
+<div class="theorem">
+Let $\mu$ and $\nu$ be finite measures on a measurable space $(\Omega, \Sigma)$.  If $\mu$ is absolutely continuous with respect to $\nu$ then there is an integrable function $g$ with the property that:
+
+$$\mu(E) = \int_E g\, d\nu$$
+
+for every $E \in \Sigma$.
+</div>
+<div class="proof">
+Consider the Hilbert space $H = L^2(\mu + \nu)$.  Define a linear functional $\phi \colon H \to \R$ by
+
+$$\phi(f) = \int_\Omega f\, d\mu$$
+
+Using the Schwarz inequality and the fact that $\mu \leq \mu + \nu$, we get:
+
+$$\abs{\phi(f)}^2 \leq \left( \int_\Omega 1 \cdot \abs{f}\, d\mu \right)^2 \leq \mu(\Omega) \norm{f}_{L^2(\mu)}^2 \leq \mu(\Omega) \norm{f}_H^2$$
+
+This shows that $\phi$ is a bounded linear functional, so by the Riesz representation theorem there is a function $h \in H$ with the property that:
+
+$$
+\begin{equation} \label{riesz1}
+\int_\Omega f\, d\mu = \phi(f) = \inner{f, h} = \int_\Omega fh\, d(\mu + \nu)
+\end{equation}
+$$
+
+It follows that:
+
+$$\int_\Omega f\, d(\mu + \nu) = \int_\Omega f\, d\nu + \int_\Omega fh\, d(\mu + \nu)$$
+
+Rearranging, we get:
+
+$$
+\begin{equation} \label{riesz2}
+\int_\Omega f\, d\nu = \int_\Omega f(1 - h)\, d(\mu + \nu)
+\end{equation}
+$$
+
+Now, by \eqref{riesz1} we have for any measurable set $E$:
+
+$$\nu(E) = \int_\Omega 1_E\, d\nu = \int_\Omega 1_E h\, d(\mu + \nu) = \int_E h\, d(\mu + \nu)$$
+
+Consider the case $E = h^{-1}(-\infty, 0]$.  Then $\int_E h\, d(\mu + \nu) \leq 0$ since $h \leq 0$ on $E$, so we must have $\nu(E) = 0$.  A similar argument using the $h^{-1}[1, \infty)$ and \eqref{riesz2} implies that $0 < h < 1$ almost everywhere with respect to $\nu$.  Consequently the function $g = \frac{h}{1 - h}$ is $\nu$-measurable; I claim that $g$ is a Radon-Nikodym derivative of $\mu$ with respect to $\nu$.  
+
+Indeed, for any measurable set $E$ we have:
+
+$$
+\begin{align*}
+\int_E g\, d\nu &= \int_\Omega g 1_E\, d\nu \\
+&= \int_\Omega g 1_E (1 - h)\, d(\mu + \nu) \\ \quad \text{by \eqref{riesz2}}
+&= \int_\Omega h 1_E\, d(\mu + \nu) \\
+&= \int_\Omega 1_E\, d\mu \\ \quad \text{by \eqref{riesz1}}
+&= \mu(E)
+\end{align*}
+$$
+
+(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
 </div>
 
-The Lebesgue decomposition theorem says that every pair of finite measures admits a unique Lebesgue decomposition.  Let us prove uniqueness first:
 
 <div class="lemma">
 Any pair of measures on a measure space $(\Omega, \Sigma)$ admits at most one Lebesgue decomposition.
@@ -56,85 +127,4 @@ So we conclude:
 $$\eta_1(E) = \nu(E \cap A_\eta) = \tau_1(E \cap A_\eta) \leq \tau_1(E)$$
 
 But the same argument, using a singular decomposition of $\Omega$ for $\mu$ and $\tau_1$ instead of $\mu$ and $\eta_1$, implies that $\tau_1(E) \leq \eta_1(E)$ for every $E \in \Sigma$.  It follows that $\eta_1 = \tau_1$ and hence $\eta_0 = \nu - \eta_1 = \nu - \tau_1 = \tau_0$.  
-</div>
-
-Existence is a bit trickier.  To see where the idea comes from, note that if $\mu$ and $\nu$ are mutually singular via a decomposition $\Omega = A \cup B$ then the Hilbert space $L^2(\Omega, \mu + \nu)$ decomposes as the orthogonal direct sum of the closed subspaces $L^2(A, \mu + \nu)$ and $L^2(B, \mu + \nu)$.  If $\mu$ and $\nu$ are not mutually singular then we instead manufacture an orthogonal decomposition and recover the measures $\eta_0$ and $\eta_1$ using the Riesz representation theorem.  Here are all of the details:
-
-<div class="theorem">
-Every pair $\mu$, $\nu$ of finite measures on a measurable space $(\Omega, \Sigma)$ admits a unique Lebesgue decomposition.
-</div>
-<div class="proof">
-We already proved uniqueness.  For existence, consider the Hilbert space $H = L^2(\mu + \nu)$.  Define a linear functional $\phi \colon H \to \R$ by:
-
-$$\phi(f) = \int_\Omega f\, d\nu$$
-
-Using the Schwarz inequality and the fact that $\nu \leq \mu + \nu$, we get:
-
-$$\abs{\phi(f)}^2 \leq \left( \int_\Omega 1 \cdot \abs{f}\, d\nu \right)^2 \leq \nu(\Omega) \norm{f}_{L^2(\nu)}^2 \leq \nu(\Omega) \norm{f}_H^2$$
-
-This shows that $\phi$ is a bounded linear functional, so by the Riesz representation theorem there is a function $g \in H$ with the property that:
-
-$$
-\begin{equation} \label{riesz1}
-\int_\Omega f\, d\nu = \phi(f) = \inner{f, g} = \int_\Omega fg\, d(\mu + \nu)
-\end{equation}
-$$
-
-It follows that:
-
-$$\int_\Omega f\, d(\mu + \nu) = \int_\Omega f\, d\mu + \int_\Omega fg\, d(\mu + \nu)$$
-
-Rearranging, we get:
-
-$$
-\begin{equation} \label{riesz2}
-\int_\Omega f\, d\mu = \int_\Omega f(1 - g)\, d(\mu + \nu)
-\end{equation}
-$$
-
-Let $X$ be the subset of $\Omega$ where $g$ takes negative values; $X$ is measurable since $g$ is measurable, and by \eqref{riesz1} we have:
-
-$$\nu(X) = \int_\Omega 1_X\, d\nu = \int_\Omega 1_X g\, d(\mu + \nu) = \int_X g\, d(\mu + \nu)$$
-
-If $(\mu + \nu)(X) > 0$ then the integral on the right-hand side would be negative since $g$ is by definition negative on $X$, but $\nu(X) \geq 0$ since $\nu$ is a measure.  So we must have $(\mu + \nu)(X) = 0$.  Similarly, if we let $Y$ be the set where $g$ takes values greater than $1$ then using \eqref{riesz2} we get:
-
-$$\mu(Y) = \int_Y (1 - g)\, d(\mu + \nu)$$
-
-and the same reasoning forces $(\mu + \nu)(Y) = 0$.  It follows that $0 \leq g \leq 1$ almost everywhere with respect to $\mu + \nu$.
-
-So let $A$ denote the measurable set $g^{-1}(1)$ and let $B$ be its complement.  Define measures $\eta_0$ and $\eta_1$ by:
-
-$$\eta_0(E) = \nu(E \cap B), \quad \eta_1(E) = \nu(E \cap A)$$
-
-It is clear that $\nu = \eta_0 + \eta_1$.  Using \eqref{riesz2} we get:
-
-$$\mu(A) = \int_A (1 - g)\, d(\mu + \nu) = 0$$
-
-since $g = 1$ on $A$ by definition.  Clearly $\eta_1(B) = 0$, so we have proved that $\eta_1 \perp \mu$.  It remains only to show that $\eta_0 \ll \mu$.
-
-To that end, let $E \in \Sigma$ be any set of $\mu$-measure $0$.  Certainly $\eta_0(E \cap A) = 0$, so it suffices to show that $\eta_0(E \cap B) = \nu(E \cap B) = 0$, i.e. that any set $F \subseteq B$ of $\mu$-measure $0$ necessarily has $\nu$-measure $0$.  For any such $F$ we have:
-
-$$\nu(F) = \int_F g d(\mu + \nu) = \int_F g\, d\nu$$
-
-But $g < 1$ on all of $B$ by the definition of $B$, so if $\nu(F) > 0$ then we have:
-
-$$\nu(F) = \int_F g\, d\nu < \int_F 1\, d\nu = \nu(F)$$
-
-a contradiction.
-</div>
-
-The theorem can be strengthened in a few straightforward ways.  
-
-* It can be extended to signed measures by combining decompositions for the positive and negative parts.  
-* I am fairly sure it can be extended to complex-valued measures by extracting decompositions for their real and imaginary parts, though I confess that I haven't checked the details.  
-* It extends to $\sigma$-finite measures: express $\Omega$ as the increasing union of measurable sets on which both measures are finite and extract decompositions on each set; by uniqueness these decompositions will extend to measures on all of $\Omega$.  
-
-None of these generalizations are necessary for the applications to probability theory that currently interest me, so I won't dwell on them any further for now.
-
-## The Radon-Nikodym Theorem
-
-Our main result - the Radon-Nikodym theorem - is a fairly straightforward consequence of the Lebesgue decomposition theorem.
-
-<div class="theorem">
-Let $\mu$ and $\nu$ be finite measures on a measure space $(\Omega, \Sigma)$.  
 </div>
