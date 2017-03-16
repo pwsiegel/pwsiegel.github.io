@@ -39,7 +39,7 @@ So the theorem is quite straightforward and explicit for measures on finite sets
 
 $$\int_\Omega f\, d\mu = \int_\Omega f g\, d\nu = \inner{f, g}_\nu$$
 
-where $\inner{\cdot, \cdot}_\nu$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
+where $\inner{\cdot, \cdot}_{\nu}$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
 
 ## Proof of the Radon-Nikodym theorem
 
