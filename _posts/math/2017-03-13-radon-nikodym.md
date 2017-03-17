@@ -99,7 +99,7 @@ $$
 \end{align*}
 $$
 
-(This also proves that $g$ really is $\nu$-integrable: $g$ is the increasing limit of the $\nu$-integrable functions $g 1\_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) \to \mu(\Omega)$.  So $g$ is integrable by the monotone convergence theorem.)
+(This also proves that $g$ really is $\nu$-integrable: $g$ is the increasing limit of the $\nu$-integrable functions $g 1\_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n})$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) \to \mu(\Omega)$.  So $g$ is integrable by the monotone convergence theorem.)
 
 This completes the proof that the desired function $g$ exists, so it remains only to prove that $g$ is unique.  Suppose $g'$ is another $\nu$-integrable function with the property that $\mu(E) = \int_E g'\, d\nu$ for every measurable set $E$.  Let $E$ denote the subset of $\Omega$ where $g > g'$; we have:
 
