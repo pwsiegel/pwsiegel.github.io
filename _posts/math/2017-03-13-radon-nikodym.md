@@ -99,7 +99,7 @@ $$
 \end{align*}
 $$
 
-(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
+(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1\_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
 </div>
 
 
