@@ -39,14 +39,14 @@ So the theorem is quite straightforward and explicit for measures on finite sets
 
 $$\int_\Omega f\, d\mu = \int_\Omega f g\, d\nu = \inner{f, g}_\nu$$
 
-where $\inner{\cdot, \cdot}\_\nu$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
+where $\inner{\cdot, \cdot}\_\nu$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work as stated in the general case because there is no guarantee that the linear functional is bounded, but it can be fixed by working instead over the Hilbert space $L^2(\Omega, \mu + \nu)$.  The details appear in the next section.
 
 ## Proof of the Radon-Nikodym theorem
 
 Without further ado, let us jump into the proof.
 
 <div class="theorem">
-Let $\mu$ and $\nu$ be finite measures on a measurable space $(\Omega, \Sigma)$.  If $\mu$ is absolutely continuous with respect to $\nu$ then there is an integrable function $g$ with the property that:
+Let $\mu$ and $\nu$ be finite measures on a measurable space $(\Omega, \Sigma)$.  If $\mu$ is absolutely continuous with respect to $\nu$ then there is a unique $g \in L^1(\Omega, \nu)$ with the property that:
 
 $$\mu(E) = \int_E g\, d\nu$$
 
@@ -85,7 +85,7 @@ Now, by \eqref{riesz1} we have for any measurable set $E$:
 
 $$\nu(E) = \int_\Omega 1_E\, d\nu = \int_\Omega 1_E h\, d(\mu + \nu) = \int_E h\, d(\mu + \nu)$$
 
-Consider the case $E = h^{-1}(-\infty, 0]$.  Then $\int_E h\, d(\mu + \nu) \leq 0$ since $h \leq 0$ on $E$, so we must have $\nu(E) = 0$.  A similar argument using the $h^{-1}[1, \infty)$ and \eqref{riesz2} implies that $0 < h < 1$ almost everywhere with respect to $\nu$.  Consequently the function $g = \frac{h}{1 - h}$ is $\nu$-measurable; I claim that $g$ is a Radon-Nikodym derivative of $\mu$ with respect to $\nu$.  
+Consider the case $E = h^{-1}(-\infty, 0]$.  Then $\int_E h\, d(\mu + \nu) \leq 0$ since $h \leq 0$ on $E$, so we must have $\nu(E) = 0$.  A similar argument using the $h^{-1}[1, \infty)$ and \eqref{riesz2} implies that $0 < h < 1$ almost everywhere with respect to $\nu$.  Consequently the function $g = \frac{h}{1 - h}$ is $\nu$-measurable; I claim that $g$ satisfies the conditions in the statement of the theorem.
 
 Indeed, for any measurable set $E$ we have:
 
@@ -99,32 +99,11 @@ $$
 \end{align*}
 $$
 
-(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1\_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
-</div>
+(This also proves that $g$ really is $\nu$-integrable: $g$ is the increasing limit of the $\nu$-integrable functions $g 1\_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) \to \mu(\Omega)$.  So $g$ is integrable by the monotone convergence theorem.)
 
+This completes the proof that the desired function $g$ exists, so it remains only to prove that $g$ is unique.  Suppose $g'$ is another $\nu$-integrable function with the property that $\mu(E) = \int_E g'\, d\nu$ for every measurable set $E$.  Let $E$ denote the subset of $\Omega$ where $g > g'$; we have:
 
-<div class="lemma">
-Any pair of measures on a measure space $(\Omega, \Sigma)$ admits at most one Lebesgue decomposition.
-</div>
-<div class="proof">
-Suppose a pair of measures $\mu$, $\nu$ admits two Lebesgue decompositions $\eta_0$, $\eta_1$ and $\tau_0$, $\tau_1$.  Write $\Omega$ as the disjoint union of sets $A_\eta$ and $B_\eta$ such that $\mu(A_\eta) = \eta_1(B_\eta) = 0$.  Note that $\eta_0(A_\eta) = \tau_0(A_\eta) = 0$ since $\eta_0$ and $\tau_0$ are absolutely continuous with respect to $\mu$.  Thus for any $E \in \Sigma$ we have:
+$$0 = \mu(E) - \mu(E) = \int_E (g - g')\, d\mu$$
 
-$$
-\begin{align*}
-\eta_1(E) &= \eta_1(E \cap A_\eta) + \eta_1(E \cap B_\eta) \\
-&= \eta_1(E \cap A_\eta) \\
-&= \eta_0(E \cap A_\eta) + \eta_1(E \cap A_\eta) \\
-&= \nu(E \cap A_\eta)
-\end{align*}
-$$
-
-But we also have:
-
-$$\nu(E \cap A_\eta) = \tau_0(E \cap A_\eta) + \tau_1(E \cap A_\eta) = \tau_1(E \cap A_\eta)$$
-
-So we conclude:
-
-$$\eta_1(E) = \nu(E \cap A_\eta) = \tau_1(E \cap A_\eta) \leq \tau_1(E)$$
-
-But the same argument, using a singular decomposition of $\Omega$ for $\mu$ and $\tau_1$ instead of $\mu$ and $\eta_1$, implies that $\tau_1(E) \leq \eta_1(E)$ for every $E \in \Sigma$.  It follows that $\eta_1 = \tau_1$ and hence $\eta_0 = \nu - \eta_1 = \nu - \tau_1 = \tau_0$.  
+This forces $\mu(E) = 0$.  Repeating this argument on the set where $g' > g$ implies that $g =  g'$ almost everywhere.
 </div>
