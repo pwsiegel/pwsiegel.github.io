@@ -103,7 +103,7 @@ $$
 
 This completes the proof that the desired function $g$ exists, so it remains only to prove that $g$ is unique.  Suppose $g'$ is another $\nu$-integrable function with the property that $\mu(E) = \int_E g'\, d\nu$ for every measurable set $E$.  Let $E$ denote the subset of $\Omega$ where $g > g'$; we have:
 
-$$0 = \mu(E) - \mu(E) = \int_E (g - g')\, d\mu$$
+$$0 = \mu(E) - \mu(E) = \int_E (g - g')\, d\nu$$
 
-This forces $\mu(E) = 0$.  Repeating this argument on the set where $g' > g$ implies that $g =  g'$ almost everywhere.
+This forces $\nu(E) = 0$.  Repeating this argument on the set where $g' > g$ implies that $g =  g'$ almost everywhere with respect to $\nu$.
 </div>
