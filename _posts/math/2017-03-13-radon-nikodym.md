@@ -37,9 +37,9 @@ If $\nu_i = 0$ then necessarily $\mu_i = 0$ by absolute continuity, so we are fr
 
 So the theorem is quite straightforward and explicit for measures on finite sets.  Moreover if we look at this calculation in the right way it gives us a hint for how to handle the general case.  The equation $\mu_i = g_i \nu_i$ implies that for any function $f$ on $\Omega$ we have
 
-$$\int_\Omega f\, d\mu = \int_\Omega f g\, d\nu = \inner{f, g}$$
+$$\int_\Omega f\, d\mu = \int_\Omega f g\, d\nu = \inner{f, g}_\nu$$
 
-where $\inner{\cdot,\cdot}$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
+where $\inner{\cdot, \cdot}\_\nu$ is the $L^2$-inner product determined by $\nu$.  So another way to construct $g$ is to apply the Riesz representation theorem to the linear functional $f \mapsto \int_\Omega f\, d\mu$ on the finite dimensional Hilbert space $L^2(\Omega, \nu)$.  This idea doesn't quite work in the general case because the linear function is not necessarily bounded if $L^2(\Omega, \nu)$ is infinite dimensional, but as we shall see there is a clever adaptation of the idea which does the job.
 
 ## Proof of the Radon-Nikodym theorem
 
@@ -99,7 +99,7 @@ $$
 \end{align*}
 $$
 
-(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
+(This also proves that $g$ really is $\nu$-integrable: $g$ is the limit of the $\nu$-integrable functions $g 1_{E_n}$ where $E_n = h^{-1}(0, 1 - \frac{1}{n}))$, and the computation above shows that $\int_\Omega g 1\_{E_n}\, d\nu = \mu(E_n) < \mu(\Omega)$.  So $g$ is integrable by the dominated convergence theorem.)
 </div>
 
 
