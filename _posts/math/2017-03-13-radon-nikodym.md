@@ -150,7 +150,7 @@ As we shall see some serious difficulties emerge when the new information has pr
 
 ### Example: coin flips
 
-Let us use a basic example - independent coin flips - as a guide for what to expect.
+Let us start with a basic example - independent coin flips - as a guide for what to expect.
 Suppose we flip a fair coin twice, and we would like to predict how many times heads will come up.
 The sample space in this case is simply $\Omega = \br{H,T}^2$ equipped with the uniform probability measure; the number $X$ of heads that come up is an integer-valued random variable defined on this space.
 Its expectation is:
@@ -195,3 +195,34 @@ $$
 
 This computation may seem overly detailed, especially if the reader guessed the answer based on intuition rather than rigorous foundations.
 But the details were chosen to highlight the difficulties in generalizing to continuous distributions, as we shall see in the next section.
+
+### The continuous case
+
+The formula \eqref{discrete_ce} in the previous section more or less settles how to compute conditional expectations of discrete random variables. 
+Note that the term $\frac{1}{\P(E)}$ could potentially cause problems if $\P(E) = 0$, but in the discrete case nothing is lost by simply defining $\E(X|E) = 0$ whenever $\P(E) = 0$; after all, the conditional probabilities $\P(X = n \cap E)$ are necessarily zero.
+
+But for continuous distributions there are much more interesting probability zero events and conditioning against them requires more careful thought.
+Consider the unit sphere $S^2 \subseteq \R^3$ equipped with the uniform probability measure.
+Drawing points from the sphere at random, how can we condition against the event that a point $p$ lies on a prescribed great circle $C$?
+Given a measurable set $A$ we would like to write:
+
+$$\P(A|C) = \frac{\P(A \cap C)}{\P(C)}$$
+
+but of course a great circle has measure zero in the sphere and thus the fraction on the right-hand side is ill-defined.
+A natural work-around is to thicken $C$ to a small neighborhood $C_\eps$ which contains $C$ and pass to a limit as $\eps \to 0$ with the hope that $\frac{\P(A \cap C_\eps}{\P(C_\eps)}$ converges.
+This procedure actually does work, but as we shall see it still causes problems.
+
+Working in standard spherical coordinates $(\theta, \phi) \in [0,2\pi] \times [0, \pi]$, the uniform density function for a random point on the sphere is given by $f(\theta, \phi) = \frac{1}{4\pi} \sin \phi$.
+(This is the Jacobian of the standard spherical coordinate transformation normalized to give total probability $1$.)
+To begin, let us condition on the great circle $\phi = \frac{\pi}{2}$ (the "equator" of the sphere).  The natural way to thicken this circle is:
+
+$$C_\eps = \br{(\theta, \phi) \colon \frac{\pi}{2} \leq \phi \leq \frac{\pi}{2} + \eps}$$
+
+If we integrate a function $g$ over one of these slices, we get:
+
+$$
+\begin{align*}
+\iint_{C_\eps} g\, dS &= \frac{1}{4\pi} \int_0^{2\pi} \int_{\pi/2}^{\pi/2 + \eps} g(\theta, \phi) \sin \phi\, d\phi\, d\theta \\
+&\to \frac{1}{4\pi} \int_0^{2\pi} g\left(\theta, \frac{\pi}{2}\right)\, d\theta \\
+\end{align*}
+$$
