@@ -188,6 +188,66 @@ It is crucial, however, that $\P(Y = y_0) \neq 0$; this is not a serious restric
 
 ### The Borel paradox
 
+Conditional distributions and their expectations are quite a bit tricker for continuous random variables.
+A historically impotant example which illustrates the main issues involved is the Borel paradox, which concerns the distribution of a uniformly randomly selected point on the unit sphere $S^2 \subseteq \R^3$ subject to the condition that the point lie on a prescribed great circle $C$.
+
+Let us work in spherical coordinates $(\theta, \phi) \in [-\pi,\pi] \times [0,\pi]$.
+Let $\Theta$ and $\Phi$ be the random variables which represent the $\theta$- and $\phi$-coordinates, respectively, of the random point.
+The join density function of $\Theta$ and $\Phi$ which ensures that the point is chosen uniformly randomly is $f(\theta, \phi) = \frac{1}{4\pi}\sin \phi$; this is simply the Jacobian of the spherical coordinate transformation.
+Following Borel, we will compute conditional density functions along two different great circles: the circle $\theta = 0$ and the circle $\phi = \frac{\pi}{2}$.
+
+First, let us compute the marginal density functions $f_\Theta$ and $f_\Phi$ - each is obtained by integrating the joint density function against the other variable.
+We get:
+
+$$f_\Theta(\theta) = \frac{1}{2\pi}, \quad f_\Phi(\phi) = \frac{1}{2} \sin \phi$$
+
+The as in the discrete case the conditional density function is simply the ratio of the joint density to the marginal density, so we get:
+
+$$f(\theta | \phi = \pi/2) = \frac{f(\theta, \pi/2)}{f_\Phi(\pi/2)} = \frac{1}{2\pi}$$
+
+and:
+
+$$f(\phi | \theta = 0) = \frac{f(0, \phi)}{f_\Theta(0)} = \frac{1}{2} \sin \phi$$
+
+This is, at first glance, a bit disturbing: all great circles should have the same conditional distribution since they differ only by rotations and the uniform probability measure is rotationally invariant, but we have exhibited great circles with both uniform and non-uniform conditional distributions.
+
+### The resolution of the paradox
+
+Of course the paradox disappears upon closer inspection.
+Edwin Jaynes argued that the computations above conceal a certain limiting procedure which is carried out differently for the two great circles.
+A priori the conditional density function for a great circle $C$ ought to be recovered from probabilities of the form $\P(A|C)$ where $A$ is an arbitrary measurable subset of the sphere.
+It is here that the division-by-zero issues that we safely ignored in the discrete case come back to bite us: the conditional probabilities ought to be defined by the formula:
+
+$$\P(A|C) = \frac{\P(A \cap C)}{\P(C)}$$
+
+but $C$ has measure $0$ in the sphere.
+Behind the scenes the calculations with conditional density functions above work by thickening $C$ to a tiny neighborhood $C_\eps$ of the great circle.
+This neighborhood will have positive measure for each $\eps > 0$, so we can try to define:
+
+$$\P(A|C) = \lim_{\eps \to 0} \frac{\P(A \cap C_\eps)}{\P(C_\eps)}$$
+
+The problem is that the limit depends on the neighborhoods $C_\eps$ used to compute it.
+In the case where we condition on the circle $\phi = \frac{\pi}{2}$ the neighborhood has the form:
+
+$$C_{\phi, \eps} = \br{(\theta, \phi) \colon \abs{\phi - \pi/2} < \eps}$$
+
+When we condition on the cirlce $\theta = 0$ the neighborhood is given by:
+
+$$C_{\theta, \eps} = \br{(\theta, \phi) \colon \abs{\theta} < \eps}$$
+
+The neighborhood $C_{\phi, \eps}$ is the intersection of the sphere with the region in $\R^3$ between two planes which are parallel to the great cirlce; in particular it has constant thickness as $\theta$ varies, which explains why the limiting conditional distribution is uniform.
+On the other hand the neighborhood $C_{\theta, \eps}$ is the intersection of the sphere with the region in $\R^3$ swept out as the plane containing the great circle is rotated; in the case of the great circle $\theta = 0$ the neighborhood is thickest at the equator and actually shrinks to a point at the poles.
+This explains why the limiting distribution is non-uniform in this case.
+
+### The "right" definition
+
+The Borel paradox has strictly speaking been resolved, but the resolution leaves the theory in a state of disarray.
+The closest we have to a definition of conditional density function (let alone conditional expectation) involves thickening the event that we would like to condition against so that it has positive measure and then passing to the limit as the thickness parameter goes to zero.
+But we don't have any assurances that this limit will exist, and even when it does we know that the limit may depend sensitively on the thickening procedure.
+Also, it is not at all obvious how to apply this definition in a general probabily space, where there need not be a metric or topological structure lying around.
+
+Fortunately, there is a much better definition which works in an abstract measure space.
+An amusing twist is that this approach bypasses the conditional density function and constructs the conditional expectation directly; the conditional density function can then be recovered from the conditional expectation if desired.
 
 
 
