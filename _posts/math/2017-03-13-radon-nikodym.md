@@ -249,5 +249,27 @@ Also, it is not at all obvious how to apply this definition in a general probabi
 Fortunately, there is a much better definition which works in an abstract measure space.
 An amusing twist is that this approach bypasses the conditional density function and constructs the conditional expectation directly; the conditional density function can then be recovered from the conditional expectation if desired.
 
+The setup is as follows: let $(\Omega, \Sigma, \P)$ be a probability space, let $X$ be a random variable on this space, and let $\Sigma_0$ be a sub-$\sigma$-algebra of $\Sigma$.
+Our aim is to define the conditional expectation of $X$ with respect to $\Sigma_0$; this will be a $\Sigma_0$-measurable random variable, and by choosing $\Sigma_0$ carefully we will be able to replicate both the discrete and continuous examples above.
+To begin, note that $\P$ restricts to a measure $\P_0$ (not necessarily a probability measure!) on $\Sigma_0$.
+Define a new measure $\P_X$ on $\Sigma_0$ by:
 
+$$\P_X(E) = \int_E X\, d\P$$
+
+(Note that $X$ is not $\Sigma_0$-measurable in general so we cannot integrate with respect to $\P_0$, but we can integrate $X$ over sets in $\Sigma_0$ with respect to $\P$.)
+For any $E \in \Sigma_0$, if $\P_0(E) = 0 $ then clearly $\P(E) = 0$ and thus $\P_X(E) = 0$, so $\P_X$ is absolutely continuous with respect to $\P_0$.
+
+<div class="definition">
+With the notation above, the *conditional expectation* of $X$ with respect to $\Sigma_0$ is defined to be the Radon-Nikodym derivative:
+
+$$\E(X|\Sigma_0) = \frac{d\P_0}{d\P_X}$$
+</div>
+
+The conditional expectation is a $\Sigma_0$-measurable function which is uniquely characterized by the equation:
+
+$$\int_E X\, d\P = \int_E \E(X|\Sigma_0)\, d\P_0$$
+
+### Examples, revisited
+
+This definition gains a lot in generality and theoretical soundness, but it is not at all clear what relevance it has to the examples we have considered so far.
 
