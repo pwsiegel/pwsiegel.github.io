@@ -151,77 +151,43 @@ As we shall see some serious difficulties emerge when the new information has pr
 
 Let us start with a basic example - independent coin flips - as a guide for what to expect.
 Suppose we flip a fair coin twice, and we would like to predict how many times heads will come up.
-The sample space in this case is simply $\Omega = \br{H,T}^2$ equipped with the uniform probability measure; the number $X$ of heads that come up is an integer-valued random variable defined on this space.
-Its expectation is:
-
-$$\E(X) = \sum_n n \P(X = n) = 0 \cdot \frac{1}{4} + 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} = 1$$
-
-Now let us impose a constraint.
-Let $E$ be the event in which the first coin flip comes up heads, and let us try to make sense of the quantity $\E(X|E)$.
-A natural approach is to use the conditional density function for $X$ given $E$:
-
-$$\P(X = n | E) = \frac{\P(X = n \cap E)}{\P(E)}$$
-
-The conditional expectation is then:
+Let $X$ be the random variable representing the number of heads that turn up; it is defined on the sample space $\Omega = \br{H,T}^2$.
+The density function of $X$ is given by:
 
 $$
-\begin{equation} \label{discrete_ce}
-\E(X|E) = \sum_n n \P(X = n | E) = \frac{1}{\P(E)} \sum_n n \P(X = n \cap E)
-\end{equation}
-$$
-
-(In fact, this formula is correct for any integer-valued random variable.)
-To compute the probabilities $\P(X = n \cap E)$, let $X_1$ and $X_2$ represent the outcomes of the first and second coin tosses, respectively, so that $E$ is simply the event $X_1 = H$.
-We get:
-
-$$
-\P(X = n | E) = \begin{cases}
-\P(X_2 = T)\P(E) & n = 1 \\
-\P(X_2 = H)\P(E) & n = 2 \\
-0 & \text{otherwise}
+\P(X = n) = 
+\begin{cases} 
+   \frac{1}{4} & n = 0 \\ 
+   \frac{1}{2} & n = 1 \\ 
+   \frac{1}{4} & n = 2
 \end{cases}
 $$
 
-Thus:
+Thus its expectation is:
+
+$$\E(X) = \sum_n n \P(X = n) = 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{4} = 1$$
+
+Now let us impose the constraint that the first coin flip comes up heads.
+The reader may be able to guess the expected value of $X$ under this constraint, but to be systematic we will use conditional distributions.
+Let $Y$ be the random variable on $\Omega$ which takes the value $0$ if the first coin toss is tails and $1$ if it is heads.  The conditional density of $X$ given that $Y = 1$ is by definition:
 
 $$
-\begin{align*}
-\E(X|E) &= \frac{1}{\P(E)} \left( 1 \cdot \P(X_2 = T)\P(E) + 2 \cdot \P(X_2 = H)\P(E) \right) \\
-&= 1 \cdot \P(X_2 = T) + 2 \cdot \P(X_2 = H) \\
-&= \frac{3}{2}
-\end{align*}
+\P(X = n | Y = 1) = \frac{\P(X = n \cap Y = 1)}{\P(Y = 1)} = 
+\begin{cases}
+   \frac{1}{2} & n = 1 \\
+   \frac{1}{2} & n = 2
+\end{cases}
 $$
 
-This computation may seem overly detailed, especially if the reader guessed the answer based on intuition rather than rigorous foundations.
-But the details were chosen to highlight the difficulties in generalizing to continuous distributions, as we shall see in the next section.
+The conditional expectation is therefore:
 
-### The continuous case
+$$E(X | Y = 1) = 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{2} = \frac{3}{2}$$
 
-The formula \eqref{discrete_ce} in the previous section more or less settles how to compute conditional expectations of discrete random variables. 
-Note that the term $\frac{1}{\P(E)}$ could potentially cause problems if $\P(E) = 0$, but in the discrete case nothing is lost by simply defining $\E(X|E) = 0$ whenever $\P(E) = 0$; after all, the conditional probabilities $\P(X = n \cap E)$ are necessarily zero.
+This computation works more or less the same for any pair of discrete random variables $X$ and $Y$; it depends only on finding the conditional density function $\P(X = x | Y = y_0)$.  
+It is crucial, however, that $\P(Y = y_0) \neq 0$; this is not a serious restriction since events of probability zero generally aren't very interesting in the discrete case, but as we shall see in the next section they cause quite a bit of trouble more generally.
 
-But for continuous distributions there are much more interesting probability zero events and conditioning against them requires more careful thought.
-Consider the unit sphere $S^2 \subseteq \R^3$ equipped with the uniform probability measure.
-Drawing points from the sphere at random, how can we condition against the event that a point $p$ lies on a prescribed great circle $C$?
-Given a measurable set $A$ we would like to write:
+### The Borel paradox
 
-$$\P(A|C) = \frac{\P(A \cap C)}{\P(C)}$$
 
-but of course a great circle has measure zero in the sphere and thus the fraction on the right-hand side is ill-defined.
-A natural work-around is to thicken $C$ to a small neighborhood $C_\eps$ which contains $C$ and pass to a limit as $\eps \to 0$ with the hope that $\frac{\P(A \cap C_\eps}{\P(C_\eps)}$ converges.
-This procedure actually does work, but as we shall see it still causes problems.
 
-Working in standard spherical coordinates $(\theta, \phi) \in [0,2\pi] \times [0, \pi]$, the uniform density function for a random point on the sphere is given by $f(\theta, \phi) = \frac{1}{4\pi} \sin \phi$.
-(This is the Jacobian of the standard spherical coordinate transformation normalized to give total probability $1$.)
-To begin, let us condition on the great circle $\phi = \frac{\pi}{2}$ (the "equator" of the sphere).  The natural way to thicken this circle is:
 
-$$C_\eps = \br{(\theta, \phi) \colon \frac{\pi}{2} \leq \phi \leq \frac{\pi}{2} + \eps}$$
-
-If we integrate a function $g$ over one of these slices, we get:
-
-$$
-\begin{align*}
-\iint_{C_\eps} g\, dS &= \frac{1}{4\pi} \int_0^{2\pi} \int_{\pi/2}^{\pi/2 + \eps} g(\theta, \phi) \sin \phi\, d\phi\, d\theta \\
-&\to \frac{1}{4\pi} \int_0^{2\pi} g\left(\theta, \frac{\pi}{2}\right)\, d\theta \\
-\end{align*}
-$$
