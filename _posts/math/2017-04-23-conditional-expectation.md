@@ -116,27 +116,59 @@ An amusing twist is that this approach bypasses the conditional density function
 The setup is as follows: let $(\Omega, \Sigma, \P)$ be a probability space, let $X$ be a random variable on this space, and let $\Sigma_0$ be a sub-$\sigma$-algebra of $\Sigma$.
 Our aim is to define the conditional expectation of $X$ with respect to $\Sigma_0$; this will be a $\Sigma_0$-measurable random variable, and by choosing $\Sigma_0$ carefully we will be able to replicate both the discrete and continuous computations above.
 To begin, note that $\P$ restricts to a measure $\P_0$ (not necessarily a probability measure!) on $\Sigma_0$.
-Define a new measure $\P_X$ on $\Sigma_0$ by:
+Define a new measure $\mu$ on $\Sigma_0$ by:
 
-$$\P_X(E) = \int_E X\, d\P$$
+$$\mu(E) = \int_E X\, d\P$$
 
 (Note that $X$ is not $\Sigma_0$-measurable in general so we cannot integrate with respect to $\P_0$, but we can integrate $X$ over sets in $\Sigma_0$ with respect to $\P$.)
-For any $E \in \Sigma_0$, if $\P_0(E) = 0 $ then clearly $\P(E) = 0$ and thus $\P_X(E) = 0$, so $\P_X$ is absolutely continuous with respect to $\P_0$.
+For any $E \in \Sigma_0$, if $\P_0(E) = 0 $ then clearly $\P(E) = 0$ and thus $\mu(E) = 0$, so $\mu$ is absolutely continuous with respect to $\P_0$.
 
 <div class="definition">
 With the notation above, the *conditional expectation* of $X$ with respect to $\Sigma_0$ is defined to be the Radon-Nikodym derivative:
 
-$$\E(X \vert \Sigma_0) = \frac{d\P_0}{d\P_X}$$
+$$\E(X \vert \Sigma_0) = \frac{d\P_0}{d\mu}$$
 
 </div>
 
-The conditional expectation is a $\Sigma_0$-measurable function which is uniquely characterized by the equation:
+This definition is a bit brutal, and it is not at all obvious how it is related to the more down-to-earth computations with coin flips and great circles that we started with.
+We will go through those examples again in the next section, but a few preliminary remarks are in order.
 
-$$\int_E X\, d\P = \int_E \E(X \vert \Sigma_0)\, d\P_0$$
+First, note that the object $\E(X \vert \Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$.
+This function is uniquely characterized by the equation:
+
+$$\int_E X\, d\P = \mu(E) = \int_E \E(X \vert \sigma_0)\, d\P_0$$
+
+It is not clear how such an object is related to the quantities $\E(X \vert Y = y_0)$, which are real numbers, that we considered in our examples.
+Where does the $\sigma$-algebra fit in, and how do we use it to actually do calculations?
+
+To answer these questions, let us adapt our construction to $Y$.
+Pull back the Borel $\sigma$-algebra on $\R$ along $Y$ to obtain a $\sigma$-algebra $\Sigma_Y$ on $\Omega$; since $Y$ is $\Sigma$-measurable, this is a sub-$\sigma$-algebra of $\Sigma$.
+Define a probability measure $\P_Y$ on $\R$ by $\P_Y(B) = \P(Y^{-1}(B))$.
+As before, the assignment $\P_X(B) = \int_{Y^{-1}(B)} X\, d\P$ is a measure on $\R$ which is absolutely continuous with respect to $\P_Y$, so let us denote by $E(X \vert Y)$ the corresponding Radon-Nikodym derivative.  
+
+$E(X \vert Y)$ is a function $\R \to \R$ which is characterized by the equation:
+
+$$\int_{Y^{-1}(B)} X\, d\P = \int_B \E(X \vert Y)\, d\P_Y$$
+
+This function allows us to condition $X$ against the values of $Y$: we simply define $\E(X \vert Y = y_0)$ to be the value of $\E(X \vert Y)$ at the point $y_0$.
+(Note: it was not essential in this discussion that $Y$ took values in $\R$ - any measurable space would do.)
+
+While it is good enough to work with $\E(X \vert Y)$ when doing calculations, this function is closely related to $\E(X \vert \Sigma_Y)$.
+Using the notation $\P_{\Sigma_Y}$ for the restriction of $\P$ to $\Sigma_Y$, we can pull back the integral on the right-hand side to $\Omega$:
+
+$$\int_{Y^{-1}(B)} X\, d\P = \int_{Y^{-1}(B)} \E(X \vert Y) \circ Y\, d\P_{\Sigma_Y}$$
+
+But this is precisely the equation which characterizes $\E(X \vert \Sigma_Y)$, so we conclude:
+
+$$\E(X \vert \Sigma_Y) = \E(X \vert Y) \circ Y$$
+
+This equation holds almost everywhere with respect to $\P_{\Sigma_Y}$.
 
 ## Examples revisited 
 
-The abstract definition of conditional expectation  gains a lot in generality and theoretical soundness, but it is not at all clear what relevance it has to the examples we have considered so far.
+We conclude by redoing our two example calculations - the conditional expectation of the coin flip and the conditional distribution of a great circle on the sphere - using the language of the previous section.
+In both cases we'll only need to work with the function $\E(X \vert Y)$, but there are some nice computations which use conditional expectations relative to a $\sigma$-algebra in an essential way.
+Perhaps I'll revisit some of those computations in a future post.
 
 ### Coin flips
 
@@ -146,6 +178,15 @@ The random variable $X$ maps each point in $\Omega$ to the number of times $H$ a
 
 We wish to condition against the event in which the first coin flip comes up heads.
 As before let $Y$ be the random variable which takes the value $0$ if the first coin flip is tails and $1$ if it is heads.
+We wish to compute the function $\E(X \vert Y)$, and to this end we must calculate the measures $\P_Y$ and $\P_X$.
+These are both measures on $\R$ which factor through $Y$, so in fact they are supported on the set $\br{0, 1}$ (the range of $Y$).
+
+By definition
+
+
+
+
+
 The pullback under $Y$ of the Borel $\sigma$-algebra on $\R$ is a $\sigma$-algebra $\Sigma_0$ on $\Omega$; explicitly, it is:
 
 $$\Sigma_0 = \br{\emptyset, Y_0 = \br{TT, TH}, Y_1 = \br{HT, HH}, \Omega}$$
