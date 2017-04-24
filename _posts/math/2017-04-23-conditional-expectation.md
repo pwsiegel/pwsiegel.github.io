@@ -39,7 +39,7 @@ The reader may be able to guess the expected value of $X$ under this constraint,
 Let $Y$ be the random variable on $\Omega$ which takes the value $0$ if the first coin toss is tails and $1$ if it is heads.  The conditional density of $X$ given that $Y = 1$ is by definition:
 
 $$
-\P(X = n | Y = 1) = \frac{\P(X = n \cap Y = 1)}{\P(Y = 1)} = 
+\P(X = n \vert Y = 1) = \frac{\P(X = n \cap Y = 1)}{\P(Y = 1)} = 
 \begin{cases}
    \frac{1}{2} & n = 1 \\
    \frac{1}{2} & n = 2
@@ -48,9 +48,9 @@ $$
 
 The conditional expectation is therefore:
 
-$$E(X | Y = 1) = 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{2} = \frac{3}{2}$$
+$$E(X \vert Y = 1) = 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{2} = \frac{3}{2}$$
 
-This computation works more or less the same for any pair of discrete random variables $X$ and $Y$; it depends only on finding the conditional density function $\P(X = x | Y = y_0)$.  
+This computation works more or less the same for any pair of discrete random variables $X$ and $Y$; it depends only on finding the conditional density function $\P(X = x \vert Y = y_0)$.  
 It is crucial, however, that $\P(Y = y_0) \neq 0$; this is not a serious restriction since events of probability zero generally aren't very interesting in the discrete case, but as we shall see in the next section they cause quite a bit of trouble more generally.
 
 ## The Borel paradox
@@ -70,26 +70,26 @@ $$f_\Theta(\theta) = \frac{1}{2\pi}, \quad f_\Phi(\phi) = \frac{1}{2} \sin \phi$
 
 The as in the discrete case the conditional density function is simply the ratio of the joint density to the marginal density, so we get:
 
-$$f(\theta | \phi = \pi/2) = \frac{f(\theta, \pi/2)}{f_\Phi(\pi/2)} = \frac{1}{2\pi}$$
+$$f(\theta \vert \phi = \pi/2) = \frac{f(\theta, \pi/2)}{f_\Phi(\pi/2)} = \frac{1}{2\pi}$$
 
 and:
 
-$$f(\phi | \theta = 0) = \frac{f(0, \phi)}{f_\Theta(0)} = \frac{1}{2} \sin \phi$$
+$$f(\phi \vert \theta = 0) = \frac{f(0, \phi)}{f_\Theta(0)} = \frac{1}{2} \sin \phi$$
 
 This is, at first glance, a bit disturbing: all great circles should have the same conditional distribution since they differ only by rotations and the uniform probability measure is rotationally invariant, but we have exhibited great circles with both uniform and non-uniform conditional distributions.
 
 Of course the paradox disappears upon closer inspection.
 Edwin Jaynes argued that the computations above conceal a certain limiting procedure which is carried out differently for the two great circles.
-A priori the conditional density function for a great circle $C$ ought to be recovered from probabilities of the form $\P(A|C)$ where $A$ is an arbitrary measurable subset of the sphere.
+A priori the conditional density function for a great circle $C$ ought to be recovered from probabilities of the form $\P(A \vert C)$ where $A$ is an arbitrary measurable subset of the sphere.
 It is here that the division-by-zero issues that we safely ignored in the discrete case come back to bite us: the conditional probabilities ought to be defined by the formula:
 
-$$\P(A|C) = \frac{\P(A \cap C)}{\P(C)}$$
+$$\P(A \vert C) = \frac{\P(A \cap C)}{\P(C)}$$
 
 but $C$ has measure $0$ in the sphere.
 Behind the scenes the calculations with conditional density functions above work by thickening $C$ to a tiny neighborhood $C_\eps$ of the great circle.
 This neighborhood will have positive measure for each $\eps > 0$, so we can try to define:
 
-$$\P(A|C) = \lim_{\eps \to 0} \frac{\P(A \cap C_\eps)}{\P(C_\eps)}$$
+$$\P(A \vert C) = \lim_{\eps \to 0} \frac{\P(A \cap C_\eps)}{\P(C_\eps)}$$
 
 The problem is that the limit depends on the neighborhoods $C_\eps$ used to compute it.
 In the case where we condition on the circle $\phi = \frac{\pi}{2}$ the neighborhood has the form:
@@ -126,13 +126,13 @@ For any $E \in \Sigma_0$, if $\P_0(E) = 0 $ then clearly $\P(E) = 0$ and thus $\
 <div class="definition">
 With the notation above, the *conditional expectation* of $X$ with respect to $\Sigma_0$ is defined to be the Radon-Nikodym derivative:
 
-$$\E(X|\Sigma_0) = \frac{d\P_0}{d\P_X}$$
+$$\E(X \vert \Sigma_0) = \frac{d\P_0}{d\P_X}$$
 
 </div>
 
 The conditional expectation is a $\Sigma_0$-measurable function which is uniquely characterized by the equation:
 
-$$\int_E X\, d\P = \int_E \E(X|\Sigma_0)\, d\P_0$$
+$$\int_E X\, d\P = \int_E \E(X \vert \Sigma_0)\, d\P_0$$
 
 ## Examples revisited 
 
@@ -161,16 +161,16 @@ $$\P_X(Y_0) = \int_{Y_0} X\, d\P = X(TT)\P(TT) + X(TH) \P(TH) = 0 \cdot \frac{1}
 
 A similar computation gives $\P_X(Y_1) = \frac{3}{4}$.
 
-Now, the conditional expectation $\E(X | \Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
-Together with the equation $\P_X(E) = \int_E \E(X | \Sigma_0)\, d\P_0$, we are forced to set:
+Now, the conditional expectation $\E(X \vert \Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
+Together with the equation $\P_X(E) = \int_E \E(X \vert \Sigma_0)\, d\P_0$, we are forced to set:
 
-$$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_0)}{\P_0(Y_0)} = \frac{1/4}{1/2} = \frac{1}{2}$$
+$$\E(X \vert \Sigma_0)(\omega) = \frac{\P_X(Y_0)}{\P_0(Y_0)} = \frac{1/4}{1/2} = \frac{1}{2}$$
 
 for $\omega \in Y_0$ and:
 
-$$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_1)}{\P_0(Y_1)} = \frac{3/4}{1/2} = \frac{3}{2}$$
+$$\E(X \vert \Sigma_0)(\omega) = \frac{\P_X(Y_1)}{\P_0(Y_1)} = \frac{3/4}{1/2} = \frac{3}{2}$$
 
 for $\omega \in Y_1$.
-So we can recover $\E(X | Y=1)$ by plugging any element of $Y_1$ into the function $\E(X | \Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
+So we can recover $\E(X \vert Y=1)$ by plugging any element of $Y_1$ into the function $\E(X \vert \Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
 
 ### Borel Paradox
