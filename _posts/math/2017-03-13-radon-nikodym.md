@@ -4,7 +4,7 @@ permalink: /radon-nikodym/
 title: The Radon-Nikodym Theorem
 abstract: The Radon-Nikodym theorem is a workhorse result in measure theory, with numerous applications to probability dynamics (such as the existence of conditional expectations and the existence of KL-divergence).  I will give a simple proof using Hilbert spaces.
 level: hard
-date: 2017-03-13
+date: 2017-04-23
 categories: stage
 comments: true
 ---
@@ -132,6 +132,8 @@ $$0 = \mu(E) - \mu(E) = \int_E (g - g')\, d\nu$$
 This forces $\nu(E) = 0$.
 Repeating this argument on the set where $g' > g$ implies that $g =  g'$ almost everywhere with respect to $\nu$.
 </div>
+
+## Concluding remarks
 
 The Radon-Nikodym theorem admits some modest generalizations.
 It can be proved for $\sigma$-finite measures by applying the theorem to an increasing union of sets on which both $\mu$ and $\nu$ are finite.
