@@ -48,7 +48,7 @@ This yields a simple formula for the Radon-Nikodym derivative:
 $$
 \frac{d\mu}{d\nu}(x_i) = 
    \begin{cases}
-      \frac{\mu_i}{\nu_i} & \nu_i != 0 \\
+      \frac{\mu_i}{\nu_i} & \nu_i \neq 0 \\
       0 & \text{otherwise}
    \end{cases}
 $$
