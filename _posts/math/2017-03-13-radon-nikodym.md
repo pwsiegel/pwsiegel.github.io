@@ -147,7 +147,7 @@ I will illustrate this with an important example from probability theory: the co
 Conditional distributions arise in probability theory when one wishes to update a model in response to new information or constraints.
 As we shall see some serious difficulties emerge when the new information has probability zero.
 
-### Example: coin flips
+## Example: coin flips
 
 Let us start with a basic example - independent coin flips - as a guide for what to expect.
 Suppose we flip a fair coin twice, and we would like to predict how many times heads will come up.
@@ -186,7 +186,7 @@ $$E(X | Y = 1) = 1 \cdot \frac{1}{2} + 2 \cdot \frac{1}{2} = \frac{3}{2}$$
 This computation works more or less the same for any pair of discrete random variables $X$ and $Y$; it depends only on finding the conditional density function $\P(X = x | Y = y_0)$.  
 It is crucial, however, that $\P(Y = y_0) \neq 0$; this is not a serious restriction since events of probability zero generally aren't very interesting in the discrete case, but as we shall see in the next section they cause quite a bit of trouble more generally.
 
-### The Borel paradox
+## The Borel paradox
 
 Conditional distributions and their expectations are quite a bit tricker for continuous random variables.
 A historically impotant example which illustrates the main issues involved is the Borel paradox, which concerns the distribution of a uniformly randomly selected point on the unit sphere $S^2 \subseteq \R^3$ subject to the condition that the point lie on a prescribed great circle $C$.
@@ -211,7 +211,7 @@ $$f(\phi | \theta = 0) = \frac{f(0, \phi)}{f_\Theta(0)} = \frac{1}{2} \sin \phi$
 
 This is, at first glance, a bit disturbing: all great circles should have the same conditional distribution since they differ only by rotations and the uniform probability measure is rotationally invariant, but we have exhibited great circles with both uniform and non-uniform conditional distributions.
 
-### The resolution of the paradox
+## The resolution of the paradox
 
 Of course the paradox disappears upon closer inspection.
 Edwin Jaynes argued that the computations above conceal a certain limiting procedure which is carried out differently for the two great circles.
@@ -239,7 +239,7 @@ The neighborhood $C_{\phi, \eps}$ is the intersection of the sphere with the reg
 On the other hand the neighborhood $C_{\theta, \eps}$ is the intersection of the sphere with the region in $\R^3$ swept out as the plane containing the great circle is rotated; in the case of the great circle $\theta = 0$ the neighborhood is thickest at the equator and actually shrinks to a point at the poles.
 This explains why the limiting distribution is non-uniform in this case.
 
-### The "right" definition
+## The "right" definition
 
 The Borel paradox has strictly speaking been resolved, but the resolution leaves the theory in a state of disarray.
 The closest we have to a definition of conditional density function (let alone conditional expectation) involves thickening the event that we would like to condition against so that it has positive measure and then passing to the limit as the thickness parameter goes to zero.
@@ -269,7 +269,40 @@ The conditional expectation is a $\Sigma_0$-measurable function which is uniquel
 
 $$\int_E X\, d\P = \int_E \E(X|\Sigma_0)\, d\P_0$$
 
-### Examples, revisited
+## Coin flips, revisited
 
-This definition gains a lot in generality and theoretical soundness, but it is not at all clear what relevance it has to the examples we have considered so far.
+The abstract definition of conditional expectation  gains a lot in generality and theoretical soundness, but it is not at all clear what relevance it has to the examples we have considered so far.
+I will conclude this post by redoing the coin flip example above using the language of the previous section.
 
+Recall: the sample space is given by $\Omega = \br{H,T}^2$, and the $\sigma$-algebra $\Sigma$ is simply the power set of $\Omega$.
+The measure $\P$ is the uniform measure on $\Omega$, i.e. it assigns the probability $\frac{1}{4}$ to each point in $\Omega$.
+The random variable $X$ maps each point in $\Omega$ to the number of times $H$ appears; thus $X(TT) = 0$, $X(HT) = X(TH) = 1$, and $X(HH) = 2$.
+
+We wish to condition against the event in which the first coin flip comes up heads.
+As before let $Y$ be the random variable which takes the value $0$ if the first coin flip is tails and $1$ if it is heads.
+The pullback under $Y$ of the Borel $\sigma$-algebra on $\R$ is a $\sigma$-algebra $\Sigma_0$ on $\Omega$; explicitly, it is:
+
+$$\Sigma_0 = \br{\emptyset, Y_0 = \br{TT, TH}, Y_1 = \br{HT, HH}, \Omega}$$
+
+(These sets are just the inverse images of $\emptyset$, $\br{0}$, $\br{1}$, and $\R$ under $Y$.)
+Let us compute the measures $\P_0$ and $\P_X$. We have:
+
+$$\P_0(Y_0) = \P(Y_0) = \frac{1}{2}, \quad \P_0(Y_1) = \P(Y_1) = \frac{1}{2}$$
+
+To compute $P_X$ we must integrate:
+
+$$\P_X(Y_0) = \int_{Y_0} X\, d\P = X(TT)\P(TT) + X(TH) \P(TH) = 0 \cdot \frac{1}{4} + 1 \cdot \frac{1}{4} = \frac{1}{4}$$
+
+A similar computation gives $\P_X(Y_1) = \frac{3}{4}$.
+
+Now, the conditional expectation $\E(X|\Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
+Together with the equation $\P_X(E) = \int_E \E(X|\Sigma_0)\, d\P_0$, we are forced to set:
+
+$$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_0)}{\P_0(Y_0)} = \frac{1/4}{1/2} = \frac{1}{2}$$
+
+for $\omega \in Y_0$ and:
+
+$$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_1)}{\P_0(Y_1)} = \frac{3/4}{1/2} = \frac{3}{2}$$
+
+for $\omega \in Y_1$.
+So we can recover $\E(X|Y=1)$ by plugging any element of $Y_1$ into the function $\E(X|\Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
