@@ -1,8 +1,8 @@
 ---
 layout: post
 permalink: /conditional-expectation/
-title: Conditional Expectations 
-abstract: Once a probabilistic model has been constructed it is usually important to understand how it behaves under certain constraints or assumptions.  The tool for carrying out this sort of analysis is the conditional expectation of a random variable; on the surface it seems quite straightforward to define, but upon closer examination it requires some fairly sophisticated theory to get it off the ground.
+title: Conditional Probability 
+abstract: Once a statistical model has been constructed it is usually important to understand how it behaves under certain constraints or assumptions.  The tool for carrying out this sort of analysis is the conditional distribution of a random variable; on the surface it seems quite straightforward to define, but upon closer examination it requires some fairly sophisticated theory to get it off the ground.
 level: hard
 date: 2017-04-23
 categories: stage
