@@ -106,16 +106,15 @@ This explains why the limiting distribution is non-uniform in this case.
 
 ## The "right" definition
 
-The Borel paradox has strictly speaking been resolved, but the resolution leaves the theory in a state of disarray.
-The closest we have to a definition of conditional density function (let alone conditional expectation) involves thickening the event that we would like to condition against so that it has positive measure and then passing to the limit as the thickness parameter goes to zero.
-But we don't have any assurances that this limit will exist, and even when it does we know that the limit may depend sensitively on the thickening procedure.
+Jaynes' thickening argument does strictly speaking resolve the Borel paradox, but it leaves the theory in a state of disarray.
+We don't have any assurances that the limits needed to define the desired conditional probabilities will exist, and even when they do we know that the answers may depend sensitively on the thickening procedure used.
 Also, it is not at all obvious how to apply this definition in a general probabily space, where there need not be a metric or topological structure lying around.
 
 Fortunately, there is a much better definition which works in an abstract measure space.
 An amusing twist is that this approach bypasses the conditional density function and constructs the conditional expectation directly; the conditional density function can then be recovered from the conditional expectation if desired.
 
 The setup is as follows: let $(\Omega, \Sigma, \P)$ be a probability space, let $X$ be a random variable on this space, and let $\Sigma_0$ be a sub-$\sigma$-algebra of $\Sigma$.
-Our aim is to define the conditional expectation of $X$ with respect to $\Sigma_0$; this will be a $\Sigma_0$-measurable random variable, and by choosing $\Sigma_0$ carefully we will be able to replicate both the discrete and continuous examples above.
+Our aim is to define the conditional expectation of $X$ with respect to $\Sigma_0$; this will be a $\Sigma_0$-measurable random variable, and by choosing $\Sigma_0$ carefully we will be able to replicate both the discrete and continuous computations above.
 To begin, note that $\P$ restricts to a measure $\P_0$ (not necessarily a probability measure!) on $\Sigma_0$.
 Define a new measure $\P_X$ on $\Sigma_0$ by:
 
@@ -128,6 +127,7 @@ For any $E \in \Sigma_0$, if $\P_0(E) = 0 $ then clearly $\P(E) = 0$ and thus $\
 With the notation above, the *conditional expectation* of $X$ with respect to $\Sigma_0$ is defined to be the Radon-Nikodym derivative:
 
 $$\E(X|\Sigma_0) = \frac{d\P_0}{d\P_X}$$
+
 </div>
 
 The conditional expectation is a $\Sigma_0$-measurable function which is uniquely characterized by the equation:
