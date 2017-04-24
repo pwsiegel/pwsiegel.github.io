@@ -161,8 +161,8 @@ $$\P_X(Y_0) = \int_{Y_0} X\, d\P = X(TT)\P(TT) + X(TH) \P(TH) = 0 \cdot \frac{1}
 
 A similar computation gives $\P_X(Y_1) = \frac{3}{4}$.
 
-Now, the conditional expectation $\E(X|\Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
-Together with the equation $\P_X(E) = \int_E \E(X|\Sigma_0)\, d\P_0$, we are forced to set:
+Now, the conditional expectation $\E(X | \Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
+Together with the equation $\P_X(E) = \int_E \E(X | \Sigma_0)\, d\P_0$, we are forced to set:
 
 $$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_0)}{\P_0(Y_0)} = \frac{1/4}{1/2} = \frac{1}{2}$$
 
@@ -171,6 +171,6 @@ for $\omega \in Y_0$ and:
 $$\E(X|\Sigma_0)(\omega) = \frac{\P_X(Y_1)}{\P_0(Y_1)} = \frac{3/4}{1/2} = \frac{3}{2}$$
 
 for $\omega \in Y_1$.
-So we can recover $\E(X|Y=1)$ by plugging any element of $Y_1$ into the function $\E(X|\Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
+So we can recover $\E(X | Y=1)$ by plugging any element of $Y_1$ into the function $\E(X | \Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
 
 ### Borel Paradox
