@@ -17,7 +17,7 @@ $$\mu_g(E) = \int_E g\, d\nu$$
 
 It is a standard exercise in measure theory that $\mu_g$ is a measure and that $\mu_g(E) = 0$ whenever $\nu(E) = 0$.
 
-The Radon-Nikodym theorem asserts that under mild hypotheses *every* measure $\mu$ which is absolutely continuous with respect to $\nu$ has this form for a unique measurable function $g$, called the *Radon-Nikodym derivative* of $\nu$ with respect to $\mu$, often written $\frac{d\nu}{d\mu}$.
+The Radon-Nikodym theorem asserts that under mild hypotheses *every* measure $\mu$ which is absolutely continuous with respect to $\nu$ has this form for a unique measurable function $g$, called the *Radon-Nikodym derivative* of $\nu$ with respect to $\mu$, often written $\frac{d\mu}{d\nu}$.
 The theorem is an important part of the structure theory of measures, and the Radon-Nikodym derivative comes up frequently in applications.
 Indeed, I was reminded of this theorem because of its role in another blog post that I was writing about KL-divergence.
 
@@ -43,10 +43,17 @@ Applying this to the one point sets $E_i = \br{x_i}$, we get:
 
 $$\mu_i = \mu(E_i) = \int_{E_i} g\, d\nu = g_i \nu_i$$
 
-If $\nu_i = 0$ then necessarily $\mu_i = 0$ by absolute continuity, so we are free to pick any value for $g_i$; let us choose $g_i = 0$.
-Otherwise we just set $g_i = \frac{\mu_i}{\nu_i}$, and we are done.
+This yields a simple formula for the Radon-Nikodym derivative:
 
-So the theorem is quite straightforward and explicit for measures on finite sets.
+$$
+\frac{d\mu}{d\nu}(x_i) = 
+   \begin{cases}
+      \frac{\mu_i}{\nu_i} & \nu_i != 0 \\
+      0 & \text{otherwise}
+   \end{cases}
+$$
+
+In fact this formula works for any $\sigma$-algebra on a finite set - not just the power set - so the theorem on finite sets is quite simple and explicit.
 Moreover if we look at this calculation in the right way it gives us a hint for how to handle the general case.
 The equation $\mu_i = g_i \nu_i$ implies that for any function $f$ on $\Omega$ we have
 

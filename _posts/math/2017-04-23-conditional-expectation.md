@@ -144,7 +144,7 @@ Where does the $\sigma$-algebra fit in, and how do we use it to actually do calc
 To answer these questions, let us adapt our construction to $Y$.
 Pull back the Borel $\sigma$-algebra on $\R$ along $Y$ to obtain a $\sigma$-algebra $\Sigma_Y$ on $\Omega$; since $Y$ is $\Sigma$-measurable, this is a sub-$\sigma$-algebra of $\Sigma$.
 Define a probability measure $\P_Y$ on $\R$ by $\P_Y(B) = \P(Y^{-1}(B))$.
-As before, the assignment $\P_X(B) = \int_{Y^{-1}(B)} X\, d\P$ is a measure on $\R$ which is absolutely continuous with respect to $\P_Y$, so let us denote by $E(X \vert Y)$ the corresponding Radon-Nikodym derivative.  
+As before, the map $\P_X(B) = \int_{Y^{-1}(B)} X\, d\P$ is a measure on $\R$ which is absolutely continuous with respect to $\P_Y$, so let us denote by $E(X \vert Y)$ the corresponding Radon-Nikodym derivative.  
 
 $E(X \vert Y)$ is a function $\R \to \R$ which is characterized by the equation:
 
@@ -181,10 +181,25 @@ As before let $Y$ be the random variable which takes the value $0$ if the first 
 We wish to compute the function $\E(X \vert Y)$, and to this end we must calculate the measures $\P_Y$ and $\P_X$.
 These are both measures on $\R$ which factor through $Y$, so in fact they are supported on the set $\br{0, 1}$ (the range of $Y$).
 
-By definition
+To calculate $P_Y$, we compute the values of $\P$ on the level sets of $Y$:
 
+$$\P_Y(\br{1}) = \P(Y^{-1}(1)) = \P(\br{HT, HH}) = \frac{1}{2}$$
 
+A similar calculation shows that $\P_Y(\br{0}) = \frac{1}{2}$ as well.
+To compute $\P_X$ we integrate $X$ over the level sets of $Y$:
 
+$$
+\begin{align*}
+\P_X(\br{1}) &= \int_{Y^{-1}(1)} X\, d\P \\
+&= \int_{\br{HT, HH}} X\, d\P \\
+&= X(HT)\P(HT) + X(HH)\P(HH) \\
+&= 1 \cdot \frac{1}{4} + 2 \cdot \frac{1}{4} \\
+&= \frac{3}{4}
+\end{align*}
+$$
+
+A similar calculation gives $\P_X(\br{0}) = \frac{1}{4}$.
+The conditional expectation of $X$ given $Y$ is the
 
 
 The pullback under $Y$ of the Borel $\sigma$-algebra on $\R$ is a $\sigma$-algebra $\Sigma_0$ on $\Omega$; explicitly, it is:
