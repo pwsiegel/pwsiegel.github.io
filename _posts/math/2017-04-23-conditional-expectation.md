@@ -23,11 +23,11 @@ The density function of $X$ is given by:
 
 $$
 \P(X = n) = 
-\begin{cases} 
-   \frac{1}{4} & n = 0 \\ 
-   \frac{1}{2} & n = 1 \\ 
-   \frac{1}{4} & n = 2
-\end{cases}
+   \begin{cases} 
+      \frac{1}{4} & n = 0 \\ 
+      \frac{1}{2} & n = 1 \\ 
+      \frac{1}{4} & n = 2
+   \end{cases}
 $$
 
 Thus its expectation is:
@@ -40,10 +40,10 @@ Let $Y$ be the random variable on $\Omega$ which takes the value $0$ if the firs
 
 $$
 \P(X = n \vert Y = 1) = \frac{\P(X = n \cap Y = 1)}{\P(Y = 1)} = 
-\begin{cases}
-   \frac{1}{2} & n = 1 \\
-   \frac{1}{2} & n = 2
-\end{cases}
+   \begin{cases}
+      \frac{1}{2} & n = 1 \\
+      \frac{1}{2} & n = 2
+   \end{cases}
 $$
 
 The conditional expectation is therefore:
@@ -190,43 +190,33 @@ To compute $\P_X$ we integrate $X$ over the level sets of $Y$:
 
 $$
 \begin{align*}
-\P_X(\br{1}) &= \int_{Y^{-1}(1)} X\, d\P \\
-&= \int_{\br{HT, HH}} X\, d\P \\
-&= X(HT)\P(HT) + X(HH)\P(HH) \\
-&= 1 \cdot \frac{1}{4} + 2 \cdot \frac{1}{4} \\
-&= \frac{3}{4}
+   \P_X(\br{1}) &= \int_{Y^{-1}(1)} X\, d\P \\
+      &= \int_{\br{HT, HH}} X\, d\P \\
+      &= X(HT)\P(HT) + X(HH)\P(HH) \\
+      &= 1 \cdot \frac{1}{4} + 2 \cdot \frac{1}{4} \\
+      &= \frac{3}{4}
 \end{align*}
 $$
 
 A similar calculation gives $\P_X(\br{0}) = \frac{1}{4}$.
-The conditional expectation of $X$ given $Y$ is the
 
+The conditional expectation of $X$ given $Y$ is the Radon-Nikodym derivative of $P_Y$ with respect to $P_X$.
+Following the warm-up calculation in my previous post on the Radon-Nikodym derivative, we get:
 
-The pullback under $Y$ of the Borel $\sigma$-algebra on $\R$ is a $\sigma$-algebra $\Sigma_0$ on $\Omega$; explicitly, it is:
+$$
+\begin{align*}
+   \E(X \vert Y = 1) &= \E(X \vert Y)(1) \\
+      &= \frac{d\P_X}{d\P_Y}(1) \\
+      &= \frac{\P_X(\br{1})}{\P_Y(\br{1})} \\
+      &= \frac{3/4}{1/2} \\
+      &= \frac{3}{2}
+\end{align*}
+$$
 
-$$\Sigma_0 = \br{\emptyset, Y_0 = \br{TT, TH}, Y_1 = \br{HT, HH}, \Omega}$$
-
-(These sets are just the inverse images of $\emptyset$, $\br{0}$, $\br{1}$, and $\R$ under $Y$.)
-Let us compute the measures $\P_0$ and $\P_X$. We have:
-
-$$\P_0(Y_0) = \P(Y_0) = \frac{1}{2}, \quad \P_0(Y_1) = \P(Y_1) = \frac{1}{2}$$
-
-To compute $P_X$ we must integrate:
-
-$$\P_X(Y_0) = \int_{Y_0} X\, d\P = X(TT)\P(TT) + X(TH) \P(TH) = 0 \cdot \frac{1}{4} + 1 \cdot \frac{1}{4} = \frac{1}{4}$$
-
-A similar computation gives $\P_X(Y_1) = \frac{3}{4}$.
-
-Now, the conditional expectation $\E(X \vert \Sigma_0)$ is a $\Sigma_0$-measurable function $\Omega \to \R$; $\Sigma_0$-measurability implies that it is constant on $Y_0$ and $Y_1$ (and therefore lifts to a well-defined function on the values of $Y$.)
-Together with the equation $\P_X(E) = \int_E \E(X \vert \Sigma_0)\, d\P_0$, we are forced to set:
-
-$$\E(X \vert \Sigma_0)(\omega) = \frac{\P_X(Y_0)}{\P_0(Y_0)} = \frac{1/4}{1/2} = \frac{1}{2}$$
-
-for $\omega \in Y_0$ and:
-
-$$\E(X \vert \Sigma_0)(\omega) = \frac{\P_X(Y_1)}{\P_0(Y_1)} = \frac{3/4}{1/2} = \frac{3}{2}$$
-
-for $\omega \in Y_1$.
-So we can recover $\E(X \vert Y=1)$ by plugging any element of $Y_1$ into the function $\E(X \vert \Sigma_0)$; this gives the value $\frac{3}{2}$, which agrees with our answer using conditional density functions.
+(A similar calculation gives $E(X \vert Y = 0) = \frac{1}{2}$.)
 
 ### Borel Paradox
+
+The Borel paradox was about the conditional distribution on a great circle in $S^2$ induced by the standard uniform probability measure.
+At first glance it would appear that we do not have the tools to deal with this sort of problem: we bypassed the problem of computing conditional distributions and went straight for the conditional expectation.
+But as it turns out conditional expectations are more fundamental than the underlying conditional distribution, and we will proceed by recovering the latter from the former.
