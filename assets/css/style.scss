@@ -4,94 +4,105 @@
 @import "{{ site.theme }}";
 
 body {
-    counter-reset: theorem proposition lemma conjecture definition example;
+	counter-reset: theorem proposition lemma conjecture definition example;
 }
 
 .theorem {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
+	display: block;
+	margin: 12px 0;
+	font-style: italic;
 }
 .theorem:before {
-    counter-increment: theorem;
-    content: "Theorem " counter(theorem) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: theorem;
+	content: "Theorem " counter(theorem) ".";
+	font-weight: bold;
+	font-style: normal;
 }
 .proposition {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
+	display: block;
+	margin: 12px 0;
+	font-style: italic;
 }
 .proposition:before {
-    counter-increment: proposition;
-    content: "Proposition " counter(proposition) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: proposition;
+	content: "Proposition " counter(proposition) ".";
+	font-weight: bold;
+	font-style: normal;
 }
 .lemma {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
+	display: block;
+	margin: 12px 0;
+	font-style: italic;
 }
 .lemma:before {
-    counter-increment: lemma;
-    content: "Lemma " counter(lemma) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: lemma;
+	content: "Lemma " counter(lemma) ".";
+	font-weight: bold;
+	font-style: normal;
 }
 .conjecture {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
+	display: block;
+	margin: 12px 0;
+	font-style: italic;
 }
 .conjecture:before {
-    counter-increment: conjecture;
-    content: "Conjecture " counter(conjecture) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: conjecture;
+	content: "Conjecture " counter(conjecture) ".";
+	font-weight: bold;
+	font-style: normal;
 }
 .proof {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
 }
 .proof:before {
-    content: "Proof.";
-    font-style: italic;
+	content: "Proof.";
+	font-style: italic;
 }
 .proof:after {
-    content: "\25FC";
+	content: "\25FC";
 }
 .definition {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
 }
 .definition:before {
-    counter-increment: definition;
-    content: "Definition " counter(definition) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: definition;
+	content: "Definition " counter(definition) ".";
+	font-weight: bold;
+	font-style: normal;
 }
 .remark {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
 }
 .remark:before {
-    content: "Remark.";
-    font-weight: bold;
-    font-style: normal;
+	content: "Remark.";
+	font-weight: bold;
+	font-style: normal;
 }
 .example {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
 }
 .example:before {
-    counter-increment: example;
-    content: "Example " counter(example) ".";
-    font-weight: bold;
-    font-style: normal;
+	counter-increment: example;
+	content: "Example " counter(example) ".";
+	font-weight: bold;
+	font-style: normal;
+}
+.exercise {
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
+}
+.exercise:before {
+	counter-increment: exercise;
+	content: "Example " counter(example) ".";
+	font-weight: bold;
+	font-style: normal;
 }
