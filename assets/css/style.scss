@@ -8,52 +8,56 @@
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Theorem.";
 }
 .theorem::before {
-	counter-increment: theorem;
-	content: inherit;
+	content: "Theorem. "
 	font-weight: bold;
 	font-style: normal;
+}
+.theorem[text]::before {
+	content: attr(text)
 }
 
 .proposition {
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Proposition.";
 }
 .proposition::before {
-	counter-increment: proposition;
-	content: inherit;
+	content: "Proposition. "
 	font-weight: bold;
 	font-style: normal;
+}
+.proposition[text]::before {
+	content: attr(text)
 }
 
 .lemma {
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Lemma."; 
 }
 .lemma::before {
-	counter-increment: lemma;
-	content: inherit;
+	content: "Lemma. "
 	font-weight: bold;
 	font-style: normal;
+}
+.theorem[text]::before {
+	content: attr(text)
 }
 
 .conjecture {
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Conjecture.";
 }
 .conjecture::before {
-	counter-increment: conjecture;
-	content: inherit;
+	content: "Conjecture. "
 	font-weight: bold;
 	font-style: normal;
+}
+.conjecture[text]::before {
+	content: attr(text)
 }
 
 // Definition-like
@@ -61,51 +65,56 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Definition.";
 }
 .definition::before {
-	counter-increment: definition;
-	content: "Definition.";
+	content: "Definition. "
 	font-weight: bold;
 	font-style: normal;
+}
+.definition[text]::before {
+	content: attr(text)
 }
 
 .remark {
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Remark.";
 }
 .remark::before {
-	content: inherit;
+	content: "Remark. "
 	font-weight: bold;
 	font-style: normal;
+}
+.remark[text]::before {
+	content: attr(text)
 }
 
 .example {
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Example.";
 }
 .example::before {
-	counter-increment: example;
-	content: inherit;
+	content: "Example. "
 	font-weight: bold;
 	font-style: normal;
+}
+.example[text]::before {
+	content: attr(text)
 }
 
 .exercise {
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Exercise.";
 }
 .exercise::before {
-	counter-increment: exercise;
-	content: inherit;
+	content: "Exercise. "
 	font-weight: bold;
 	font-style: normal;
+}
+.exercise[text]::before {
+	content: attr(text)
 }
 
 // Proof-like
@@ -113,11 +122,13 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Proof.";
 }
 .proof::before {
-	content: inherit;
+	content: "Proof. "
 	font-style: italic;
+}
+.proof[text]::before {
+	content: attr(text)
 }
 .proof::after {
 	content: "\25FC";
