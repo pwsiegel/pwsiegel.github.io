@@ -65,7 +65,7 @@
 }
 .definition:before {
 	counter-increment: definition;
-	content: inherit;
+	content: "Definition.";
 	font-weight: bold;
 	font-style: normal;
 }
