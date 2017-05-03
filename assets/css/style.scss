@@ -10,7 +10,7 @@
 	font-style: italic;
 	content: "Theorem.";
 }
-.theorem:before {
+.theorem::before {
 	counter-increment: theorem;
 	content: inherit;
 	font-weight: bold;
@@ -23,7 +23,7 @@
 	font-style: italic;
 	content: "Proposition.";
 }
-.proposition:before {
+.proposition::before {
 	counter-increment: proposition;
 	content: inherit;
 	font-weight: bold;
@@ -36,7 +36,7 @@
 	font-style: italic;
 	content: "Lemma."; 
 }
-.lemma:before {
+.lemma::before {
 	counter-increment: lemma;
 	content: inherit;
 	font-weight: bold;
@@ -49,7 +49,7 @@
 	font-style: italic;
 	content: "Conjecture.";
 }
-.conjecture:before {
+.conjecture::before {
 	counter-increment: conjecture;
 	content: inherit;
 	font-weight: bold;
@@ -63,7 +63,7 @@
 	font-style: normal;
 	content: "Definition.";
 }
-.definition:before {
+.definition::before {
 	counter-increment: definition;
 	content: "Definition.";
 	font-weight: bold;
@@ -76,7 +76,7 @@
 	font-style: normal;
 	content: "Remark.";
 }
-.remark:before {
+.remark::before {
 	content: inherit;
 	font-weight: bold;
 	font-style: normal;
@@ -88,7 +88,7 @@
 	font-style: normal;
 	content: "Example.";
 }
-.example:before {
+.example::before {
 	counter-increment: example;
 	content: inherit;
 	font-weight: bold;
@@ -101,7 +101,7 @@
 	font-style: normal;
 	content: "Exercise.";
 }
-.exercise:before {
+.exercise::before {
 	counter-increment: exercise;
 	content: inherit;
 	font-weight: bold;
@@ -115,10 +115,10 @@
 	font-style: normal;
 	content: "Proof.";
 }
-.proof:before {
+.proof::before {
 	content: inherit;
 	font-style: italic;
 }
-.proof:after {
+.proof::after {
 	content: "\25FC";
 }
