@@ -10,12 +10,12 @@
 	font-style: italic;
 }
 .theorem::before {
-	content: "Theorem. "
+	content: "Theorem. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .theorem[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .proposition {
@@ -24,12 +24,12 @@
 	font-style: italic;
 }
 .proposition::before {
-	content: "Proposition. "
+	content: "Proposition. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .proposition[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .lemma {
@@ -38,12 +38,12 @@
 	font-style: italic;
 }
 .lemma::before {
-	content: "Lemma. "
+	content: "Lemma. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .theorem[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .conjecture {
@@ -52,12 +52,12 @@
 	font-style: italic;
 }
 .conjecture::before {
-	content: "Conjecture. "
+	content: "Conjecture. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .conjecture[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 // Definition-like
@@ -67,12 +67,12 @@
 	font-style: normal;
 }
 .definition::before {
-	content: "Definition. "
+	content: "Definition. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .definition[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .remark {
@@ -81,12 +81,12 @@
 	font-style: normal;
 }
 .remark::before {
-	content: "Remark. "
+	content: "Remark. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .remark[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .example {
@@ -95,12 +95,12 @@
 	font-style: normal;
 }
 .example::before {
-	content: "Example. "
+	content: "Example. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .example[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 .exercise {
@@ -109,12 +109,12 @@
 	font-style: normal;
 }
 .exercise::before {
-	content: "Exercise. "
+	content: "Exercise. ";
 	font-weight: bold;
 	font-style: normal;
 }
 .exercise[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 
 // Proof-like
@@ -124,11 +124,11 @@
 	font-style: normal;
 }
 .proof::before {
-	content: "Proof. "
+	content: "Proof. ";
 	font-style: italic;
 }
 .proof[text]::before {
-	content: attr(text)
+	content: attr(text);
 }
 .proof::after {
 	content: "\25FC";
