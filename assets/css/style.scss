@@ -15,7 +15,7 @@
 	font-style: normal;
 }
 .theorem[text]::before {
-	content: attr(text);
+	content: "Theorem (" attr(text); "). "
 }
 
 .proposition {
@@ -29,7 +29,7 @@
 	font-style: normal;
 }
 .proposition[text]::before {
-	content: attr(text);
+	content: "Proposition (" attr(text); "). "
 }
 
 .lemma {
@@ -42,8 +42,8 @@
 	font-weight: bold;
 	font-style: normal;
 }
-.theorem[text]::before {
-	content: attr(text);
+.lemma[text]::before {
+	content: "Lemma (" attr(text); "). "
 }
 
 .conjecture {
@@ -57,7 +57,7 @@
 	font-style: normal;
 }
 .conjecture[text]::before {
-	content: attr(text);
+	content: "Conjecture (" attr(text); "). "
 }
 
 // Definition-like
@@ -72,7 +72,7 @@
 	font-style: normal;
 }
 .definition[text]::before {
-	content: attr(text);
+	content: "Definition (" attr(text); "). "
 }
 
 .remark {
@@ -86,7 +86,7 @@
 	font-style: normal;
 }
 .remark[text]::before {
-	content: attr(text);
+	content: "Remark (" attr(text); "). "
 }
 
 .example {
@@ -100,7 +100,7 @@
 	font-style: normal;
 }
 .example[text]::before {
-	content: attr(text);
+	content: "Example (" attr(text); "). "
 }
 
 .exercise {
@@ -114,7 +114,7 @@
 	font-style: normal;
 }
 .exercise[text]::before {
-	content: attr(text);
+	content: "Exercise (" attr(text); "). "
 }
 
 // Proof-like
@@ -128,7 +128,7 @@
 	font-style: italic;
 }
 .proof[text]::before {
-	content: attr(text);
+	content: "Proof (" attr(text); "). "
 }
 .proof::after {
 	content: "\25FC";
