@@ -8,11 +8,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Theorem."
+	content: "Theorem.";
 }
 .theorem:before {
 	counter-increment: theorem;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -21,11 +21,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Proposition."
+	content: "Proposition.";
 }
 .proposition:before {
 	counter-increment: proposition;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -34,11 +34,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Lemma." 
+	content: "Lemma."; 
 }
 .lemma:before {
 	counter-increment: lemma;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -47,11 +47,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: italic;
-	content: "Conjecture."
+	content: "Conjecture.";
 }
 .conjecture:before {
 	counter-increment: conjecture;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -61,11 +61,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Definition."
+	content: "Definition.";
 }
 .definition:before {
 	counter-increment: definition;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -74,10 +74,10 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Remark."
+	content: "Remark.";
 }
 .remark:before {
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -86,11 +86,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Example."
+	content: "Example.";
 }
 .example:before {
 	counter-increment: example;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -99,11 +99,11 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Exercise."
+	content: "Exercise.";
 }
 .exercise:before {
 	counter-increment: exercise;
-	content: inherit
+	content: inherit;
 	font-weight: bold;
 	font-style: normal;
 }
@@ -113,10 +113,10 @@
 	display: block;
 	margin: 12px 0;
 	font-style: normal;
-	content: "Proof."
+	content: "Proof.";
 }
 .proof:before {
-	content: inherit
+	content: inherit;
 	font-style: italic;
 }
 .proof:after {
