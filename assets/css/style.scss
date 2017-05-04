@@ -133,3 +133,19 @@
 .proof::after {
 	content: "\25FC";
 }
+
+.solution {
+	display: block;
+	margin: 12px 0;
+	font-style: normal;
+}
+.solution::before {
+	content: "Solution. ";
+	font-style: italic;
+}
+.solution[text]::before {
+	content: "Solution (" attr(text) "). ";
+}
+.solution::after {
+	content: "\25FC";
+}
