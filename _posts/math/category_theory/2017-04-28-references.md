@@ -22,6 +22,9 @@ So the references below are intended to be more generic - if possible, some will
 
 2. [Basic Category Theory - Leinster][2]: Great exposition, but examples are quite mathy.  Still, this is the best modern reference that I have found.
 
+3. [Category Theory for Computing Science - Bar and Wells][6]: The exposition is quite good, and lots of the examples are aimed at computer scientists.
+
+4. [nLab][7]: This is a community-drivin wiki for category theory.  I generally find that Wikipedia articles are easier to understand because nLab authors generally try to use the most general language possible, but there is content here that is hard to find elsewhere. 
 
 ## The category of graphs
 
@@ -40,3 +43,5 @@ So far I have not been able to find a single satisfactory reference on the subje
 [3]: https://ocw.mit.edu/courses/mathematics/18-s996-category-theory-for-scientists-spring-2013/textbook/MIT18_S996S13_chapter4.pdf "Category Theory for Scientists"
 [4]: https://en.wikipedia.org/wiki/Graph_homomorphism "Graph Homomorphism"
 [5]: http://math.stanford.edu/~anton/graphhom.pdf "Hom complexes and homotopy theory in the category of graphs"
+[6]: http://www.math.mcgill.ca/triples/Barr-Wells-ctcs.pdf "Category Theory for Computing Science"
+[7]: https://ncatlab.org "nLab"
