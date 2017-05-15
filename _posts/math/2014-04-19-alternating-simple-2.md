@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: alternating-simple-2
+permalink: /math/alternating-simple-2/
 title: The Alternating Group is Simple II
 abstract: A detailed proof that $A_5$ is simple.
 level: hard

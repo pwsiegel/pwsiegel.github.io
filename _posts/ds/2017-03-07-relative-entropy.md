@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /relative-entropy/
+permalink: /ds/relative-entropy/
 title: Relative Entropy
 abstract: Relative entropy - also known as the *Kullback-Leibler divergence* - measures the information gained by replacing one random model with another.  This makes it an important tool in applications where one wishes to update a prior model in response to new observations.
 level: hard

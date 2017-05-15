@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /entropy-defn/
+permalink: /ds/entropy-defn/
 title: On the Definition of Shannon Entropy
 abstract: The definition of Shannon entropy admits a variety of appealing characterizations; here I will explore the characterization via "average surprisal".
 level: hard

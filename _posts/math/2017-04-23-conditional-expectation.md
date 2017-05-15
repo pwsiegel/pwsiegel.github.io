@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /conditional-expectation/
+permalink: /math/conditional-expectation/
 title: Conditional Probability 
 abstract: Once a statistical model has been constructed it is usually important to understand how it behaves under certain constraints or assumptions.  The tool for carrying out this sort of analysis is the conditional distribution of a random variable; on the surface it seems quite straightforward to define, but upon closer examination it requires some fairly sophisticated theory to get it off the ground.
 level: hard

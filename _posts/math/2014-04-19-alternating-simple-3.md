@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /alternating-simple-3/
+permalink: /math/alternating-simple-3/
 title: The Alternating Group is Simple III
 abstract: A detailed proof (by induction) that $A_n$ is simple for $n > 5$.
 level: hard
