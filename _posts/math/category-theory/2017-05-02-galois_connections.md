@@ -99,7 +99,7 @@ There are a variety of equivalent ways to formulate the axioms for a pair of adj
 Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
 
 $$
-u \colon FG \to 1_{\C} \quad \text{and} \quad u^* \colon 1_{\D} \to GF
+u \colon FG \to 1_\C \quad \text{and} \quad u^* \colon 1_\D \to GF
 $$
 
 which satisfy the following identities:
@@ -112,7 +112,7 @@ $F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adj
 </div>
 
 A few remarks on notation are in order.  
-The symbol $1$ is used in two different ways: $1_{\C}$ and $1_{\D}$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
+The symbol $1$ is used in two different ways: $1_\C$ and $1_\D$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
 
 The objects $uF$, $Fu^*$, $Gu$, and $u^* G$ also require some explanation.
 Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transform ation $\mu \colon S \to T$, and a functor $U \colon \mathcaL{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon UF \to US$ by:
