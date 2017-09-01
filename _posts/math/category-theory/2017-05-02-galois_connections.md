@@ -126,4 +126,4 @@ $$
 (\mu V)_Z = \mu_{V(Z)}
 $$
 
-Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)_D = u_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
+Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)\_D = u\_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
