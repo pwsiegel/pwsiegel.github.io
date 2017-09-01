@@ -81,11 +81,10 @@ The inclusion $\Z \to \Q$ which sends an integer $n$ to itself (viewed as the fr
 Moreover the function $\Q \to \Z$ which rounds down each rational number also preserves $\leq$ and hence defines a functor from $\Q$ to $\Z$.
 </div>
 
-This example is a first hint at a circle of ideas connecting category theory to computer science.
-In the theory of programming languages - particularly functional programming - category theory provides tools for organizing the various transformations that can be applied to data.
-The example above suggests that *casting* (i.e. mapping a variable of one type to another) is a functorial operation in an appropriate sense.
-
-In the rest of this post we shall investigate this sort of connection more fully, passing through some rather sophisticated ideas in category theory along the way.
+<div class="exercise">
+Let $\phi \colon G_1 \to G_2$ be a homomorphism between directed acyclic graphs and let $\phi_V \colon V_1 \to V_2$ be the restriction of $\phi$ to the vertex sets.
+Show that $\phi_V$ is a functor of posets where $V_1$ and $V_2$ are equipped with the partial ordering defined in the previous exercise.
+</div>
 
 ## Adjoint functors
 
