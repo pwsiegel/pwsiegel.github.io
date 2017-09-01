@@ -89,7 +89,7 @@ Show that $\phi_V$ is a functor of posets where $V_1$ and $V_2$ are equipped wit
 ## Adjoint functors
 
 The concept of an adjoint is a powerful organizing principle throughout mathematics, though its origins lie in linear algebra rather than category theory.
-Informally, an adjunction between two categories $\C$ and $\D$ is a pair of functors $F \colon \C \to \D$ and $G \colon \D \to C$ which transform computations in $\C$ into computations in $\D$ as efficiently as possible (and vice-versa).
+Informally, an adjunction between two categories $\C$ and $\D$ is a pair of functors $F \colon \D \to \C$ and $G \colon \C \to D$ which transform computations in $\C$ into computations in $\D$ as efficiently as possible (and vice-versa).
 For instance, one can use the inclusion functor $\Z \to \Q$ from the previous section to transform a computation with integers into a computation with rational numbers, and the existence of the restriction functor $\Q \to \Z$ guarantees that this is the "best" transformation possible in an appropriate sense.
 
 There are a variety of equivalent ways to formulate the axioms for a pair of adjoint functors; we will choose a formulation which is well-adapted to the important special case of functors between posets.
@@ -110,11 +110,11 @@ $$
 $F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $v$ are called the _unit_ and _counit_ of the adjunction, respectively.
 </div>
 
-A few remarks on notation are in order.  
+A few remarks on notation are in order.
 The symbol $1$ is used in two different ways: $1\_\C$ and $1\_\D$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
 
 The objects $uF$, $Fv$, $Gu$, and $vG$ also require some explanation.
-Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transform ation $\mu \colon S \to T$, and a functor $U \colon \mathcaL{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon UF \to US$ by:
+Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transformation $\mu \colon S \to T$, and a functor $U \colon \mathcal{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon UF \to US$ by:
 
 $$
 (U \mu)_A = U \mu_A
