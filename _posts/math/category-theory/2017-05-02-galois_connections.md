@@ -99,22 +99,22 @@ There are a variety of equivalent ways to formulate the axioms for a pair of adj
 Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
 
 $$
-u \colon FG \to 1_\C \quad \text{and} \quad u^* \colon 1_\D \to GF
+u \colon FG \to 1_\C \quad \text{and} \quad v \colon 1_\D \to GF
 $$
 
 which satisfy the following identities:
 
 $$
-uF \circ Fu^* = 1_F \quad \text{and} \quad Gu \circ u^* G = 1_G
+uF \circ Fv = 1_F \quad \text{and} \quad Gu \circ v G = 1_G
 $$
 
-$F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $u^*$ are called the _unit_ and _counit_ of the adjunction, respectively.
+$F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $v$ are called the _unit_ and _counit_ of the adjunction, respectively.
 </div>
 
 A few remarks on notation are in order.  
 The symbol $1$ is used in two different ways: $1\_\C$ and $1\_\D$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
 
-The objects $uF$, $Fu^*$, $Gu$, and $u^* G$ also require some explanation.
+The objects $uF$, $Fv$, $Gu$, and $vG$ also require some explanation.
 Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transform ation $\mu \colon S \to T$, and a functor $U \colon \mathcaL{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon UF \to US$ by:
 
 $$
@@ -127,4 +127,4 @@ $$
 (\mu V)_Z = \mu_{V(Z)}
 $$
 
-Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)_D = u_{F(D)}$ while $Fu^*$ is the natural transformation $F \to FGF$ given by $(Fu^*)_D = Fu^*_D$, and similarly for $Gu$ and $u^* G$.
+Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)_D = u_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
