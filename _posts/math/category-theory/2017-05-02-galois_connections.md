@@ -107,7 +107,7 @@ $$
 uF \circ Fv = 1_F \quad \text{and} \quad Gu \circ v G = 1_G
 $$
 
-$F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $v$ are called the _unit_ and _counit_ of the adjunction, respectively.
+$F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $v$ are called the _counit_ and _unit_ of the adjunction, respectively.
 </div>
 
 A few remarks on notation are in order.
@@ -129,16 +129,47 @@ $$
 Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)\_D = u\_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
 
 <div class="example">
-View $\Z$ and $\Q$ as posets in the natural way, and let $I \colon \Z \to \Q$ and $R \colon \Q \to \Z$ denote the inclusion and rounding down functors, respectively.
-Let us show that $I$ and $R$ determine an adjoint pair.
+Consider the product functor $P \colon \Set \times \Set \to \times \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
+In this example we will construct a natural adjoint for $P$.
 
-To do this we must construct a unit / counit pair for $I$ and $R$:
+Specifically, we will show that the functor $\Delta \colon \Set \to \Set \times \Set$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a right adjoint for $P$.
+($\Delta$ is called the _diagonal_ functor for $\Set$.)
+In order to do this we must construct a counit and a unit, i.e. natural transformations
 
 $$
-u \colon RI \to 1_\Z \quad \text{and} \quad v \colon 1_\Q \to IR 
+u \colon \Delta P \to 1_{\Set \times \Set} \quad \text{and} \quad v \colon 1_\Set \to P \Delta
 $$
 
-The composition $RI$ already is the identity functor on $\Z$, so simply define $u$ to be the identity natural transformation from $1\_\Z$ to itself.
-The composition $IR$ is the "greatest integer" function which sends each rational number $a$ to the largest integer which is no greater than $a$.
-Define 
+which satisfy the appropriate axioms.
+
+We begin with the counit.
+$\Delta P$ is the functor $\Set \times \Set \to \Set \times \Set$ which sends a pair of sets $(X, Y)$ to the pair $(X \times Y, X \times Y)$.
+On the other hand $1_{\Set \times \Set}(X, Y)$ is just $(X, Y)$.
+So the component of the counit at $(X,Y)$ must be a mapping
+
+$$
+u_{(X,Y)} \colon (X \times Y, X \times Y) \to (X, Y)
+$$
+
+Define $u\_{(X,Y)}((x_1, y_1), (x_2, y_2)) = (x_1, y_2)$, i.e. $u\_{(X,Y)} = (\pi_X, \pi_Y)$ where $\pi_X$ and $\pi_Y$ are the projection maps on $X \times Y$.
+Exercise for the reader: verify that $u$ defined this way really is a natural transformation.
+
+Now for the unit.
+$1\_\Set$ of course sends a set $X$ to itself, while $P \Delta$ sends $X$ to $X \times X$.
+So the component of the unit at $X$ must be a mapping
+
+$$
+v_X \colon X \to X \times X
+$$
+
+Simply define $v_X(x) = (x, x)$; again, we leave it to the reader to check that $v$ so defined is a natural transformation.
+
+Finally, we must show that $P$, $\Delta$, $u$, and $v$ satisfy the axioms of an adjunction.
+For each set $X$ we have:
+
+$$
+\begin{align*}
+(u \Delta \circ \Delta v)_X(x_1, x_2) &= y \\
+\end{align*}
+$$
 </div>
