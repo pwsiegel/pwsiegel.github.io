@@ -199,7 +199,7 @@ $$
 Thus $Pu \circ vP = 1\_{\Set^2}$, and the proof is complete.
 </div>
 
-## Adjoints and Graph Theory
+## Adjunctions and Graph Theory
 
 Adjunctions can be used to prove nontrivial results about graph colorings - this post probably contains sufficient background for reading a paper due to [Foniok and Tardif][3] on the subject, for example.
 I may make a pass at explaining some of these results in the future, but for now I will conclude with some simple exercises.
