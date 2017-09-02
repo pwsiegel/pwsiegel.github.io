@@ -129,22 +129,22 @@ $$
 Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)\_D = u\_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
 
 <div class="example">
-Consider the product functor $P \colon \Set \times \Set \to \times \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
+Consider the product functor $P \colon \Set^2 \to \times \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
 In this example we will construct a natural adjoint for $P$.
 
-Specifically, we will show that the functor $\Delta \colon \Set \to \Set \times \Set$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a right adjoint for $P$.
+Specifically, we will show that the functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a right adjoint for $P$.
 ($\Delta$ is called the _diagonal_ functor for $\Set$.)
 In order to do this we must construct a counit and a unit, i.e. natural transformations
 
 $$
-u \colon \Delta P \to 1_{\Set \times \Set} \quad \text{and} \quad v \colon 1_\Set \to P \Delta
+u \colon \Delta P \to 1_{\Set^2} \quad \text{and} \quad v \colon 1_\Set \to P \Delta
 $$
 
 which satisfy the appropriate axioms.
 
 We begin with the counit.
-$\Delta P$ is the functor $\Set \times \Set \to \Set \times \Set$ which sends a pair of sets $(X, Y)$ to the pair $(X \times Y, X \times Y)$.
-On the other hand $1_{\Set \times \Set}(X, Y)$ is just $(X, Y)$.
+$\Delta P$ is the functor $\Set^2 \to \Set^2$ which sends a pair of sets $(X, Y)$ to the pair $(X \times Y, X \times Y)$.
+On the other hand $1_{\Set^2}(X, Y)$ is just $(X, Y)$.
 So the component of the counit at $(X,Y)$ must be a mapping
 
 $$
