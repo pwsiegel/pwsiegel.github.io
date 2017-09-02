@@ -76,9 +76,9 @@ The reader is invited to check that any such function determines a functor $(A, 
 
 <div class="example">
 Consider the integers $\Z$ and the rational numbers $\Q$ equipped with the standard partial ordering $\leq$.
-The inclusion $\Z \to \Q$ which sends an integer $n$ to itself (viewed as the fraction $\frac{n}{1}$) preserves $\leq$ and hence defines a functor from the poset $\Z$ to the poset $\Q$.
+The inclusion $I \colon \Z \to \Q$ which sends an integer $n$ to itself (viewed as the fraction $\frac{n}{1}$) preserves $\leq$ and hence defines a functor from the poset $\Z$ to the poset $\Q$.
 
-Moreover the function $\Q \to \Z$ which rounds down each rational number also preserves $\leq$ and hence defines a functor from $\Q$ to $\Z$.
+Moreover the function $R \colon \Q \to \Z$ which rounds down each rational number also preserves $\leq$ and hence defines a functor from $\Q$ to $\Z$.
 </div>
 
 <div class="exercise">
@@ -114,16 +114,31 @@ A few remarks on notation are in order.
 The symbol $1$ is used in two different ways: $1\_\C$ and $1\_\D$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
 
 The objects $uF$, $Fv$, $Gu$, and $vG$ also require some explanation.
-Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transformation $\mu \colon S \to T$, and a functor $U \colon \mathcal{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon UF \to US$ by:
+Given functors $S, T \colon \mathcal{A} \to \mathcal{B}$ (we depart from our usual notation for functors and categories to avoid confusion with the notation in the definition above), a natural transformation $\mu \colon S \to T$, and a functor $U \colon \mathcal{B} \to \mathcal{Z}$, we can define a new natural transformation $U \mu \colon US \to UT$ by:
 
 $$
-(U \mu)_A = U \mu_A
+(U \mu)_A = U \mu_A \colon US(A) \to UT(A)
 $$
 
-Similarly, given a functor $V \colon \mathcal{Z} \to \mathcal{A}$, we define a natural transformation $\mu V \colon FV \to SV$ by:
+Similarly, given a functor $V \colon \mathcal{Z} \to \mathcal{A}$, we define a natural transformation $\mu V \colon SV \to TV$ by:
 
 $$
-(\mu V)_Z = \mu_{V(Z)}
+(\mu V)_Z = \mu_{V(Z)} \colon SV(Z) \to TV(Z)
 $$
 
 Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)\_D = u\_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
+
+<div class="example">
+View $\Z$ and $\Q$ as posets in the natural way, and let $I \colon \Z \to \Q$ and $R \colon \Q \to \Z$ denote the inclusion and rounding down functors, respectively.
+Let us show that $I$ and $R$ determine an adjoint pair.
+
+To do this we must construct a unit / counit pair for $I$ and $R$:
+
+$$
+u \colon RI \to 1_\Z \quad \text{and} \quad v \colon 1_\Q \to IR 
+$$
+
+The composition $RI$ already is the identity functor on $\Z$, so simply define $u$ to be the identity natural transformation from $1\_\Z$ to itself.
+The composition $IR$ is the "greatest integer" function which sends each rational number $a$ to the largest integer which is no greater than $a$.
+Define 
+</div>
