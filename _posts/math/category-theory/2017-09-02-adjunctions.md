@@ -12,7 +12,7 @@ comments: true
 The promise of category theory is that the right abstractions will help us extend our intuition for simple objects to nontrivial theorems about more complex objects.
 The concept of an adjunction - along with a few other fundamental tools such as limits/colimits or the Yoneda lemma - are critical to actually fulfilling that promise.
 
-Adjunctions are an abstraction of the concept of duality, wherein one transports a problem into a new context where it becomes simpler, solves it, and then transports it back.
+Adjunctions are an abstraction of the concept of duality, wherein one translates a problem into a new context where it becomes simpler, solves it, and then translates the solution back.
 There are fairly elementary examples of this phenomenon in number theory wherein one embeds a problem about integers into the complex numbers and then solves it using tools from analysis.
 The circle of ideas surrounding Crofton's formula, which establishes a dictionary between geometry and probability theory, is another good source of examples.
 And in computer science there are a variety of dualities embedded in the tools that one uses to construct complex transformations between data sets, and certain kinds of adjunctions emerge explicitly to organize these dualities (more on this in a future post).
@@ -66,7 +66,7 @@ whose component at an object $B$ of $\C$ is the morphism $\eta_{E(B)}$.
 </div>
 
 <div class="exercise">
-Show that the natural transformations is the previous two examples - $\theta \circ \eta$, $H \eta$, and $\eta E$ - really are natural transformations.  (In other words, check the compatibility condition in the definition of natural transformation.)
+Show that the natural transformations in the previous two examples - $\theta \circ \eta$, $H \eta$, and $\eta E$ - really are natural transformations.  (In other words, check the compatibility condition in the definition of natural transformation.)
 </div>
 
 ## Definition of Adjunction
@@ -74,7 +74,7 @@ Show that the natural transformations is the previous two examples - $\theta \ci
 We are now ready to define the notion of an adjunction.
 Informally, an adjunction between two categories is a pair of functors between them which are "almost inverses" in a certain precise sense.
 Often adjunctions arise because one seeks a proxy for the inverse of a non-invertible functor, and the adjoint construction is "as close as possible".
-For instance, the inclusion $I \Z \to \Q$ of the integers in to the rational numbers is not invertible, but the pair $I, R$ where $R \colon \Q \to \Z$ is the "rounding down" function determines an adjunction between $\Z$ and $\Q$ (viewed as poset categories - see my post on Galois connections for more detail on this example).
+For instance, the inclusion $I: \Z \to \Q$ of the integers in to the rational numbers is not invertible, but the pair $I, R$ where $R \colon \Q \to \Z$ is the "rounding down" function determines an adjunction between $\Z$ and $\Q$ (viewed as poset categories - see my post on Galois connections for more detail on this example).
 
 <div class="definition">
 Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
@@ -120,7 +120,7 @@ In particular, $(X, Y)$ doesn't have "elements" - sets have elements, not pairs 
 Consider the product functor $P \colon \Set^2 \to \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
 Our aim is to construct an adjoint for $P$.
 
-Specifically, we will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a left adjoint for $P$.
+Specifically, we will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f) = (f, f)$ on morphisms is a left adjoint for $P$.
 In order to do this we must construct a counit and a unit, i.e. natural transformations
 
 $$
@@ -160,7 +160,7 @@ Verify that $v$ as defined above is a natural transformation.
 
 We conclude by showing that $u$ and $v$ give $P$ and $\Delta$ the structure of an adjoint pair.
 
-<div class="exercise">
+<div class="proof">
 The functors $\Delta \colon \Set \to \Set^2$ and $P \colon \Set^2 \to \Set$ together with the natural transformations $u$ and $v$ defined above form an adjunction between $\Set$ and $\Set^2$.
 </div>
 <div class="proof">
@@ -182,7 +182,7 @@ $$
 \end{align*}
 $$
 
-Thus the component of $u \Delta \circ \Delta v)$ at any set $X$ is the identity morphism from $\Delta(X)$ to itself, as desired.
+Thus the component of $u \Delta \circ \Delta v$ at any set $X$ is the identity morphism from $\Delta(X)$ to itself, as desired.
 
 The adjunction identity for $P$ proceeds similarly; the left- and right-hand sides are both natural transformatios from $P$ to itself, so the component of each at a pair $(X, Y)$ is a morphism from $P(X,Y) = X \times Y$ to itself.  We calculate:
 
@@ -201,7 +201,7 @@ Thus $Pu \circ vP = 1\_{\Set^2}$, and the proof is complete.
 
 ## Adjoints and Graph Theory
 
-Adjunctions can be used to prove nontrivial results about graph colorings - this post probably contains sufficient background for reading [Foniok and Tardif][2], for example.
+Adjunctions can be used to prove nontrivial results about graph colorings - this post probably contains sufficient background for reading a paper due to [Foniok and Tardif][2] on the subject, for example.
 I may make a pass at explaining some of these results in the future, but for now I will conclude with some simple exercises.
 
 <div class="exercise">
