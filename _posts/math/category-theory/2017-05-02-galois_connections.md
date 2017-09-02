@@ -129,11 +129,10 @@ $$
 Thus in the setting of the definition above $uF$ is the natural transformation $FGF \to F$ given by $(uF)\_D = u\_{F(D)}$ while $Fv$ is the natural transformation $F \to FGF$ given by $(Fv)_D = Fv_D$, and similarly for $Gu$ and $vG$.
 
 <div class="example">
-Consider the product functor $P \colon \Set^2 \to \times \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
+Consider the product functor $P \colon \Set^2 \to \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
 In this example we will construct a natural adjoint for $P$.
 
-Specifically, we will show that the functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a right adjoint for $P$.
-($\Delta$ is called the _diagonal_ functor for $\Set$.)
+Specifically, we will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f)(x, x) = (f(x), f(x))$ on morphisms is a right adjoint for $P$.
 In order to do this we must construct a counit and a unit, i.e. natural transformations
 
 $$
@@ -164,12 +163,37 @@ $$
 
 Simply define $v_X(x) = (x, x)$; again, we leave it to the reader to check that $v$ so defined is a natural transformation.
 
-Finally, we must show that $P$, $\Delta$, $u$, and $v$ satisfy the axioms of an adjunction.
-For each set $X$ we have:
+Finally, we must show that $P$, $\Delta$, $u$, and $v$ satisfy the adjunction identities:
+
+$$u \Delta \circ \Delta v = 1_\Delta \quad \text{and} \quad P u \circ v P = 1_P$$
+
+Let us begin with the identity for $\Delta$.
+The left- and right-hand sides are both natural transformations from $\Delta$ to itself, so the component of each side at a set $X$ is a morphism from $\Delta(X)$ to itself. 
+But $\Delta(X) = (X, X)$ by definition, so we can evalute the left- and right-hand sides at a point $(x_1, x_2) \in (X, X)$.
 
 $$
 \begin{align*}
-(u \Delta \circ \Delta v)_X(x_1, x_2) &= y \\
+   (u \Delta \circ \Delta v)_X(x_1, x_2) &= u_{\Delta(X)}(\Delta(v_X)(x_1, x_2)) \\
+   &= u_{\Delta(X)}(v_X(x_1), v_X(x_2)) \\
+   &= u_{\Delta(X)}((x_1, x_1), (x_2, x_2)) \\
+   &= u_{(X, X)}((x_1, x_1), (x_2, x_2)) \\
+   &= (x_1, x_2)
 \end{align*}
 $$
+
+Thus the component of $u \Delta \circ \Delta v)$ at any set $X$ is the identity morphism from $\Delta(X)$ to itself, as desired.
+
+The adjunction identity for $P$ proceeds similarly; the left- and right-hand sides are both natural transformatios from $P$ to itself, so the component of each at a pair $(X, Y)$ is a morphism from $P(X,Y) = X \times Y$ to itself.  We calculate:
+
+$$
+\begin{align*}
+   (Pu \circ vP)_{(X,Y)}(x,y) &= P(u_{(X,Y)})(v_{P(X,Y)}(x,y)) \\
+   &= P(u_{(X,Y)})(v_{X \times Y}(x,y)) \\
+   &= P(u_{(X,Y)})((x,y), (x,y)) \\
+   &= u_{(X,Y)}((x,y), (x,y)) \\
+   &= (x,y)
+\end{align*}
+$$
+
+Thus $Pu \circ vP = 1\_{\Set^2}$, and the proof is complete
 </div>
