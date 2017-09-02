@@ -13,8 +13,7 @@ The promise of category theory is that the right abstractions will help us exten
 The concept of an adjunction - along with a few other fundamental tools such as limits/colimits or the Yoneda lemma - are critical to actually fulfilling that promise.
 
 Adjunctions are an abstraction of the concept of duality, wherein one translates a problem into a new context where it becomes simpler, solves it, and then translates the solution back.
-There are fairly elementary examples of this phenomenon in number theory wherein one embeds a problem about integers into the complex numbers and then solves it using tools from analysis.
-The circle of ideas surrounding [Crofton's formula][1], which establishes a dictionary between geometry and probability theory, is another good source of examples.
+This strategy is ubiquitous in algebra and geometry - in number theory, for instance it is standard practice to solve problems about integers by extending them to complex numbers.
 And in computer science there are a variety of dualities embedded in the tools that one uses to construct complex transformations between data sets, and certain kinds of adjunctions emerge explicitly to organize these dualities (more on this in a future post).
 
 That said, working with adjunctions requires great care and patience - there are a variety of different but equivalent definitions in common use, and all of them take some effort to parse.
