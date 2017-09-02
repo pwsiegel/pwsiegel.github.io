@@ -211,5 +211,4 @@ Construct a left adjoint for $F$.
 </div>
 
 
-[1]: {{ site.baseurl }}{% post_url /math/2013-01-07-crofton %} "Buffon's Noodle"
 [3]: https://arxiv.org/pdf/1304.2215.pdf "Adjoint Functors in Graph Theory"
