@@ -210,5 +210,8 @@ Consider the functor $F \colon \textbf{Gph} \to \Set$ which sends a graph to its
 Construct a left adjoint for $F$.
 </div>
 
+{{ site.baseurl }}
+
+
 [1]: {{ site.baseurl }}{% post_url math/2013-01-07-crofton.md %} "Buffon's Noodle"
 [3]: https://arxiv.org/pdf/1304.2215.pdf "Adjoint Functors in Graph Theory"
