@@ -137,7 +137,7 @@ $$
 u_{(X,Y)} \colon (X \times Y, X \times Y) \to (X, Y)
 $$
 
-Define $u\_{(X,Y)}$ to be the pair $(\pi_X, \pi_Y)$ where $\pi_X \colon X \times Y \to X$ and $\pi_Y \colon X \times Y \to Y$ are the projection maps.
+Define $u\_{(X,Y)}$ to be the pair $(\pi_1, \pi_2)$ where $\pi_1 \colon X \times Y \to X$ and $\pi_2 \colon X \times Y \to Y$ are the projection maps on to the first and second factor, respectively.
 
 <div class="exercise">
 Verify that $u$ as defined above is a natural transformation.
@@ -168,34 +168,60 @@ It remains only to verify the adjunction identities:
 $$u \Delta \circ \Delta v = 1_\Delta \quad \text{and} \quad P u \circ v P = 1_P$$
 
 Let us begin with the identity for $\Delta$.
-The left- and right-hand sides are both natural transformations from $\Delta$ to itself, so the component of each side at a set $X$ is a morphism from $\Delta(X)$ to itself. 
-But $\Delta(X) = (X, X)$ by definition, so we can evalute the left- and right-hand sides at a point $(x_1, x_2) \in (X, X)$.
+The left- and right-hand sides are both natural transformations from $\Delta$ to itself, so the component of each side at a set $X$ is a morphism from $\Delta(X) = (X, X)$ to itself. 
+We have:
 
 $$
 \begin{align*}
-   (u \Delta \circ \Delta v)_X(x_1, x_2) &= u_{\Delta(X)}(\Delta(v_X)(x_1, x_2)) \\
-   &= u_{\Delta(X)}(v_X(x_1), v_X(x_2)) \\
-   &= u_{\Delta(X)}((x_1, x_1), (x_2, x_2)) \\
-   &= u_{(X, X)}((x_1, x_1), (x_2, x_2)) \\
-   &= (x_1, x_2)
+   (u \Delta \circ \Delta v)_X &= u_{\Delta(X)} \circ \Delta(v_X) \\
+   &= u_{(X, X)} \circ (v_X, v_X) \\
+   &= (\pi_1, \pi_2) \circ (v_X, v_X) \\
+   &= (\pi_1 \circ v_X, \pi_2 \circ v_X)
 \end{align*}
 $$
 
-Thus the component of $u \Delta \circ \Delta v$ at any set $X$ is the identity morphism from $\Delta(X)$ to itself, as desired.
+For any point $x \in X$ we have:
+
+$$
+(\pi_1 \circ v_X)(x) = \pi_1(x, x) = x
+$$
+
+and similarly for $\pi_2 \circ v_X$, so we conclude:
+
+$$
+(u \Delta \circ \Delta v)_X = (1_X, 1_X) = 1_{(X,X)} = 1_{\Delta(X)}
+$$
+
+as desired.
 
 The adjunction identity for $P$ proceeds similarly; the left- and right-hand sides are both natural transformatios from $P$ to itself, so the component of each at a pair $(X, Y)$ is a morphism from $P(X,Y) = X \times Y$ to itself.  We calculate:
 
 $$
 \begin{align*}
-   (Pu \circ vP)_{(X,Y)}(x,y) &= P(u_{(X,Y)})(v_{P(X,Y)}(x,y)) \\
-   &= P(u_{(X,Y)})(v_{X \times Y}(x,y)) \\
-   &= P(u_{(X,Y)})((x,y), (x,y)) \\
-   &= u_{(X,Y)}((x,y), (x,y)) \\
-   &= (x,y)
+   (Pu \circ vP)_{(X,Y)} &= P(u_{(X,Y)}) \circ v_{P(X,Y)} \\
+   &= P(\pi_1, \pi_2) \circ v_{X \times Y} \\
+	&= \pi_1 \times \pi_2 \circ v_{X \times Y}
 \end{align*}
 $$
 
-Thus $Pu \circ vP = 1\_{\Set^2}$, and the proof is complete.
+For any point $(x, y) \in X \times Y$ we have:
+
+$$
+\begin{align*}
+	(\pi_1 \times \pi_2 \circ v_{X \times Y})(x,y) &= \pi_1 \times \pi_2(v_{X \times Y}(x,y)) \\
+	&= \pi_1 \times \pi_2((x,y), (x,y)) \\
+	&= (\pi_1(x,y), \pi_2(x,y)) \\
+	&= (x, y)
+\end{align*}
+$$ 
+
+Thus:
+
+$$
+(Pu \circ vP)_{(X,Y)} = 1_{X \times Y} = 1_{P(X,Y)}
+$$ 
+
+This completes the proof.
 </div>
 
 ## Adjunctions and Graph Theory

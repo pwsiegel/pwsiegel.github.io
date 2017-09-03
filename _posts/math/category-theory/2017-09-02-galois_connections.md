@@ -86,6 +86,10 @@ Let $\phi \colon G_1 \to G_2$ be a homomorphism between directed acyclic graphs 
 Show that $\phi_V$ is a functor of posets where $V_1$ and $V_2$ are equipped with the partial ordering defined in the previous exercise.
 </div>
 
-## Galois Connections
+## Adjunctions between Posets
+
+
+
+
 
 
