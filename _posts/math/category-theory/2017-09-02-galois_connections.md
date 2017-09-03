@@ -35,7 +35,7 @@ Define a relation $\leq$ on the vertex set of $G$ by declaring that $v \leq w$ i
 Show that $\leq$ is a partial ordering if and only if $G$ is acyclic.
 </div>
 
-Posets admit a natural category structure as we shall see below, and they provide a convenient source of examples for coming to terms with categorical structures like adjoints and monads.  
+Posets admit a natural category structure as we shall see below, and they provide a convenient source of examples for coming to terms with categorical structures like adjoints and monads.
 In this post we will introduce the notion of a _Galois connection_ (viewed as an adjunction between two posets) and briefly discuss an application to the theory of abstract interpretation in computer science.
 
 ## Posets as categories
