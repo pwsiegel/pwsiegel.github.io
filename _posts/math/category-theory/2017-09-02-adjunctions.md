@@ -159,7 +159,7 @@ Verify that $v$ as defined above is a natural transformation.
 
 We conclude by showing that $u$ and $v$ give $P$ and $\Delta$ the structure of an adjoint pair.
 
-<div class="proof">
+<div class="proposition">
 The functors $\Delta \colon \Set \to \Set^2$ and $P \colon \Set^2 \to \Set$ together with the natural transformations $u$ and $v$ defined above form an adjunction between $\Set$ and $\Set^2$.
 </div>
 <div class="proof">
