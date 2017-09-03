@@ -9,6 +9,16 @@ categories: category-theory
 comments: true
 ---
 
+Comparing is one of the most fundamental operations in mathematics and computer science: numbers can be compared by value, strings can be compared lexicographically, sets can be compared by containment, vertices in DAG's can be compared by ancestry, and so on.
+A _partial ordering_ is the minimal amount of structure required to make these sorts of comparisons.
+There is often great insight to be gained by studying the interactions between different kinds of comparison: for instance, if one programming language has _more_ restrictive syntax than another then one expects that it will be _less_ expressive in an an appropriate sense.
+
+The aim of this post is to introduce a theoretical tool called a _Galois connection_ for organizing the interactions between different partial orderings.  
+After defining the notion of a partial ordering carefully, we will provide a partially ordered set with the structure of a category and then use categorical adjunctions as a tool to introduce the notion of a Galois connection between partially ordered sets.
+We will conclude with a few simple examples and some references to applications in the literature.
+
+## Posets
+
 Consider the set $\Z$ of all integers and the set $\Q$ of all rational numbers (i.e. ratios of integers).
 These sets each come equipped with a relation $\leq$, where in both sets $a_1 \leq a_2$ simply means that $a_1$ is less than or equal to $a_2$.
 This relation is satisfies a few simple axioms:
@@ -109,8 +119,10 @@ Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.
 A _Galois connection_ between $A$ and $B$ is an adjunction between $A$ and $B$ viewed as categories via their poset structures.
 </div>
 
-An adjunction between two categories consists of a pair of functors between them with some extra structure.
-We saw above that functors between posets admit a particularly simple characterization in terms of the partial ordering, and our next task is to extend this characterization to a more concrete description of Galois connections.
+In the literature it is common to make a distinction between _monotone_ and _antitone_ Galois connections because it is typical for a Galois connection to transform increasing sequences in $A$ into decreasing sequences in $B$.
+(This is the case in the original application to Galois theory, for instance.)
+But from the point of view expressed here a decreasing sequence in $B$ is just an increasing sequence in $B$ with the partial ordering reversed, or equivalently in the opposite category $B^{op}$.
+So we have suppressed the distinction in the formal definition with the understanding that some care must be taken to choose the correct partial ordering in applications.
 
 ## Galois connections made easier
 
