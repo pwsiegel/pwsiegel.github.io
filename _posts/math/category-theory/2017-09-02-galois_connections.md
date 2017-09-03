@@ -13,8 +13,8 @@ Comparing is one of the most fundamental operations in mathematics and computer 
 A _partial ordering_ is the minimal amount of structure required to make these sorts of comparisons.
 There is often great insight to be gained by studying the interactions between different kinds of comparison: for instance, if one programming language has _more_ restrictive syntax than another then one expects that it will be _less_ expressive in an an appropriate sense.
 
-The aim of this post is to introduce a theoretical tool called a _Galois connection_ for organizing the interactions between different partial orderings.  
-After defining the notion of a partial ordering carefully, we will provide a partially ordered set with the structure of a category and then use categorical adjunctions as a tool to introduce the notion of a Galois connection between partially ordered sets.
+The aim of this post is to introduce a theoretical tool called a _Galois connection_ for organizing the interactions between different partial orderings.
+After defining the notion of a partial ordering carefully, we will provide a partially ordered set with the structure of a category and then define the notion of a Galois connection using the concept of an adjunction between categories.
 We will conclude with a few simple examples and some references to applications in the literature.
 
 ## Posets
@@ -131,7 +131,7 @@ We saw in a previous section that $F$ and $G$ can be viewed as functors between 
 The question we aim to answer here is: when do $F$ and $G$ form an adjunction (and therefore a Galois connection)?
 
 The definition of adjunction provides a quick answer: there must exist a certain pair of natural transformations with certain properties.
-The content of the next result is to express this in the more down-to-earth language of partial orderings.
+But the definition of adjunction can be a bit obtuse, so the goal of the next result is to translate it into the more down-to-earth language of partial orderings.
 
 <div class="proposition">
 Let $F$ and $G$ be partial-order-preserving functions between posets $A$ and $B$ as above.  Then $F$ and $G$ form a Galois connection if and only if
