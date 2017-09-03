@@ -152,7 +152,7 @@ A similar argument shows that $a \leq_A G(b)$ implies $F(a) \leq_B b$ as well, s
 
 Conversely, suppose $F$ and $G$ satisfy the condition \eqref{gal_connection}; we aim to prove that they form a Galois connection.
 
-For any $b \in B$ we have $G(b) \leq_A G(b)$ by reflexivity, so by \eqref{gal_connection} we have $F(G(b)) \leq b$.
+For any $b \in B$ we have $G(b) \leq_A G(b)$ by reflexivity, so by \eqref{gal_connection} we have $F(G(b)) \leq_B b$.
 By the definition of the category structure on $B$ this means there is a unique morphism from $F(G(b))$ to $b$.
 Call this morphism $u_b$; let us show that the $u_b$'s together form a natural transformation $u \colon FG \to 1_B$.
 
@@ -161,7 +161,7 @@ To do this we must check that for any morphism $f \colon b_1 \to b_2$ we have:
 $$u_{b_2} \circ FG(f) = 1_B(f) \circ u_{b_1}$$
 
 $FG(f)$ is the unique morphism from $FG(b_1)$ to $FG(b_2)$, so $u\_{b_2} \circ FG(f)$ is the unique morphism from $FG(b_1)$ to $b_2$.
-On the right-hand side, $1_b(f)$ is just $f$ and $u_{b_1}$ is the unique morphism from $FG(b_1)$ to $FG(b_2)$, so the composition is again the unique morphism from $FG(b_1)$ to $b_2$.
+On the right-hand side, $1_b(f)$ is just $f$ and $u\_{b_1}$ is the unique morphism from $FG(b_1)$ to $FG(b_2)$, so the composition is again the unique morphism from $FG(b_1)$ to $b_2$.
 This proves that $u$ is indeed a natural transformation; it will be the counit of the adjunction between $F$ and $G$.
 
 The construction of the unit $v$ is similar: for any $a \in A$ we have $F(a) \leq_A F(a)$ by reflexivity, and so $a \leq_A G(F(a))$ by \eqref{gal_connection}.
@@ -169,9 +169,9 @@ So we can define $v_a$ to be the unique moprhism from $a$ to $G(F(a))$, and we l
 
 It remains only to show that $F$, $G$, $u$, and $v$ satisfy the adjunction identies; we shall prove the identity $uF \circ Fv = 1_F$ here and leave the identity $Gu \circ vG = 1_G$ to the reader.
 
-Working component-wise, recall that $(uF \circ Fv)_a = u_{F(a)} \circ F(v_a)$.
+Working component-wise, recall that $(uF \circ Fv)_a = u\_{F(a)} \circ F(v_a)$.
 $v_a$ is by definition the unique morphism from $a$ to $G(F(a))$, so $F(v_a)$ is the unique morphism from $F(a)$ to $F(G(F(a)))$.
-On the other hand $u_{F(a)}$ is by definition the unique morphism from $F(G(F(a)))$ to $F(a)$, so the composition $u_{F(a)} \circ F(v_a)$ is the unique morphism from $F(a)$ to itself, as desired.
+On the other hand $u\_{F(a)}$ is by definition the unique morphism from $F(G(F(a)))$ to $F(a)$, so the composition $u\_{F(a)} \circ F(v_a)$ is the unique morphism from $F(a)$ to itself, as desired.
 </div>
 
 
