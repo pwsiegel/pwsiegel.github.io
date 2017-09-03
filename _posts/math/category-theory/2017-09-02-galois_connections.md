@@ -116,7 +116,7 @@ One of the main slogans in category theory is that behind every duality lurks an
 
 <div class="definition">
 Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.
-A _Galois connection_ between $A$ and $B$ is an adjunction between $A$ and $B$ viewed as categories via their poset structures.
+A _Galois connection_ between $A$ and $B$ is an [adjunction][1] between $A$ and $B$ viewed as categories via their poset structures.
 </div>
 
 In the literature it is common to make a distinction between _monotone_ and _antitone_ Galois connections because it is typical for a Galois connection to transform increasing sequences in $A$ into decreasing sequences in $B$.
