@@ -56,7 +56,7 @@ $$
 h \circ (g \circ f) \quad \text{and} \quad (h \circ g) \circ f
 $$
 
-These compositions are equal since each are the unique morphism from $a_1$ to $a_4$.
+These compositions are equal since each is the unique morphism from $a_1$ to $a_4$.
 
 - **Identity**
 
