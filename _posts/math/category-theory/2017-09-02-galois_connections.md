@@ -92,7 +92,7 @@ Before diving into the notion of a Galois connection, it might be worth explaini
 
 Galois theory is a set of tools used in abstract algebra to understand the roots of a polynomial equation.
 It works by using symmetry (the theory of groups) to understand the number systems (the theory of fields) which are obtained by adjoining the roots of such an equation.
-For instance, if one adjoins the roots of the polynomial $x^2 - 2$ to the field $\Q$ of rational numbers then one obtains a larger field $\Q[\sqrt{2}]$ which differs from $\Q$ by a single nontrivial symmetry: the one which exchanges $\sqrt{2}$ with $-\sqrt{2}$.  
+For instance, if one adjoins the roots of the polynomial $x^2 - 2$ to the field $\Q$ of rational numbers then one obtains a larger field $\Q[\sqrt{2}]$ which differs from $\Q$ by a single nontrivial symmetry: the one which exchanges $\sqrt{2}$ with $-\sqrt{2}$.
 In this sense, the cyclic group $C_2$ of order 2 (containing the identity and one nontrivial symmetry) captures the structure of the solutions to the equation $x^2 - 2 = 0$ with respect to $\Q$.
 
 This can be taken further.
@@ -105,7 +105,7 @@ So the fundamental theorem of Galois theory can be expressed as a certain dualit
 One of the main slogans in category theory is that behind every duality lurks an adjunction, and in honor of Galois theory we arrive at the following definition:
 
 <div class="definition">
-Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.  
+Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.
 A _Galois connection_ between $A$ and $B$ is an adjunction between $A$ and $B$ viewed as categories via their poset structures.
 </div>
 
@@ -174,11 +174,31 @@ $v_a$ is by definition the unique morphism from $a$ to $GF(a)$, so $F(v_a)$ is t
 On the other hand $u\_{F(a)}$ is by definition the unique morphism from $FGF(a)$ to $F(a)$, so the composition $u\_{F(a)} \circ F(v_a)$ is the unique morphism from $F(a)$ to itself, as desired.
 </div>
 
+<div class="example">
+Let $I \colon \Z \to \Q$ and $R \colon \Q \to \Z$ be the inclusion and rounding down maps, respectively.
+Given an integer $n$ and a rational number $r$, we have that $I(n) \leq r$ implies $RI(n) \leq R(r)$ which in turn implies that $n \leq R(r)$.
+Conversely $n \leq R(r)$ implies that $I(n) \leq IR(r)$, but $IR(r) \leq r$ by definition of $R$ and thus $I(n) \leq r$.
+By the previous proposition, $I$ and $R$ form a Galois connection.
+</div>
 
+## Applications
 
+Galois connections show up all over the place in mathematics, and they appear quite a bit in computer science as well.
+In a future post I will use them as a source of examples of monads; for now I will provide a simple exercise involving graph theory and some references to the literature for further applications.
 
+<div class="exercise">
+Let $G$ be a directed acyclic graph and let $\leq$ denote the partial ordering on its vertex set $V$ defined above.
+Let $H$ be a subgraph of $G$, and let $I \colon H \to G$ be the inclusion homomorphism.
+Construct a right adjoint for the restriction of $I$ to the vertex set of $H$.
+</div>
 
+A couple applications oriented toward computer science:
+
+- [Widening Operators for Abstract Interpretation][2] - Cortesi: Abstract interpretation is a technique for understanding the semantics of a computer program without having to execute it.  Many modern approaches are very heavily organized around Galois connections.
+
+- [The Galois Connection between Syntax and Symantics][3] - Smith: There is a slogan in logic due to Lawvere: "Syntax and Semantics are adjoint".  Roughly, there is a functor which sends an axiomatic system to the set of all structures which satisfy it, and another functor which sends a set of structures to its minimal axiomatization.  The set of all axiomatic systems and the power set of all mathematical structures are both posets, and these functors form a Galois connection.
 
 
 [1]: {{ site.baseurl }}{% post_url math/category-theory/2017-09-02-adjunctions %} "Adjunctions"
-
+[2]: http://www.dsi.unive.it/~cortesi/paperi/sefm08.pdf "Widening Operators for Abstract Interpretation"
+[3]: http://www.logicmatters.net/resources/pdfs/Galois.pdf "The Galois Connection between Syntax and Symantics"
