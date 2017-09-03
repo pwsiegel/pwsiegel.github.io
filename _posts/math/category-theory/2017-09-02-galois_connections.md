@@ -17,7 +17,7 @@ This relation is satisfies a few simple axioms:
 2. Antisymmetry: if $a_1 \leq a_2$ and $a_2 \leq a_1$ then $a_1 = a_2$
 3. Transitivity: if $a_1 \leq a_2$ and $a_2 \leq a_3$ then $a_1 \leq a_3$
 
-A relation $\leq$ on a set $S$ which satisfies these three properties is called a *partial ordering* on $S$, and $S$ equipped with $\leq$ is called a *poset* (short for "partially ordered set").
+A relation $\leq$ on a set $A$ which satisfies these three properties is called a *partial ordering* on $A$, and $A$ equipped with $\leq$ is called a *poset* (short for "partially ordered set").
 
 <div class="exercise">
 Let $G$ be a simple graph.
@@ -32,8 +32,8 @@ In this post we will introduce the notion of a _Galois connection_ (viewed as an
 
 The main point of this post is that any poset has the structure of a category, and that it can be useful and interesting to view it as such.
 
-So let $(S, \leq)$ be a poset.
-Consider the category (which, abusing notation, we will also refer to as $S$) whose objects are the elements of $S$ and which has exactly one morphism from $a_1$ to $a_2$ whenever $a_1 \leq a_2$.
+So let $(A, \leq)$ be a poset.
+Consider the category (which, abusing notation, we will also refer to as $A$) whose objects are the elements of $A$ and which has exactly one morphism from $a_1$ to $a_2$ whenever $a_1 \leq a_2$.
 We define composition as follows: if $f \colon a_1 \to a_2$ and $g \colon a_2 \to a_3$ are morphisms then by definition $a_1 \leq a_2$ and $a_2 \leq a_3$, so by transitivity $a_1 \leq a_3$ and thus we can define the composition $g \circ f$ to be the unique morphism from $a_1$ to $a_3$.
 
 Let us check that these objects and morphisms really do determine a category; in other words, we must show that composition is associative and that each object has an identity morphism.
@@ -86,10 +86,99 @@ Let $\phi \colon G_1 \to G_2$ be a homomorphism between directed acyclic graphs 
 Show that $\phi_V$ is a functor of posets where $V_1$ and $V_2$ are equipped with the partial ordering defined in the previous exercise.
 </div>
 
-## Adjunctions between Posets
+## Galois connections - background
+
+Before diving into the notion of a Galois connection, it might be worth explaining the terminology a bit.
+
+Galois theory is a set of tools used in abstract algebra to understand the roots of a polynomial equation.
+It works by using symmetry (the theory of groups) to understand the number systems (the theory of fields) which are obtained by adjoining the roots of such an equation.
+For instance, if one adjoins the roots of the polynomial $x^2 - 2$ to the field $\Q$ of rational numbers then one obtains a larger field $\Q[\sqrt{2}]$ which differs from $\Q$ by a single nontrivial symmetry: the one which exchanges $\sqrt{2}$ with $-\sqrt{2}$.  
+In this sense, the cyclic group $C_2$ of order 2 (containing the identity and one nontrivial symmetry) captures the structure of the solutions to the equation $x^2 - 2 = 0$ with respect to $\Q$.
+
+This can be taken further.
+Suppose a field $L$ is obtained from $\Q$ by adjoining the roots of a polynomial.
+Under some additional mild technical assumptions, $L$ is called a _Galois extension_ of $\Q$ and $L$ has a Galois group $G$ which captures its symmetries with respect to $\Q$.
+In this case the fundamental theorem of Galois theory says that there is a perfect correspondence between the intermediate subfields $\Q \subseteq K \subseteq L$ of $L$ and subgroups $G \supseteq H \supseteq 1$ of the Galois group, yielding a powerful tool for understanding the solutions of a complex polynomial equation.
+
+Now, the set of all intermediate fields between $\Q$ and $L$ is partially ordered by the containment relation $\subseteq$, as is the set of all subgroups of a group $G$.
+So the fundamental theorem of Galois theory can be expressed as a certain duality relationship between the poset of intermediate field extensions and the poset of subgroups of the Galois group.
+One of the main slogans in category theory is that behind every duality lurks an adjunction, and in honor of Galois theory we arrive at the following definition:
+
+<div class="definition">
+Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.  
+A _Galois connection_ between $A$ and $B$ is an adjunction between $A$ and $B$ viewed as categories via their poset structures.
+</div>
+
+An adjunction between two categories consists of a pair of functors between them with some extra structure.
+We saw above that functors between posets admit a particularly simple characterization in terms of the partial ordering, and our next task is to extend this characterization to a more concrete description of Galois connections.
+
+## Galois connections made easier
+
+Let $F \colon A \to B$ and $G \colon B \to A$ be functions between posets $(A, \leq_A)$ and $(B, \leq_B)$ which preserve the partial orderings.
+We saw in a previous section that $F$ and $G$ can be viewed as functors between $A$ and $B$ equipped with their natural category structure.
+The question we aim to answer here is: when do $F$ and $G$ form an adjunction (and therefore a Galois connection)?
+
+The definition of adjunction provides a quick answer: there must exist a certain pair of natural transformations with certain properties.
+The content of the next result is to express this in the more down-to-earth language of partial orderings.
+
+<div class="proposition">
+Let $F$ and $G$ be partial-order-preserving functions between posets $A$ and $B$ as above.  Then $F$ and $G$ form a Galois connection if and only if
+
+$$
+\begin{equation} \label{gal_connection}
+   F(a) \leq_B b \iff a \leq_A G(b)
+\end{equation}
+$$
+
+for all $a \in A$, $b \in B$.
+</div>
+<div class="proof">
+To begin, assume that $F$ and $G$ form a Galois connection.
+This means there is a counit / unit pair of natural transformations:
+
+$$
+u \colon FG \to 1_B \quad \text{and} \quad v \colon 1_A \to GF
+$$
+
+satisfying the adjunction identities $uF \circ Fv = 1_F$ and $Gu \circ vG = 1_G$.
+The component of $u$ at an object of $B$ (i.e. a point $b \in B$) is a morphism $u_b \colon F(G(b)) \to b$.
+The existence of this morphism is equivalent to the statement that $F(G(b)) \leq_B b$, so the existence of $u$ is equivalent to the statement that this inequality holds for all $b \in B$.
+Similarly, the existence of $v$ is equivalent to the statement that $a \leq_A G(F(a))$ for all $a \in A$.
+
+Now, take $a \in A$ and $b \in B$ such that $F(a) \leq_B b$.
+Since $G$ preserves $\leq_B$ we have $G(F(a)) \leq_A G(b)$, and since $a \leq_A G(F(a))$ we get that $a \leq_A G(b)$ by transitivity.
+A similar argument shows that $a \leq_A G(b)$ implies $F(a) \leq_B b$ as well, so we have shown that every Galois connection satisfies the condition \eqref{gal_connection}.
+(We did not need to use the adjunction identities - only the existence of the counit/unit pair.)
+
+Conversely, suppose $F$ and $G$ satisfy the condition \eqref{gal_connection}; we aim to prove that they form a Galois connection.
+
+For any $b \in B$ we have $G(b) \leq_A G(b)$ by reflexivity, so by \eqref{gal_connection} we have $F(G(b)) \leq b$.
+By the definition of the category structure on $B$ this means there is a unique morphism from $F(G(b))$ to $b$.
+Call this morphism $u_b$; let us show that the $u_b$'s together form a natural transformation $u \colon FG \to 1_B$.
+
+To do this we must check that for any morphism $f \colon b_1 \to b_2$ we have:
+
+$$u_{b_2} \circ FG(f) = 1_B(f) \circ u_{b_1}$$
+
+$FG(f)$ is the unique morphism from $FG(b_1)$ to $FG(b_2)$, so $u\_{b_2} \circ FG(f)$ is the unique morphism from $FG(b_1)$ to $b_2$.
+On the right-hand side, $1_b(f)$ is just $f$ and $u_{b_1}$ is the unique morphism from $FG(b_1)$ to $FG(b_2)$, so the composition is again the unique morphism from $FG(b_1)$ to $b_2$.
+This proves that $u$ is indeed a natural transformation; it will be the counit of the adjunction between $F$ and $G$.
+
+The construction of the unit $v$ is similar: for any $a \in A$ we have $F(a) \leq_A F(a)$ by reflexivity, and so $a \leq_A G(F(a))$ by \eqref{gal_connection}.
+So we can define $v_a$ to be the unique moprhism from $a$ to $G(F(a))$, and we leave it to the reader to verify that these morphisms assemble to form a natural transformation $v \colon 1_A \to GF$.
+
+It remains only to show that $F$, $G$, $u$, and $v$ satisfy the adjunction identies; we shall prove the identity $uF \circ Fv = 1_F$ here and leave the identity $Gu \circ vG = 1_G$ to the reader.
+
+Working component-wise, recall that $(uF \circ Fv)_a = u_{F(a)} \circ F(v_a)$.
+$v_a$ is by definition the unique morphism from $a$ to $G(F(a))$, so $F(v_a)$ is the unique morphism from $F(a)$ to $F(G(F(a)))$.
+On the other hand $u_{F(a)}$ is by definition the unique morphism from $F(G(F(a)))$ to $F(a)$, so the composition $u_{F(a)} \circ F(v_a)$ is the unique morphism from $F(a)$ to itself, as desired.
+</div>
 
 
 
 
 
+
+
+[1]: {{ site.baseurl }}{% post_url math/category-theory/2017-09-02-adjunctions %} "Adjunctions"
 
