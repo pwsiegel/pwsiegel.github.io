@@ -206,9 +206,9 @@ Construct a right adjoint for the restriction of $I$ to the vertex set of $H$.
 
 A couple applications oriented toward computer science:
 
-- [Widening Operators for Abstract Interpretation][2] - Cortesi: Abstract interpretation is a technique for understanding the semantics of a computer program without having to execute it.  Many modern approaches are very heavily organized around Galois connections.
+- [Widening Operators for Abstract Interpretation][2](Cortesi): Abstract interpretation is a technique for understanding the semantics of a computer program without having to execute it.  Many modern approaches are very heavily organized around Galois connections.
 
-- [The Galois Connection between Syntax and Symantics][3] - Smith: There is a slogan in logic due to Lawvere: "Syntax and Semantics are adjoint".  Roughly, there is a functor which sends an axiomatic system to the set of all structures which satisfy it, and another functor which sends a set of structures to its minimal axiomatization.  The set of all axiomatic systems and the power set of all mathematical structures are both posets, and these functors form a Galois connection.
+- [The Galois Connection between Syntax and Symantics][3](Smith): There is a slogan in logic due to Lawvere: "Syntax and Semantics are adjoint".  Roughly, there is a functor which sends an axiomatic system to the set of all structures which satisfy it, and another functor which sends a set of structures to its minimal axiomatization.  The set of all axiomatic systems and the power set of all mathematical structures are both posets, and these functors form a Galois connection.
 
 
 [1]: {{ site.baseurl }}{% post_url math/category-theory/2017-09-02-adjunctions %} "Adjunctions"
