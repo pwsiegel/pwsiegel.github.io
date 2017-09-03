@@ -73,7 +73,7 @@ Show that the natural transformations in the previous two examples - $\theta \ci
 We are now ready to define the notion of an adjunction.
 Informally, an adjunction between two categories is a pair of functors between them which are "almost inverses" in a certain precise sense.
 Often adjunctions arise because one seeks a proxy for the inverse of a non-invertible functor, and the adjoint construction is "as close as possible".
-For instance, the inclusion $I: \Z \to \Q$ of the integers in to the rational numbers is not invertible, but the pair $I, R$ where $R \colon \Q \to \Z$ is the "rounding down" function determines an adjunction between $\Z$ and $\Q$ (viewed as poset categories - see my post on Galois connections for more detail on this example).
+For instance, the inclusion $I: \Z \to \Q$ of the integers in to the rational numbers is not invertible, but the pair $I, R$ where $R \colon \Q \to \Z$ is the "rounding down" function determines an adjunction between $\Z$ and $\Q$ (viewed as poset categories - see my post on [Galois connections][1] for more detail on this example).
 
 <div class="definition">
 Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
@@ -235,5 +235,5 @@ Consider the functor $F \colon \textbf{Gph} \to \Set$ which sends a graph to its
 Construct a left adjoint for $F$.
 </div>
 
-
+[1]: {{ site.baseurl }}{% post_url math/category-theory/2017-09-02-galois_connections %} "Galois Connections"
 [3]: https://arxiv.org/pdf/1304.2215.pdf "Adjoint Functors in Graph Theory"
