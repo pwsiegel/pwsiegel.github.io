@@ -5,7 +5,7 @@ title: Measurement in Data Science
 abstract: 
 level: low
 date: 2017-09-08
-categories: data_science
+categories: stage
 comments: true
 ---
 
