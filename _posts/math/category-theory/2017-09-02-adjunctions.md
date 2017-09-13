@@ -79,31 +79,31 @@ For instance, the inclusion $I: \Z \to \Q$ of the integers in to the rational nu
 Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
 
 $$
-u \colon FG \to 1_\C \quad \text{and} \quad v \colon 1_\D \to GF
+u \colon 1_\D \to GF \quad \text{and} \quad v \colon FG \to 1_\C 
 $$
 
 which satisfy the following identities:
 
 $$
-uF \circ Fv = 1_F \quad \text{and} \quad Gu \circ vG = 1_G
+vF \circ Fu = 1_F \quad \text{and} \quad Gv \circ uG = 1_G
 $$
 
-$F$ is said to be the _left adjoint_ of $G$ and $G$ is said to be the _right adjoint_ of $F$.  The natural transformations $u$ and $v$ are called the _counit_ and _unit_ of the adjunction, respectively.
+$F$ is said to be the **left adjoint** of $G$ and $G$ is said to be the **right adjoint** of $F$.  The natural transformations $u$ and $v$ are called the **unit** and **counit** of the adjunction, respectively.
 </div>
 
 Note that the symbol $1$ is used in two different ways: $1\_\C$ and $1\_\D$ are the identity functors for the categories $\C$ and $\D$, respectively, whereas $1_F$ and $1_G$ are the identity natural transformations for $F$ and $G$, respectively.
 
 Let us take a moment to unravel the adjunction identities a little bit before moving on to an example.
-The component of the natural transformation $uF \circ Fv$ at an object $D$ in $\D$ is by definition:
+The component of the natural transformation $vF \circ Fu$ at an object $D$ in $\D$ is by definition:
 
 $$
-(uF \circ Fv)_D = (uF)_D \circ (Fv)_D = u_{F(D)} \circ F(v_D)
+(vF \circ Fu)_D = (vF)_D \circ (Fu)_D = v_{F(D)} \circ F(u_D)
 $$
 
 Similarly, for any object $C$ in $\C$ we have:
 
 $$
-(Gu \circ vG)_C = (Gu)_C \circ (vG)_C = G(u_C) \circ v_{G(C)}
+(Gv \circ vG)_C = (Gv)_C \circ (uG)_C = G(v_C) \circ u_{G(C)}
 $$
 
 ## Example: Products and Diagonals
@@ -120,10 +120,10 @@ Consider the product functor $P \colon \Set^2 \to \Set$ defined by $P(X,Y) = X \
 Our aim is to construct an adjoint for $P$.
 
 Specifically, we will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f) = (f, f)$ on morphisms is a left adjoint for $P$.
-In order to do this we must construct a counit and a unit, i.e. natural transformations
+In order to do this we must construct a unit and a counit, i.e. natural transformations
 
 $$
-u \colon \Delta P \to 1_{\Set^2} \quad \text{and} \quad v \colon 1_\Set \to P \Delta
+u \colon 1_\Set \to P \Delta \quad \text{and} \quad v \colon \Delta P \to 1_{\Set^2}
 $$
 
 which satisfy the appropriate axioms.
@@ -134,13 +134,13 @@ On the other hand $1_{\Set^2}(X, Y)$ is just $(X, Y)$.
 So the component of the counit at $(X,Y)$ must be a morphism
 
 $$
-u_{(X,Y)} \colon (X \times Y, X \times Y) \to (X, Y)
+v_{(X,Y)} \colon (X \times Y, X \times Y) \to (X, Y)
 $$
 
-Define $u\_{(X,Y)}$ to be the pair $(\pi_1, \pi_2)$ where $\pi_1 \colon X \times Y \to X$ and $\pi_2 \colon X \times Y \to Y$ are the projection maps on to the first and second factor, respectively.
+Define $v\_{(X,Y)}$ to be the pair $(\pi_1, \pi_2)$ where $\pi_1 \colon X \times Y \to X$ and $\pi_2 \colon X \times Y \to Y$ are the projection maps on to the first and second factor, respectively.
 
 <div class="exercise">
-Verify that $u$ as defined above is a natural transformation.
+Verify that $v$ as defined above is a natural transformation.
 </div>
 
 Now for the unit.
@@ -148,13 +148,13 @@ $1\_\Set$ of course sends a set $X$ to itself, while $P \Delta$ sends $X$ to $X 
 So the component of the unit at $X$ must be a mapping
 
 $$
-v_X \colon X \to X \times X
+u_X \colon X \to X \times X
 $$
 
-Simply define $v_X(x) = (x, x)$, the "diagonal function".
+Simply define $u_X(x) = (x, x)$, the "diagonal function".
 
 <div class="exercise">
-Verify that $v$ as defined above is a natural transformation.
+Verify that $u$ as defined above is a natural transformation.
 </div>
 
 We conclude by showing that $u$ and $v$ give $P$ and $\Delta$ the structure of an adjoint pair.
@@ -165,7 +165,7 @@ The functors $\Delta \colon \Set \to \Set^2$ and $P \colon \Set^2 \to \Set$ toge
 <div class="proof">
 It remains only to verify the adjunction identities:
 
-$$u \Delta \circ \Delta v = 1_\Delta \quad \text{and} \quad P u \circ v P = 1_P$$
+$$v \Delta \circ \Delta u = 1_\Delta \quad \text{and} \quad P v \circ u P = 1_P$$
 
 Let us begin with the identity for $\Delta$.
 The left- and right-hand sides are both natural transformations from $\Delta$ to itself, so the component of each side at a set $X$ is a morphism from $\Delta(X) = (X, X)$ to itself. 
@@ -173,23 +173,23 @@ We have:
 
 $$
 \begin{align*}
-   (u \Delta \circ \Delta v)_X &= u_{\Delta(X)} \circ \Delta(v_X) \\
-   &= u_{(X, X)} \circ (v_X, v_X) \\
-   &= (\pi_1, \pi_2) \circ (v_X, v_X) \\
-   &= (\pi_1 \circ v_X, \pi_2 \circ v_X)
+   (v \Delta \circ \Delta u)_X &= v_{\Delta(X)} \circ \Delta(u_X) \\
+   &= v_{(X, X)} \circ (u_X, u_X) \\
+   &= (\pi_1, \pi_2) \circ (u_X, u_X) \\
+   &= (\pi_1 \circ u_X, \pi_2 \circ u_X)
 \end{align*}
 $$
 
 For any point $x \in X$ we have:
 
 $$
-(\pi_1 \circ v_X)(x) = \pi_1(x, x) = x
+(\pi_1 \circ u_X)(x) = \pi_1(x, x) = x
 $$
 
-and similarly for $\pi_2 \circ v_X$, so we conclude:
+and similarly for $\pi_2 \circ u_X$, so we conclude:
 
 $$
-(u \Delta \circ \Delta v)_X = (1_X, 1_X) = 1_{(X,X)} = 1_{\Delta(X)}
+(v \Delta \circ \Delta u)_X = (1_X, 1_X) = 1_{(X,X)} = 1_{\Delta(X)}
 $$
 
 as desired.
@@ -198,9 +198,9 @@ The adjunction identity for $P$ proceeds similarly; the left- and right-hand sid
 
 $$
 \begin{align*}
-   (Pu \circ vP)_{(X,Y)} &= P(u_{(X,Y)}) \circ v_{P(X,Y)} \\
-   &= P(\pi_1, \pi_2) \circ v_{X \times Y} \\
-	&= \pi_1 \times \pi_2 \circ v_{X \times Y}
+   (Pv \circ uP)_{(X,Y)} &= P(v_{(X,Y)}) \circ u_{P(X,Y)} \\
+   &= P(\pi_1, \pi_2) \circ u_{X \times Y} \\
+	&= \pi_1 \times \pi_2 \circ u_{X \times Y}
 \end{align*}
 $$
 
@@ -208,7 +208,7 @@ For any point $(x, y) \in X \times Y$ we have:
 
 $$
 \begin{align*}
-	(\pi_1 \times \pi_2 \circ v_{X \times Y})(x,y) &= \pi_1 \times \pi_2(v_{X \times Y}(x,y)) \\
+	(\pi_1 \times \pi_2 \circ u_{X \times Y})(x,y) &= \pi_1 \times \pi_2(u_{X \times Y}(x,y)) \\
 	&= \pi_1 \times \pi_2((x,y), (x,y)) \\
 	&= (\pi_1(x,y), \pi_2(x,y)) \\
 	&= (x, y)
@@ -218,7 +218,7 @@ $$
 Thus:
 
 $$
-(Pu \circ vP)_{(X,Y)} = 1_{X \times Y} = 1_{P(X,Y)}
+(Pv \circ uP)_{(X,Y)} = 1_{X \times Y} = 1_{P(X,Y)}
 $$ 
 
 This completes the proof.
