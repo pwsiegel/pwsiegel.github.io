@@ -88,7 +88,7 @@ The reader is invited to check that any such function determines a functor $(A, 
 Consider the integers $\Z$ and the rational numbers $\Q$ equipped with the standard partial ordering $\leq$.
 The inclusion $I \colon \Z \to \Q$ which sends an integer $n$ to itself (viewed as the fraction $\frac{n}{1}$) preserves $\leq$ and hence defines a functor from the poset $\Z$ to the poset $\Q$.
 
-Moreover the function $R \colon \Q \to \Z$ which rounds down each rational number also preserves $\leq$ and hence defines a functor from $\Q$ to $\Z$.
+Moreover the function $D \colon \Q \to \Z$ which rounds down each rational number also preserves $\leq$ and hence defines a functor from $\Q$ to $\Z$.
 </div>
 
 <div class="exercise">
