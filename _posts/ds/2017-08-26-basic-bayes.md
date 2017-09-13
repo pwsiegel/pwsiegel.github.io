@@ -24,7 +24,8 @@ Bayesian analysis proceeds as follows:
 
 1. Construct a "reasonable" space of possible underlying models for the system.
 2. Solve the _deduction problem_ for each model: compute the probability of the observed data given the model. 
-3. Express the probability of each model given the observed data in terms of the probability of the observed data given the model, and choose the model with the highest probability.
+3. For each model, express the probability that the model is correct given the observed data in terms of the probability of the observed data given the model.
+Choose the model with the highest probability.
 
 We'll work through all three steps in the context of the coin flip example, but first let us discuss a bit of basic mathematics necessary in step 3.
 
@@ -49,7 +50,7 @@ Though Bayes' rule is quite simple, it is difficult to overstate its importance.
 It is important enough, in fact, to merit the introduction of a bunch of jargon:
 
 - $\P(A)$ is called the _prior_: in the coin flip example, $A$ would represent a collection of possible models for the coin's behavior, and $\P(A)$ would represent our initial assumption about what models are reasonable before we look at coin flip data.
-For instance, if the coin isn't too damaged then we might build into our prior the assumption that a model in which tails never comes up is extremely unlikely.
+For instance, if the coin isn't too damaged then we might choose the prior probabilities to be very small for events in which heads is much more likely than tails (or vice-versa).
 
 - $\P(A \vert B)$ is called the _posterior_: in the coin flip example, this would represent the probability that one of the models in $A$ is correct after we have accounted for coin flip data (represented by $B$).
 
