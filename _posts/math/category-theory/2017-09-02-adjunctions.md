@@ -108,7 +108,7 @@ $$
 
 ## Example: Products and Diagonals
 
-In order to make things a little more concrete we shall construct an adjoint for the familiar cartesian product functor and work through the definitions in some detail.
+In order to make things a little more concrete we shall construct a left adjoint for the familiar cartesian product functor and work through the definitions in some detail.
 (This example has the added advantage of being quite fundamental - many more sophisticated constructions can be viewed as generalizations of this one.)
 
 In this example we will work extensively with the category $\Set^2$ of pairs of sets (i.e. the product of the category $\Set$ with itself).
@@ -116,10 +116,7 @@ The objects of this category are pairs $(X, Y)$ of sets and the morphisms from $
 The reader is warned to keep in mind the distinction between the pair of sets $(X, Y)$ and the product of sets $X \times Y$ - the former is an object in $\Set^2$ while the latter is an object in $\Set$.
 In particular, $(X, Y)$ doesn't have "elements" - sets have elements, not pairs of sets!
 
-Consider the product functor $P \colon \Set^2 \to \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.
-Our aim is to construct an adjoint for $P$.
-
-Specifically, we will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f) = (f, f)$ on morphisms is a left adjoint for $P$.
+Consider the product functor $P \colon \Set^2 \to \Set$ defined by $P(X,Y) = X \times Y$ on objects and $P(f,g) = f \times g$ on morphisms.  We will show that the "diagonal" functor $\Delta \colon \Set \to \Set^2$ defined by $\Delta(X) = (X, X)$ on objects and $\Delta(f) = (f, f)$ on morphisms is a left adjoint for $P$.
 In order to do this we must construct a unit and a counit, i.e. natural transformations
 
 $$
