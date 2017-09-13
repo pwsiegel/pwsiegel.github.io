@@ -10,10 +10,10 @@ comments: true
 ---
 
 Comparing is one of the most fundamental operations in mathematics and computer science: numbers can be compared by value, strings can be compared lexicographically, sets can be compared by containment, vertices in DAG's can be compared by ancestry, and so on.
-A _partial ordering_ is the minimal amount of structure required to make these sorts of comparisons.
-There is often great insight to be gained by studying the interactions between different kinds of comparison: for instance, if one programming language has _more_ restrictive syntax than another then one expects that it will be _less_ expressive in an an appropriate sense.
+A **partial ordering** is the minimal amount of structure required to make these sorts of comparisons.
+There is often great insight to be gained by studying the interactions between different kinds of comparison: for instance, if one programming language has *more* restrictive syntax than another then one expects that it will be *less* expressive in an an appropriate sense.
 
-The aim of this post is to introduce a theoretical tool called a _Galois connection_ for organizing the interactions between different partial orderings.
+The aim of this post is to introduce a theoretical tool called a **Galois connection** for organizing the interactions between different partial orderings.
 After defining the notion of a partial ordering carefully, we will provide a partially ordered set with the structure of a category and then define the notion of a Galois connection using the concept of an adjunction between categories.
 We will conclude with a few simple examples and some references to applications in the literature.
 
@@ -27,7 +27,7 @@ This relation is satisfies a few simple axioms:
 2. Antisymmetry: if $a_1 \leq a_2$ and $a_2 \leq a_1$ then $a_1 = a_2$
 3. Transitivity: if $a_1 \leq a_2$ and $a_2 \leq a_3$ then $a_1 \leq a_3$
 
-A relation $\leq$ on a set $A$ which satisfies these three properties is called a *partial ordering* on $A$, and $A$ equipped with $\leq$ is called a *poset* (short for "partially ordered set").
+A relation $\leq$ on a set $A$ which satisfies these three properties is called a **partial ordering** on $A$, and $A$ equipped with $\leq$ is called a **poset** (short for "partially ordered set").
 
 <div class="exercise">
 Let $G$ be a simple graph.
@@ -36,7 +36,7 @@ Show that $\leq$ is a partial ordering if and only if $G$ is acyclic.
 </div>
 
 Posets admit a natural category structure as we shall see below, and they provide a convenient source of examples for coming to terms with categorical structures like adjoints and monads.
-In this post we will introduce the notion of a _Galois connection_ (viewed as an adjunction between two posets) and briefly discuss an application to the theory of abstract interpretation in computer science.
+In this post we will introduce the notion of a **Galois connection** (viewed as an adjunction between two posets) and briefly discuss an application to the theory of abstract interpretation in computer science.
 
 ## Posets as categories
 
@@ -107,7 +107,7 @@ In this sense, the cyclic group $C_2$ of order 2 (containing the identity and on
 
 This can be taken further.
 Suppose a field $L$ is obtained from $\Q$ by adjoining the roots of a polynomial.
-Under some additional mild technical assumptions, $L$ is called a _Galois extension_ of $\Q$ and $L$ has a Galois group $G$ which captures its symmetries with respect to $\Q$.
+Under some additional mild technical assumptions, $L$ is called a **Galois extension** of $\Q$ and $L$ has a Galois group $G$ which captures its symmetries with respect to $\Q$.
 In this case the fundamental theorem of Galois theory says that there is a perfect correspondence between the intermediate subfields $\Q \subseteq K \subseteq L$ of $L$ and subgroups $G \supseteq H \supseteq 1$ of the Galois group, yielding a powerful tool for understanding the solutions of a complex polynomial equation.
 
 Now, the set of all intermediate fields between $\Q$ and $L$ is partially ordered by the containment relation $\subseteq$, as is the set of all subgroups of a group $G$.
@@ -116,10 +116,10 @@ One of the main slogans in category theory is that behind every duality lurks an
 
 <div class="definition">
 Let $(A, \leq_A)$ and $(B, \leq_B)$ be two posets.
-A _Galois connection_ between $A$ and $B$ is an [adjunction][1] between $A$ and $B$ viewed as categories via their poset structures.
+A **Galois connection** between $A$ and $B$ is an [adjunction][1] between $A$ and $B$ viewed as categories via their poset structures.
 </div>
 
-In the literature it is common to make a distinction between _monotone_ and _antitone_ Galois connections because it is typical for a Galois connection to transform increasing sequences in $A$ into decreasing sequences in $B$.
+In the literature it is common to make a distinction between **monotone** and **antitone** Galois connections because it is typical for a Galois connection to transform increasing sequences in $A$ into decreasing sequences in $B$.
 (This is the case in the original application to Galois theory, for instance.)
 But from the point of view expressed here a decreasing sequence in $B$ is just an increasing sequence in $B$ with the partial ordering reversed, or equivalently in the opposite category $B^{op}$.
 So we have suppressed the distinction in the formal definition with the understanding that some care must be taken to choose the correct partial ordering in applications.
@@ -187,11 +187,14 @@ On the other hand $v\_{F(b)}$ is by definition the unique morphism from $FGF(b)$
 </div>
 
 <div class="example">
-Let $I \colon \Z \to \Q$ and $R \colon \Q \to \Z$ be the inclusion and rounding down maps, respectively.
-Given an integer $n$ and a rational number $r$, we have that $I(n) \leq r$ implies $RI(n) \leq R(r)$ which in turn implies that $n \leq R(r)$.
-Conversely $n \leq R(r)$ implies that $I(n) \leq IR(r)$, but $IR(r) \leq r$ by definition of $R$ and thus $I(n) \leq r$.
-By the previous proposition, $I$ and $R$ form a Galois connection.
+Let $I \colon \Z \to \Q$ and $D \colon \Q \to \Z$ be the inclusion and rounding down maps, respectively.
+If $I(n) \leq r$ for $n \in \Z$ and $r \in \Q$ then $DI(n) \leq D(r)$ which in turn implies $D(r)$.
+Conversely, if $n \leq D(r)$ then $I(n) \leq ID(r) \leq r$.
+By the previous propsotion $(I, D)$ is a Galois connection.
 </div>
+
+The reader is invited to check that $(U, I)$ is a Galois connection where $I \colon \Z \to \Q$ is as above and $U \colon \Q \to \Z$ is the rounding up map.
+This explains the slogan "left adjoints round up, right adjoints round down" which reflects the general principle that left adjoints tend to *add* structure while right adjoints tend to *forget* it.
 
 ## Applications
 

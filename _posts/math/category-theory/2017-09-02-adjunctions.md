@@ -24,12 +24,12 @@ Before diving into the definition of an adjunction, let us revisit the concept o
 
 <div class="definition">
 Let $F$ and $G$ be functors from a category $\C$ to a category $\D$.
-A *natural transformation* $\eta$ from $F$ to $G$ is a family of morphisms $\eta_C \colon F(C) \to G(C)$ in $\D$ parametrized by the objects $C$ of $\C$ which is compatible with the morphisms of $\C$ in the sense that: 
+A **natural transformation** $\eta$ from $F$ to $G$ is a family of morphisms $\eta_C \colon F(C) \to G(C)$ in $\D$ parametrized by the objects $C$ of $\C$ which is compatible with the morphisms of $\C$ in the sense that: 
 
 $$\eta_{C_2} \circ F(f) = G(f) \circ \eta_{C_1}$$
 
 for every morphism $f \colon C_1 \to C_2$ in $\C$.
-The morphism $\eta_C$ is called the *component* of $\eta$ at $C$.
+The morphism $\eta_C$ is called the **component** of $\eta$ at $C$.
 </div>
 
 There are a variety of different ways to manufacture new natural transformations from old; we will need two specific examples of this.
@@ -39,7 +39,7 @@ Let $F$, $G$, and $H$ be functors from $\C$ to $\D$ and let $\eta \colon F \to G
 
 $$\theta \circ \eta \colon F \to H$$
 
-called the _composition_ of $\theta$ and $\eta$ whose component at an object $C$ of $\C$ is given by composition of components:
+called the **composition** of $\theta$ and $\eta$ whose component at an object $C$ of $\C$ is given by composition of components:
 
 $$(\theta \circ \eta)_C = \theta_C \circ \eta_C$$
 
@@ -76,7 +76,7 @@ Often adjunctions arise because one seeks a proxy for the inverse of a non-inver
 For instance, the inclusion $I: \Z \to \Q$ of the integers in to the rational numbers is not invertible, but the pair $I, R$ where $R \colon \Q \to \Z$ is the "rounding down" function determines an adjunction between $\Z$ and $\Q$ (viewed as poset categories - see my post on [Galois connections][1] for more detail on this example).
 
 <div class="definition">
-Let $\C$ and $\D$ be categories.  An _adjunction_ between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
+Let $\C$ and $\D$ be categories.  An **adjunction** between $\C$ and $\D$ consists of a pair of functors $F \colon \D \to \C$ and $G \colon \C \to \D$ together with natural transformations
 
 $$
 u \colon 1_\D \to GF \quad \text{and} \quad v \colon FG \to 1_\C 
