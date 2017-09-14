@@ -157,7 +157,7 @@ Verify that $u$ as defined above is a natural transformation.
 We conclude by showing that $u$ and $v$ give $P$ and $\Delta$ the structure of an adjoint pair.
 
 <div class="proposition">
-The functors $\Delta \colon \Set \to \Set^2$ and $P \colon \Set^2 \to \Set$ together with the natural transformations $u$ and $v$ defined above form an adjunction between $\Set$ and $\Set^2$.
+The diagonal functor $\Delta \colon \Set \to \Set^2$ is left adjoint to the product functor $P \colon \Set^2 \to \Set$ via the unit/counit pair $u$, $v$ defined above.
 </div>
 <div class="proof">
 It remains only to verify the adjunction identities:
