@@ -15,7 +15,7 @@ What can you conclude?
 
 Six out of ten heads wouldn't be completely unreasonable for a fair coin - intuitively, 60 heads out of 100 flips or 600 heads of 1000 flips would be much more damning evidence against the hypothesis that the coin is fair.
 But regardless of the size of the experiment one would ideally like a systematic way to infer something about the underlying structure of the coin based on past observations.
-This is a classical example of an _induction problem_ in mathematical modelling: how can one build a probabilistic model of a system based on empirical data?
+This is a classical example of an **induction problem** in mathematical modelling: how can one build a statistical model of a system based on empirical data?
 
 ## Bayes' rule
 
@@ -23,7 +23,7 @@ If there is a standard way to solve induction problems in statistics, it is undo
 Bayesian analysis proceeds as follows:
 
 1. Construct a "reasonable" space of possible underlying models for the system.
-2. Solve the _deduction problem_ for each model: compute the probability of the observed data given the model. 
+2. Solve the **deduction problem** for each model: compute the probability of the observed data given the model. 
 3. For each model, express the probability that the model is correct given the observed data in terms of the probability of the observed data given the model.
 Choose the model with the highest probability.
 
@@ -31,7 +31,7 @@ We'll work through all three steps in the context of the coin flip example, but 
 
 At the heart of the matter is the ability to express the probability of an event $A$ given an event $B$ in terms of the probability of $B$ given $A$.
 So let us begin with a probability space $(\Omega, \Sigma, \P)$, and let $A, B$ be events in $\Sigma$.
-Recall that the _conditional probability_ of $A$ given $B$ is by definition:
+Recall that the **conditional probability** of $A$ given $B$ is by definition:
 
 $$\P(A \vert B) = \frac{\P(A \cap B)}{\P(B)}$$
 
@@ -45,15 +45,18 @@ $$
 \P(A \vert B) = \frac{\P(B \vert A) \P(A)}{\P(B)}
 $$
 
-This formula, which expresses the probability of $A$ given $B$ in terms of the probability of $B$ given $A$, is called _Bayes' rule_.
+This formula, which expresses the probability of $A$ given $B$ in terms of the probability of $B$ given $A$, is called **Bayes' rule**
 Though Bayes' rule is quite simple, it is difficult to overstate its importance.
 It is important enough, in fact, to merit the introduction of a bunch of jargon:
 
-- $\P(A)$ is called the _prior_: in the coin flip example, $A$ would represent a collection of possible models for the coin's behavior, and $\P(A)$ would represent our initial assumption about what models are reasonable before we look at coin flip data.
+- $\P(A)$ is called the **prior**: in the coin flip example, $A$ would represent a collection of possible models for the coin's behavior, and $\P(A)$ would represent our initial assumption about what models are reasonable before we look at coin flip data.
 For instance, if the coin isn't too damaged then we might choose the prior probabilities to be very small for events in which heads is much more likely than tails (or vice-versa).
 
-- $\P(A \vert B)$ is called the _posterior_: in the coin flip example, this would represent the probability that one of the models in $A$ is correct after we have accounted for coin flip data (represented by $B$).
+- $\P(A \vert B)$ is called the **posterior**: in the coin flip example, this would represent the probability that one of the models in $A$ is correct after we have accounted for coin flip data (represented by $B$).
 
-- $\frac{\P(B \vert A)}{\P(B)}$ is called the _support_ that $B$ provides for $A$: the support determines how we modify the prior to obtain the posterior.
+- $\frac{\P(B \vert A)}{\P(B)}$ is called the **support** that $B$ provides for $A$: the support determines how we modify the prior to obtain the posterior.
 
-## 
+## The coin flip revisited 
+
+Let us now revisit the coin flip and see what Bayes' rule tells us.
+Let $\theta$ denote the unknown bias of the coin, so that $\theta = 0$ corresponds to the case 
