@@ -9,7 +9,7 @@ categories: stage
 comments: true
 ---
 
-Let $F \colon \D \to \C$ and $\G \colon \C \to \D$ be a pair of adjoint functors with a unit $u \colon 1\_\C \to FG$ and counit $v \colon GF \to 1\_\D$.
+Let $F \colon \D \to \C$ and $G \colon \C \to \D$ be a pair of adjoint functors with a unit $u \colon 1\_\C \to FG$ and counit $v \colon GF \to 1\_\D$.
 In my [post][1] on monads we saw that the functor $GF \colon \D \to \D$ equipped with unit $u$ and join $GvF$ is a monad, but we largely suppressed the question of whether or not all monads have this form.
 In fact every monad is induced by an adjunction, but that adjunction is far from unique in general.
 
@@ -38,7 +38,7 @@ $$
 \begin{CD}
 D @>F>> C @>G>> D \\
 @VLVV @VKVV @VLVV \\
-D' @>F'>> C' @>G'>> D'
+D' @>>F'> C' @>>G'> D'
 \end{CD}
 $$
 
