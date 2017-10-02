@@ -29,8 +29,39 @@ This category will arise as a subcategory of the category of all adjunctions, an
 
 An object in this category is just an adjunction between two categories; the key is to define a notion of morphism between adjunctions.
 
+<div class="definition">
+Let $(F, G, u, v)$ be an adjunction between categories $C$ and $D$ and let $(F', G', u', v')$ be an adjunction between categories $C'$ and $D'$.  A **morphism of adjunctions** from $(F, G, u, v)$ to $(F', G', u', v')$ is a pair of functors $K \colon C \to C'$ and $L \colon D \to \D'$ with the following properties:
 
+- The functors $F$, $F'$, $G$, and $G'$ fit into a commuting diagram with $L$ and $K$:
 
+$$
+\begin{CD}
+D @>F>> C @>G>> D \\
+@VLVV @VKVV @VLVV \\
+D' @>F'>> C' @>G'>> D'
+\end{CD}
+$$
 
+- $L$ and $K$ intertwine the units and counits, in the sense that:
 
+$$
+Lu = u'L \quad \text{and} \quad Kv = v'K
+$$
 
+</div>
+
+It is worth noting that there is some redundancy in this definition:
+
+<div class="exercise">
+In the setting of the previous definition, show that the pair of equations $Lu = u'L$ and $Kv = v'K$ is equivalent to the single equation $Lu = u'L$ (or just $Kv = v'K$).
+</div>
+<div class="proof">
+Suppose $Lu = u'L$.  We have:
+
+$$
+\begin{align*}
+Kv = Kv
+\end{align*}
+$$
+
+</div>
