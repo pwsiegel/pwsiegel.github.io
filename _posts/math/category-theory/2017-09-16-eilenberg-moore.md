@@ -45,18 +45,8 @@ $$
 - $L$ and $K$ intertwine the units and counits, in the sense that:
 
 $$
-Lu = u'L \quad \text{and} \quad Kv = v'K
+Ku = u'K \quad \text{and} \quad Lv = v'L
 $$
 
 </div>
 
-It is worth noting that there is some redundancy in this definition:
-
-<div class="exercise">
-In the setting of the previous definition, show that the pair of equations $Ku = u'K$ and $Lv = v'L$ is equivalent to the single equation $Ku = u'K$ (or just $Lv = v'L$).
-</div>
-<div class="proof">
-Suppose $Ku = u'K$.  For any object $D$ of $\D$ we have:
-
-
-</div>
