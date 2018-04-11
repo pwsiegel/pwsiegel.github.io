@@ -6,6 +6,7 @@ abstract: This post contains a list of references for learning the basics of cat
 level: medium 
 date: 2017-04-28
 categories: category-theory 
+tags: live
 comments: true
 ---
 

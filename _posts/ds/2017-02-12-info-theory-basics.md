@@ -6,6 +6,7 @@ abstract: Claude Shannon invented information theory in the 1940's to answer pra
 level: medium
 date: 2017-02-12
 categories: math data_science
+tags: live
 comments: true
 ---
 

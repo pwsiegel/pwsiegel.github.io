@@ -6,6 +6,7 @@ abstract: Calculating higher homotopy groups of spheres is infamously hard.  Her
 level: hard
 date: 2014-12-09
 categories: math
+tags: live
 comments: true
 ---
 

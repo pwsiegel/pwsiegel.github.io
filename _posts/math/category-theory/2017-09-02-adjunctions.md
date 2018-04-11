@@ -6,6 +6,7 @@ abstract: Adjunctions are among the most fundamental constructions in category t
 level: hard 
 date: 2017-09-02
 categories: category-theory 
+tags: live
 comments: true
 ---
 

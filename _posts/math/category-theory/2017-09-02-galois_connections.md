@@ -6,6 +6,7 @@ abstract: A Galois connection is an adjunction between partially ordered sets (r
 level: medium 
 date: 2017-09-02
 categories: category-theory 
+tags: live
 comments: true
 ---
 

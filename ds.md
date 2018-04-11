@@ -1,5 +1,5 @@
 ---
 layout: navigation
 title: Data Science
-category: data_science
+category: data-science
 ---

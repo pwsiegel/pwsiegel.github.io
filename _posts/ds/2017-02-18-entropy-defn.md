@@ -6,6 +6,7 @@ abstract: The definition of Shannon entropy admits a variety of appealing charac
 level: hard
 date: 2017-03-05
 categories: math data_science
+tags: live
 comments: true
 ---
 

@@ -10,14 +10,13 @@ This site is home to my blog and whatever else I feel like sharing with the worl
 
 ## Latest blog posts
 
+{% assign live = site.posts | where:"tags", "live" %}
+
 <ul>
-   {% for post in site.posts limit:5 %}
-      {% if post.category != "stage" %}
-         <li>
-            <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
-            <p>{{ post.abstract }}</p>
-            <p>{{ post.categories }}</p>
-         </li>
-      {% endif %}
+   {% for post in live limit:5 %}
+      <li>
+         <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
+         <p>{{ post.abstract }}</p>
+      </li>
    {% endfor %}
 </ul>

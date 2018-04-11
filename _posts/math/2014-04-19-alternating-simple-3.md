@@ -6,6 +6,7 @@ abstract: A detailed proof (by induction) that $A_n$ is simple for $n > 5$.
 level: hard
 date: 2014-04-19
 categories: math
+tags: live
 comments: true
 ---
 

@@ -6,6 +6,7 @@ abstract: A detailed proof that $A_5$ is simple.
 level: hard
 date: 2014-04-19
 categories: math
+tags: live
 comments: true
 ---
 
