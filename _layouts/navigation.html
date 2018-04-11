@@ -16,11 +16,11 @@ Each post is marked with a cat face indicating its difficulty level, as per the 
 
 <ul>
    {% for post in site.categories[page.category] %}
-      {% unless post.tags contains "stage" %}
+      {% if post.tags contains "live" %}
          <li>
             <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
             <p>{{ post.abstract }}</p>
          </li>
-      {% endunless %}
+      {% endif %}
    {% endfor %}
 </ul>
