@@ -14,7 +14,7 @@ I got busy, but I've been doing some reading on tuning classifiers using entropy
 
 At the end of my last post I reviewed some conceptual problems with Shannon's definition of the entropy of a continuous random variable (the _differential entropy_), first noticed by Edwin Jaynes.
 The first hint that something might be wrong is that the definition doesn't fit in any obvious way into the measure theoretic framework for probability theory - this is usually a bad sign.
-More damning is the observation that differential entropy is not coordinate invariant, a property which nearly precludes it from being the right object to study.
+More damning is the observation that differential entropy is not coordinate invariant, a property which nearly precludes it from being the right object of study.
 
 Fortunately, both objections can be addressed elegantly by viewing entropy as a relative quantity.
 In my previous posts I motivated the definition of entropy by arguing that it is the right way to measure the "expected surprisingness" of a random variable.
@@ -42,6 +42,7 @@ where $\frac{dp}{dq}$ is the [Radon-Nikodym derivative][3] of $p$ with respect t
 
 Equivalently, $D(p \| q)$ is the expected value of $\log \frac{dp}{dq}$ viewed as a random variable on $(X, \Sigma, p)$.
 The Radon-Nikodym derivative can be a bit intimidating, so let us work out what the relative entropy is in the case where $X$ is finite.
+(The continuous case is not much different.)
 
 <div class="example">
 Let $X$ be a set with $n$ elements and declare all subsets of $X$ to be measurable.
@@ -65,12 +66,15 @@ The relative entropy, then, is just the $p$-average of some sort of relative sur
 It makes sense that we take the $p$-average rather than the $q$-average: we have updated our model from the prior $q$ to the posterior $p$, and we are reflecting on how surprised we are given our current (hopefully better) understanding of the world.
 In particular, $D(p \| q)$ is very far from being symmetric in $p$ and $q$: setting aside signs, the average is taken from the point of view of $p$ rather than $q$.
 
-The formula for relative entropy in the setting of continuous random variables is fairly similar; we leave it to the reader.
-The key point is that the discrete and continuous notions of relative entropy both come from a general construction on an arbitrary measurable space, so we can plausibly expect the theory to behave better than Shannon's differential entropy.
+Intuitively, this suggests that relative entropy should be positive definite, meaning $D(p \| q) \geq 0$ with equality if and only if $p = q$; if not
+This fact, known as _Gibbs' inequality_, is not completely trivial, so I wrote up the details in a separate [post][4].
+Gibb's inequality has some conceptual significance which we may encounter in future posts, but mostly it is a good sanity check for the definitions.
 
-In fact we get for free that relative entropy, unlike differential entropy, is coordinate invariant: the Radon-Nikodym derivative $\frac{dp}{dq}$ depends only on the probability measures $p$ and $q$, so the same is true of $D(p \| q) = \E(\log \frac{dp}{dq})$.
-Another difference is that relative entropy is positive definite; this is not completely trivial, so I wrote up the details in a separate [post][4]
+A final remark: while the abstract definition of relative entropy presented here using Randon-Nikodym derivatives may carry a bit of tecchnical overhead, it has a lot of advantages.
+The same definition works for both discrete and continuous probability spaces, and the ingredients are fairly robust with respect to limits; this makes it possible to estimate relative entropy in the continuous case using discrete approximations.
+The definition doesn't make any mention of a coordinate system, so we get coordinate invariance for free - this alone sets it apart from differential entropy.
+And the definition already makes sense on any Euclidean space of any dimension.
+So whatever we might have lost in accessbility we gained back in flexibility.
 
 ## Relative entropy and information theory
-
-
+ 

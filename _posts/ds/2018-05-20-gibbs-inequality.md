@@ -10,8 +10,17 @@ comments: true
 ---
 
 In the course of writing a recent [post][1] on relative entropy I wanted to include a proof that it is always positive definite, a result known as Gibbs' inequality.
-There are various proofs lying around the internet in the discrete or continuous case, but I wanted to work out the details for a general probability space and so I decided to write it up here.
-The result comes up often when working with information theoretic metrics on spaces of probability measures, but more pointedly it is a good sanity check: if relative entropy could be negative then it would mean that we could somehow lose information by updating a model in response to new data.
+As I argued in that post, relative entropy can be thought of as the change in information when updating a statistical model from one probability distribution to another in response to new data, and with this intuition in mind positive definiteness means:
+
+- Updating a model never destroys information.
+- The only "update" that doesn't increase information is the trivial update which doesn't change the distribution.
+
+Note that this does not say that the new model is in any way "better" than the old model - relative entropy is after all agnostic about how the model was updated.
+The more accurate intuition might be something like "a statistical model $p$ is surprised by every other model $q$ except $q = p$".
+The relative entropy of $p$ from $q$ can then be interpretted as a quantitative measure of how surprised $p$ is by $q$ on average.
+
+There are various proofs lying around the internet in the discrete or continuous case, but for a number of reasons (many of them ideological) I wanted an argument which uses the general measure theoretic formalism for probability theory.
+So I worked out the details, and now I'm sharing them here.
 
 The key ingredient is Jensen's inequality, which we will prove along the way just for fun.
 
@@ -24,7 +33,7 @@ $$\phi(\E(F)) \leq \E(\phi(F))$$
 with equality if and only if $\phi$ agrees almost everywhere on the range of $F$ with a linear function.
 </div>
 <div class="proof">
-We will use the following property of a $\phi$: for every $x_0 \in \R$ there is a _supporting line_ for the graph of $\phi$, i.e. a line $\ell$ such that $\ell(x_0) = \phi(x_0)$ and $\ell(x) \leq \phi(x)$ for all $x$.
+We will use the following property of a convex function $\phi$: for every $x_0 \in \R$ there is a _supporting line_ for the graph of $\phi$, i.e. a line $\ell$ such that $\ell(x_0) = \phi(x_0)$ and $\ell(x) \leq \phi(x)$ for all $x$.
 Let $\ell(x) = ax + b$ be a supporting line for $\phi$ at the point $x_0 = \E(F)$.
 By monotonicity and linearity of expectation, we have:
 
@@ -90,9 +99,9 @@ $$D(p \| q) \geq -\log q_0(X) \geq -\log q(X) = 0$$
 
 It remains only to analyze the equality case.
 Certainly if $p = q$ then $\frac{dp}{dq} = 1$ and $D(p \| q) = \E(\log 1) = 0$.
-Conversely, if $D(p \| q) = 0$ then the two inequalities in the calculation above must be equalities.
 
-The inequality $q_0(X) = q(X)$ holds if and only if $q = q_0$, i.e. $q \ll p$.
+Conversely, if $D(p \| q) = 0$ then the two inequalities in the calculation above must be equalities.
+The equality $q_0(X) = q(X)$ holds if and only if $q = q_0$, i.e. $q \ll p$.
 The other inequality was Jensen's inequality, and that gives equality if and only if the function $\phi(x) = -\log x$ restricts to a linear function almost everywhere on the range of the random variable $\frac{dq}{dp}$.
 But this forces $\frac{dq}{dp}$ to be some constant $C$ on $X$, meaning:
 
