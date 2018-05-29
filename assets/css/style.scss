@@ -3,14 +3,25 @@
 
 @import "{{ site.theme }}";
 
+ul {
+    margin-left: 20px;
+    padding: 0;
+}
+
+ol {
+    margin-left: 20px;
+    padding: 0;
+}
+
+
 // Theorem-like
 .theorem {
-	display: block;
-	margin: 12px 0;
-	font-style: italic;
-   background-color: rgba(0,0,255,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    background-color: rgba(0,0,255,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .theorem::before {
 	content: "Theorem. ";
@@ -22,12 +33,12 @@
 }
 
 .proposition {
-	display: block;
-	margin: 12px 0;
-	font-style: italic;
-   background-color: rgba(0,0,255,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    background-color: rgba(0,0,255,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .proposition::before {
 	content: "Proposition. ";
@@ -39,12 +50,12 @@
 }
 
 .lemma {
-	display: block;
-	margin: 12px 0;
-	font-style: italic;
-   background-color: rgba(0,0,255,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    background-color: rgba(0,0,255,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .lemma::before {
 	content: "Lemma. ";
@@ -56,12 +67,12 @@
 }
 
 .conjecture {
-	display: block;
-	margin: 12px 0;
-	font-style: italic;
-   background-color: rgba(0,0,255,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    background-color: rgba(0,0,255,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .conjecture::before {
 	content: "Conjecture. ";
@@ -74,12 +85,12 @@
 
 // Definition-like
 .definition {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
-   background-color: rgba(0,255,0,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    background-color: rgba(0,255,0,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .definition::before {
 	content: "Definition. ";
@@ -91,12 +102,12 @@
 }
 
 .remark {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
-   background-color: rgba(0,0,0,.1);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    background-color: rgba(0,0,0,.1);
+    padding: 5px;
+    border: 2px solid;
 }
 .remark::before {
 	content: "Remark. ";
@@ -108,12 +119,12 @@
 }
 
 .example {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
-   background-color: rgba(0,0,0,.1);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    background-color: rgba(0,0,0,.1);
+    padding: 5px;
+    border: 2px solid;
 }
 .example::before {
 	content: "Example. ";
@@ -125,12 +136,12 @@
 }
 
 .exercise {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
-   background-color: rgba(255,0,0,.2);
-   padding: 5px;
-   border: 2px solid;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    background-color: rgba(255,0,0,.2);
+    padding: 5px;
+    border: 2px solid;
 }
 .exercise::before {
 	content: "Exercise. ";
