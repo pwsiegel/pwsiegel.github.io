@@ -41,6 +41,8 @@ where $\frac{dp}{dq}$ is the [Radon-Nikodym derivative][3] of $p$ with respect t
 </div>
 
 Equivalently, $D(p \| q)$ is the expected value of $\log \frac{dp}{dq}$ viewed as a random variable on $(\Omega, \Sigma, p)$.
+It is not actually necessary that $p$ and $q$ are probability measures; the definition makes sense as long as the hypotheses of the Radon-Nikodym theorem are satisfied, so any pair of $\sigma$-finite measures would do the job.
+
 The Radon-Nikodym derivative can be a bit intimidating, so let us work out what the relative entropy is in the case where $\Omega$ is finite.
 (The continuous case is not much different.)
 
@@ -77,50 +79,17 @@ And the definition already makes sense on any Euclidean space of any dimension.
 So whatever we might have lost in accessbility we gained back in flexibility.
 
 ## Relative entropy and information theory
- 
-For these reasons and others it is desireable to place relative entropy rather than Shannon's notion of entropy at the foundations of information theory.
-In this section we shall show how some of the fundamental constructions in information theory can be recovered from relative entropy.
 
-### Shannon entropy
+We have defined the relative entropy between two probability measures on the same measure space, but information theory is really about the entropy of random variables rather than measures.
+There are various different ways in which one can use relative entropy to construct information theoretic quantities associated to random variables, and we will study a few of them in this section.
 
-First, we will recover the classical Shannon entropy itself.
-Let $p = (p_1, \ldots, p_n)$ be a probability measure on a finite set $\Omega$ with $n$ elements, and let $u = (\frac{1}{n}, \ldots, \frac{1}{n})$ be the uniform measure on $\Omega$.
-We have:
+### Entropy relative to a measure
 
-$$
-\begin{align*}
-D(p \| u) &= \sum_i p_i \left( \log p_i - \log \frac{1}{n} \right) \\
-&= \sum_i p_i \log p_i + \sum_i p_i \log n \\
-&= \log n - H(p) \\
-&= H(u) - H(p)
-\end{align*}
-$$
+Let $(\Omega, \Sigma, p)$ be a probability space, and let $(\mathcal{B}, \Sigma_{\mathcal{B}}, \mu)$ be a $\sigma$-finite measure space.
+Let $X \colon \Omega \mathcal{B}$ be a random variable, and let $p_X = p \circ X^{-1} \colon \Simga_{\mathcal{B}} \to \R$ be the pushforward of $p$ along $X$.
+If $p_X$ is absolutely continuous with respect to $\mu$ (often one abuses language and says that $X$ is absolutely continuous with respect to $\mu$) then we can form the relative entropy $D(p_X \| \mu)$.
 
-where $H(\cdot)$ is the Shannon entropy.
-Note that this calculation depends crucially on the uniform distribution; it is not in general true that $D(p \| q) = H(q) - H(p)$.
-It shows that the fundamental information theoretic quantity associated to a single probability distribution $p$ is not really its entropy but the difference between its entropy and that of the uniform distribution.
-Indeed, this is the conceptual reason why differential entropy causes so much trouble: there is no uniform probability distribution on $\R$.
-
-### Mutual information
-
-The mutual information of two random variables quantifies how far they are from being independent; it is commonly used in computational linguistics and machine learning as an independence test.
-It has a particularly nice interpretation in terms of relative entropy.
-As usual I will present the construction using abstract measure theoretic language, with the usual tradeoff between flexibility and accessibility.
-
-Let $X \colon (A, \mathcal{A}, p) \to (B, \mathcal{B}, \mu)$ be a random variable on a probability space $A$ taking values in a measure space $B$.
-The probability measure $p$ pushes forward along $X$ to give a measure $X_\ast p$ on $B$ defined by:
-
-$$X_\ast p(B) = p(X^{-1}(B))$$
-
-for any set $B \in \mathcal{B}$.
-Let us assume that $X_\ast p \ll \mu$, i.e. every set of $\mu$-measure zero pulls back along $X$ to a set of $p$-measure zero.
-Then there is a Radon-Nikodym derivative $\frac{dX_\ast p}{d\mu}$ called the _density function_ of $X$.
-It is uniquely characterized by the property:
-
-$$p(X \in B) = \int_B \frac{dX_\ast p}{d\mu}\, d\mu$$
-
-In the cases where $X$ is discrete or continuous the target measure space is $\R$ equipped with Lebesgue meassure, and one recovers the usual formulas relating probability and density functions.
-
-Now, let $X_1 \colon (\Omega_1, \Sigma_1, p_1) \to (B, \mathcal{B}, \mu)$ and $X_2 \colon (\Omega_2, \Sigma_2, p_2) \to (B, \mathcal{B}, \mu)$ be two random variables taking values in the same measure space $B$.
-Assume that $(X_i)_\ast p_i \ll \mu$ for $i = 1,2$ and let $f_i$ denote the density function of $X_i$.
+Differential entropy is close to being a special case of this construction.
+Suppose $X$ is a continuous random variable, meaning it takes values in the Lebesgue measure space $(\R, \mathcal{L}, \lambda)$.
+If $X$ is absolutely continuous, meaning $p_X$ is absolutely continuous with respect to $\lambda$, then we can form the density function $f_X = \frac{dp_X}{d\lambda}$
 
