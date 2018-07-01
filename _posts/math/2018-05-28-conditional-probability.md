@@ -150,5 +150,28 @@ for $B \in \Sigma_{\mathcal{B}}$.
 Note that the conditional expectation $\E(X \vert Y)$ is the special case where $\mu$ is obtained by integrating $X$ over the level sets of $Y$.
 
 <div class="example">
-Assume that $Y$ is a continuous random variable, meaning it takes values in $\R$ equipped with Lebesgue measure.
+Assume that $Y$ is a continuous random variable, meaning it takes values in $\R$ equipped with Lebesgue measure $\lambda$ and $\P_Y$ is absolutely continuous with respect to $\lambda$.
+Then it has a density function $f_Y$ which is characterized by the equation
+
+$$\P(Y \in B) = \int_B f_Y\, d\lambda$$
+
+for every Lebesgue measurable set $B \subseteq \R$.
+Apply this to sets of the form $B = (-\infty, y]$ for $y \in \R$ and get:
+
+$$\P(Y \leq y) = \int_{-\infty}^y f_Y\, d\lambda$$
+
+By the Lebesgue differentiation theorem $\P(Y \leq y)$ is differentiable almost everywhere, and:
+
+$$\frac{d}{dy}\P(Y \leq y) = f_Y(y)$$
+
+The function $\P(Y \leq y)$ is called the _cumulative distribution function_ of $Y$.
 </div>
+
+## Joint and marginal density functions
+
+Let $(\Omega_1, \Sigma_1, \P_1)$ and $(\Omega_2, \Sigma_2, \P_2)$ be probability spaces and consider the product 
+
+$$(\Omega, \Sigma, \P) = (\Omega_1 \times \Omega_2, \Sigma_1 \otimes \Sigma_2, \P_1 \otimes \P_2)$$
+
+Let $Y \colon (\Omega, \Sigma, \P) \to (\mathcal{B}, \Sigma_\mathcal{B}, \mu)$ be a random variable.
+
