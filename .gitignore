@@ -1,2 +1,9 @@
 Gemfile.lock
 _site/*
+
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
