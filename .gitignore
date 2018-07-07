@@ -7,3 +7,6 @@ _site/*
 *.out
 *.snm
 *.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
