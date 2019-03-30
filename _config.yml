@@ -3,7 +3,7 @@ url: https://pwsiegel.github.io
 markdown: kramdown
 kramdown:
     parse_block_html: true
-gems:
+plugins:
     - jemoji
 easy: ":heart_eyes_cat:"
 medium: ":smile_cat:"
