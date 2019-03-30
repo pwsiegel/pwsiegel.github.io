@@ -5,8 +5,9 @@
 
 # Welcome
 
-I am Paul Siegel, a mathematician and data scientist in New York City.
-This site is home to my blog and whatever else I feel like sharing with the world.
+This is a blog about math, data science, and technology.
+
+![Mayer-Vietoris principle in analytic surgery](/resources/phd-diagram.png)
 
 ## Latest blog posts
 
