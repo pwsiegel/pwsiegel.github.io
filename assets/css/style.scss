@@ -3,6 +3,14 @@
 
 @import "{{ site.theme }}";
 
+.inner {
+    width: 80%;
+}
+
+#main-content {
+    width: 900px;
+}
+
 ul {
     margin-left: 20px;
     padding: 0;
