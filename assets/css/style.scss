@@ -3,16 +3,12 @@
 
 @import "{{ site.theme }}";
 
-.inner {
-    width: 1140px;
+#main_content {
+    width: 60%;
 }
 
-#main-content {
-    width: 850px;
-}
-
-aside#sidebar {
-    width: 250px;
+#main_content.inner {
+    max-width: unset;
 }
 
 // Theorem-like
