@@ -3,7 +3,6 @@ layout: post
 permalink: /category-theory/galois-connections/
 title: Galois Connections
 abstract: A Galois connection is an adjunction between partially ordered sets (regarded as categories); they arise naturally all over the place in mathematics, and more recently they have found interesting applications to computer science.  This post covers the basic theory and explores some examples from graph theory and programming.
-level: medium 
 date: 2017-09-02
 categories: category-theory 
 tags: live

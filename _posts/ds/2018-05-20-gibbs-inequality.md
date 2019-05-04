@@ -3,7 +3,6 @@ layout: post
 permalink: /ds/gibbs-inequality/
 title: Gibbs' Inequality
 abstract: It is a fairly standard fact that relative entropy (KL-divergence) is positive definite, but I was unsatisfied with the proofs of this fact that I saw when I glanced through the literature.  In this post I will provide a complete proof which works on a general probability space.
-level: hard
 date: 2018-05-20
 categories: [math, data-science]
 comments: true

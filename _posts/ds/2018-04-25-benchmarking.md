@@ -3,7 +3,6 @@ layout: post
 permalink: /ds/benchmarking/
 title: Statistical approaches to benchmarking
 abstract: 
-level: easy
 date: 2018-04-25
 categories: data-science
 comments: true
