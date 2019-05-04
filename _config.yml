@@ -1,11 +1,10 @@
-theme: jekyll-theme-architect
+theme: jekyll-theme-slate
 url: https://pwsiegel.github.io
+title: Moderation in moderation
+description: A blog by Paul Siegel
+show_downloads: false
 markdown: kramdown
 kramdown:
     parse_block_html: true
 plugins:
     - jemoji
-easy: ":heart_eyes_cat:"
-medium: ":smile_cat:"
-hard: ":crying_cat_face:"
-expert: ":scream_cat:"
