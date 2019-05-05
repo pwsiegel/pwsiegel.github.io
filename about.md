@@ -6,7 +6,7 @@
          <a href="https://www.brandwatch.com/">
             <img src="/resources/brandwatch.png" title="Brandwatch" width="100" height="100">
          </a>
-         <div>Data Scientist</div>
+         <div>Principal Data Scientist</div>
       </li>
       <li>
          <a href="https://www.math.columbia.edu/">

@@ -3,7 +3,12 @@
 
 @import '{{ site.theme }}';
 
+a {
+    color: #4682b4;
+}
+
 #navigation {
+    width: 100%;
 }
 
 #navigation ul {
@@ -27,7 +32,7 @@
 }
 
 #navigation li a:hover {
-    background-color: #333;
+    background-color: #4682b4;
 }
 
 #main_content {
@@ -57,7 +62,7 @@
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0, 0, 255, 0.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
@@ -74,7 +79,7 @@
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0, 0, 255, 0.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
@@ -91,7 +96,7 @@
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0, 0, 255, 0.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
@@ -108,7 +113,7 @@
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0, 0, 255, 0.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
@@ -126,7 +131,7 @@
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(60, 179, 113, 0.4);
     padding: 5px;
     border: 2px solid;
 }
@@ -177,7 +182,7 @@
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(184, 15, 10, 0.4);
     padding: 5px;
     border: 2px solid;
 }
