@@ -15,9 +15,7 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a href={{ site.url }}>
-              <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          </a>
+          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
         </header>
     </div>
@@ -25,6 +23,16 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+          <div id="navigation">
+            <ul>
+              <li> <a href="{{ site.url }}">Home</a>
+              <li> <a href="{{ site.url }}/math">Math</a>
+              <li> <a href="{{ site.url }}/ds">Data Science</a>
+              <li> <a href="{{ site.url }}/tech">Technology</a>
+              <li> <a href="{{ site.url }}/life">Life</a>
+              <li style="float:right"> <a href="{{ site.url }}/about">About</a>
+            </ul>
+          </div>
         {{ content }}
       </section>
     </div>
