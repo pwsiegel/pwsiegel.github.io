@@ -17,6 +17,8 @@ a {
     list-style-type: none;
     overflow: hidden;
     background-color: #666;
+    padding-left: unset;
+    padding-right: unset;
 }
 
 #navigation li {
@@ -32,8 +34,24 @@ a {
     font-size: larger;
 }
 
-#navigation li a:hover {
+#navigation li:hover {
     background-color: #4682b4;
+}
+
+.social {
+    padding-left: 16px;
+    padding-right: 16px;
+    background-image: url("/resources/GitHub-Mark-Light-32px.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px auto;
+        display: inline-block;
+        width:32px;
+        height: 32px;
+}
+
+#navigation li.social:hover {
+    background-color: #666;
 }
 
 #main_content {
