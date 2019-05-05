@@ -1,18 +1,60 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+@import '{{ site.theme }}';
 
-.inner {
-    width: 1140px;
+a {
+    color: #4682b4;
 }
 
-#main-content {
-    width: 850px;
+#navigation {
+    width: 100%;
 }
 
-aside#sidebar {
-    width: 250px;
+#navigation ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #666;
+}
+
+#navigation li {
+    float: left;
+}
+
+#navigation li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navigation li a:hover {
+    background-color: #4682b4;
+}
+
+#main_content {
+    width: 55%;
+    padding-top: unset;
+}
+
+#main_content.inner {
+    max-width: unset;
+}
+
+#about ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#about li {
+    float: left;
+    padding: 20px;
+    text-align: center;
 }
 
 // Theorem-like
@@ -20,68 +62,68 @@ aside#sidebar {
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0,0,255,.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .theorem::before {
-	content: "Theorem. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Theorem. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .theorem[text]::before {
-	content: "Theorem (" attr(text) "). ";
+    content: 'Theorem (' attr(text) '). ';
 }
 
 .proposition {
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0,0,255,.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .proposition::before {
-	content: "Proposition. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Proposition. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .proposition[text]::before {
-	content: "Proposition (" attr(text) "). ";
+    content: 'Proposition (' attr(text) '). ';
 }
 
 .lemma {
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0,0,255,.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .lemma::before {
-	content: "Lemma. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Lemma. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .lemma[text]::before {
-	content: "Lemma (" attr(text) "). ";
+    content: 'Lemma (' attr(text) '). ';
 }
 
 .conjecture {
     display: block;
     margin: 12px 0;
     font-style: italic;
-    background-color: rgba(0,0,255,.2);
+    background-color: rgba(70, 130, 180, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .conjecture::before {
-	content: "Conjecture. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Conjecture. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .conjecture[text]::before {
-	content: "Conjecture (" attr(text) "). ";
+    content: 'Conjecture (' attr(text) '). ';
 }
 
 // Definition-like
@@ -89,99 +131,99 @@ aside#sidebar {
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(0,255,0,.2);
+    background-color: rgba(60, 179, 113, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .definition::before {
-	content: "Definition. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Definition. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .definition[text]::before {
-	content: "Definition (" attr(text) "). ";
+    content: 'Definition (' attr(text) '). ';
 }
 
 .remark {
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 5px;
     border: 2px solid;
 }
 .remark::before {
-	content: "Remark. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Remark. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .remark[text]::before {
-	content: "Remark (" attr(text) "). ";
+    content: 'Remark (' attr(text) '). ';
 }
 
 .example {
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 5px;
     border: 2px solid;
 }
 .example::before {
-	content: "Example. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Example. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .example[text]::before {
-	content: "Example (" attr(text) "). ";
+    content: 'Example (' attr(text) '). ';
 }
 
 .exercise {
     display: block;
     margin: 12px 0;
     font-style: normal;
-    background-color: rgba(255,0,0,.2);
+    background-color: rgba(184, 15, 10, 0.4);
     padding: 5px;
     border: 2px solid;
 }
 .exercise::before {
-	content: "Exercise. ";
-	font-weight: bold;
-	font-style: normal;
+    content: 'Exercise. ';
+    font-weight: bold;
+    font-style: normal;
 }
 .exercise[text]::before {
-	content: "Exercise (" attr(text) "). ";
+    content: 'Exercise (' attr(text) '). ';
 }
 
 // Proof-like
 .proof {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
 }
 .proof::before {
-	content: "Proof. ";
-	font-style: italic;
+    content: 'Proof. ';
+    font-style: italic;
 }
 .proof[text]::before {
-	content: "Proof (" attr(text) "). ";
+    content: 'Proof (' attr(text) '). ';
 }
 .proof::after {
-	content: "\25FC";
+    content: '\25FC';
 }
 
 .solution {
-	display: block;
-	margin: 12px 0;
-	font-style: normal;
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
 }
 .solution::before {
-	content: "Solution. ";
-	font-style: italic;
+    content: 'Solution. ';
+    font-style: italic;
 }
 .solution[text]::before {
-	content: "Solution (" attr(text) "). ";
+    content: 'Solution (' attr(text) '). ';
 }
 .solution::after {
-	content: "\25FC";
+    content: '\25FC';
 }

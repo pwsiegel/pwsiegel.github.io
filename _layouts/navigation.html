@@ -4,21 +4,15 @@ layout: default
 
 <h1>{{ page.title }}</h1>
 
-Each post is marked with a cat face indicating its difficulty level, as per the following table:
-<ul>
-    <li>{{ site.easy }}: Little or no technical background is assumed, though general literacy in the subject may be useful</li>
-    <li>{{ site.medium }}: Some technical language or notation is used</li>
-    <li>{{ site.hard }}: A working knowledge of the language and techniques in the subject is required</li>
-    <li>{{ site.expert }}: Probably only accessible to practitioners and experts</li>
-</ul>
-
 <hr>
 
-<ul>
+<ul style="list-style-type:none">
    {% for post in site.categories[page.category] %}
       {% if post.tags contains "live" %}
          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
+           <h3>
+              <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: '%B %d, %Y' }}
+           </h3>
             <p>{{ post.abstract }}</p>
          </li>
       {% endif %}

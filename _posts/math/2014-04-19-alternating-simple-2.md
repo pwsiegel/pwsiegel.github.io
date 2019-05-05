@@ -3,7 +3,6 @@ layout: post
 permalink: /math/alternating-simple-2/
 title: The Alternating Group is Simple II
 abstract: A detailed proof that $A_5$ is simple.
-level: hard
 date: 2014-04-19
 categories: math
 tags: live

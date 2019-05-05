@@ -1,22 +1,22 @@
 <blockquote>
-<p>*"Everything in moderation, including moderation."*</p>
-<p align="right">-Oscar Wilde</p>
+<p style="font-size:x-large">
+   "Mathematics knows no races or geographical boundaries; for mathematics, the cultural world is one country."
+</p>
+<p align="right" style="font-size:larger">
+   -David Hilbert
+</p>
 </blockquote>
 
-# Welcome
-
-This is a blog about math, data science, and technology.
-
-![Mayer-Vietoris principle in analytic surgery](/resources/phd-diagram.png)
-
-## Latest blog posts
+## Latest posts
 
 {% assign live = site.posts | where:"tags", "live" %}
 
-<ul>
+<ul style="list-style-type:none">
    {% for post in live limit:5 %}
       <li>
-         <a href="{{ post.url }}">{{ post.title }}</a> {{ site[post.level] }} - {{ post.date | date: '%B %d, %Y' }}
+         <h3>
+            <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: '%B %d, %Y' }}
+         </h3>
          <p>{{ post.abstract }}</p>
       </li>
    {% endfor %}

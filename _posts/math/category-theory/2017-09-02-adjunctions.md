@@ -3,9 +3,8 @@ layout: post
 permalink: /category-theory/adjunctions/
 title: Adjunctions
 abstract: Adjunctions are among the most fundamental constructions in category theory, and in mathematics more broadly.  In this post we shall go carefully through the definition and some basic examples.  There isn't much computer science specifically in this post, save for a few remarks about the category of graphs at the end, but adjunctions will make crucial appearances in future posts.
-level: hard 
 date: 2017-09-02
-categories: category-theory 
+categories: math
 tags: live
 comments: true
 ---

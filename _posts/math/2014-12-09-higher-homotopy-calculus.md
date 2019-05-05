@@ -3,7 +3,6 @@ layout: post
 permalink: /math/higher-homotopy-calculus/
 title: Higher Homotopy Groups via Vector Calculus
 abstract: Calculating higher homotopy groups of spheres is infamously hard.  Here is an example which uses only undergraduate vector calculus.
-level: hard
 date: 2014-12-09
 categories: math
 tags: live

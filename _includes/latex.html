@@ -1,0 +1,60 @@
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        extensions: ["AMScd.js"],
+        Macros: {
+            wt: "\\widetilde",
+            tbf: "\\textbf",
+            br: ["\\lbrace #1 \\rbrace", 1],
+
+            into: "\\hookrightarrow",
+            onto: "\\twoheadrightarrow",
+
+            R: "\\mathbb{R}",
+            C: "\\mathbb{C}",
+            Q: "\\mathbb{Q}",
+            Z: "\\mathbb{Z}",
+            N: "\\mathbb{N}",
+
+            eps: "\\varepsilon",
+            abs: ["\\left| #1 \\right|", 1],
+            norm: ["\\left\\| #1 \\right\\|", 1],
+            inner: ["\\left\\langle #1 \\right\\rangle", 1],
+            B: "\\mathbb{B}",
+            K: "\\mathbb{K}",
+
+            E: "\\mathbb{E}",
+            P: "\\mathbb{P}",
+
+            ob: "\\text{ob}",
+            hom: "\\text{hom}",
+            Hom: "\\text{Hom}",
+            Set: "\\textbf{Set}",
+            C: "\\mathcal{C}",
+            D: "\\mathcal{D}",
+
+            Ad: "\\text{Ad}",
+            ad: "\\text{ad}",
+            Tr: "\\text{Tr}",
+            tr: "\\text{tr}",
+            real: "\\text{Re}",
+            imag: "\\text{Im}",
+
+            ShortExact: ["0 \\to #1 \\to #2 \\to #3 \\to 0", 3],
+            LongExact: ["\\ldots \\to #1 \\to #2 \\to #3 \\to #4 \\to \\ldots", 4]
+        }
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

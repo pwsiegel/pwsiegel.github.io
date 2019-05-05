@@ -3,7 +3,6 @@ layout: post
 permalink: /math/radon-nikodym/
 title: The Radon-Nikodym Theorem
 abstract: The Radon-Nikodym theorem is a workhorse result in measure theory, with numerous applications to probability dynamics (such as the existence of conditional expectations and the existence of KL-divergence).  I will give a simple proof using Hilbert spaces.
-level: hard
 date: 2017-04-23
 categories: math
 comments: true
