@@ -4,7 +4,7 @@ permalink: /category-theory/eilenberg-moore/
 title: Eilenberg-Moore Algebras
 abstract: In my post on monads I showed that if $F$ is a functor with right adjoint $G$ then $GF$ is a monad, and I asserted without proof that every monad arises in this way from at least one adjunction.  The answers to the question "Which adjunctions induce a given monad $M$?" form a category in a natural way, and in this post I will use the theory of Eilenberg-Moore algebras to construct some interesting objects in this category.
 date: 2017-09-16
-categories: category-theory
+categories: math
 comments: true
 ---
 
