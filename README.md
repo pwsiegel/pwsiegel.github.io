@@ -1,6 +1,10 @@
 <blockquote>
-<p>*"Everything in moderation, including moderation."*</p>
-<p align="center">-Oscar Wilde</p>
+<p style="font-size:x-large">
+   "Mathematics knows no races or geographical boundaries; for mathematics, the cultural world is one country."
+</p>
+<p align="center" style="font-size:larger">
+   -David Hilbert
+</p>
 </blockquote>
 
 ## Latest posts
