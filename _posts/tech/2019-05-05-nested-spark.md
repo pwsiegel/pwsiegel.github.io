@@ -95,11 +95,10 @@ The problem is that writing Spark schemas yourself by hand is a rather laborious
   {'name': 'weapon', 'type': 'string', 'nullable': True, 'metadata': {}}]}
 ```
 
-An even better option is to combine the previous two.
+The best option, in my experience, is a hybrid approach: let Spark infer a schema on a small but well-chosen sample and then apply that schema to the rest of the data.
 Often you know more than Spark does about your data, and so you can intelligently prepare a small sample that is representative of the whole dataset.
 For instance, maybe your dataset is split into thousands of separate files, but you are confident that one or two of the files has enough structural variability to provide an adequate schema.
-You can then have Spark infer a schema from your intelligent sample and then apply that schema to the rest of the data.
-It looks like this:
+Here's what it would look like:
 
 ```python
 sample_schema = spark.read.json(path_to_sample)
@@ -134,63 +133,11 @@ spark.read.text(path_to_data).select(from_json('value', schema))
 The `schema` variable can either be a Spark schema (as in the last section), a DDL string, or a JSON format string.
 I'm not sure what advantage, if any, this approach has over invoking the native `DataFrameReader` with a prescribed schema, though certainly it would come in handy for, say, CSV data with a column whose entries are JSON strings.
 
-## Tip: switch to parquet
-
-The absolute best way to operate over large amounts of JSON is to make it stop being JSON.
-This obviously isn't practical in all cases, but if you have control over your data ingestion pipeline or if there is a fixed dataset over which you know you will need to do many computations, then it is worth investing some time in optimizing how your data is stored.
-And the most straightforward way to make this investment is to convert all of your data to the parquet format.
-
-To be completely honest I can't explain what exactly the parquet format is, except that it was created precisely for the purpose of scaling up computations over large structured datasets.
-What I know for sure is that I have reduced the running time of certain computations from several hours to several minutes simply by converting the underlying data from JSON to parquet.
-Of course the difference is made up in the conversion process, which can take quite a long time, but it's a cost that you only have to pay once rather than every time you try to do even a simple computation.
-
-How does this work?
-Again, I don't know the nuts and bolts, but I can describe some of the key features:
-
-1. **Static schema.** Every parquet file has a global schema which can be retrieved easily without parsing the rest of the file.  This completely eliminates the need for the schema inference step, which can consume much of the running time of a Spark job over JSON data.
-2. **Columnar structure.** To extract the `name` field from every object in JSON-formatted data, Spark must read every row and parse enough of it to reach the `name` key.  The parquet format stores the data by column, allowing Spark to grab the fields it needs and ignore the rest of the data.
-3. **Predicate pushdown.** Typical processing pipelines include filters as well as various transformations and joins.  With parquet data it is possible to execute certain kinds of filtered reads, meaning Spark can read specifically the rows which pass through the filter without reading the whole document.
-
-These strengths are compounded by the Catalyst optimization engine that powers the Spark DataFrame API.
-For instance, Spark can analyze your computation and discover that some of the filtering steps that occur at the end of your computation can be moved to the beginning, thus taking advantage of predicate pushdown without you even realizing it.
-
-More good news: Spark makes it fairly trivial to convert whatever format you're currently using into parquet:
-
-```python
-spark.read.json(path_to_data).write.parquet(path_to_parquet)
-```
-
-Warning: if your data is organized according to a specific directory / file naming structure, this will butcher it.
-But often the purpose of such a structure is to provide a sort of manual way to execute filtered reads, and spark can handle that for you!
-Parquet will easily compensate you for any additional overhead.
-And if it really is crucial to group your data according to a particular value in your file system, you can always repartition along the appropriate column before writing.
-
-Of course, reading parquets is just as easy:
-
-```python
-spark.read.parquet(path_to_parquet)
-```
-
-So what do you lose by switching to parquet?
-Honestly, not much.
-
-You lose human readability: if you open a parquet file in a text editor it will look like nonsense.
-This means `grep` and `sed` won't work either.
-But most languages have a parquet parser, and there are even command-line utilities that help you work with parquet data.
-(And let's be honest: how often do you use `sed` with JSON data?)
-
-I think the only case where JSON is the better choice is when the data is truly, irredeemably schemaless.
-If your data consists of a million objects with a hundred thousand distinct fields and each object only uses a dozen of those fields, then individually parsing each JSON object might very well be more efficient than incurring the overhead of a sparse columnar representation.
-I haven't personally had to work with data like this (yet!) but it wouldn't surprise me if it does come up.
-
 ## Processing nested data
 
 Let us assume that you have successfully read in your data as a Spark DataFrame.
 A lot of the hard work is over: Spark has applied a global schema to your data, and the Catalyst engine is ready to go.
-How can we manipulate the data and extract what we need?
-
-Spark DataFrames provide an SQL-like API for querying, grouping, filtering, and transforming data, and I'm not going to try to summarize all of it.
-Instead I will specifically focus on how nested selections work and what you can do with them.
+I won't try to give an overview of the whole Spark API - this post is long enough as it is - but I will try to explain some of the tools that Spark provides specifically for working with nested data.
 
 ### Nested selections
 
@@ -269,11 +216,38 @@ df.select('name', col('family.spouses.name').alias('spouse_name')).show(truncate
 ### Higher order SQL functions
 
 The basic selection syntax together with the rest of standard Spark functionality is enough to do most typical data processing tasks.
-But Spark provides some additional built-in tools for manipulating nested data, introduced in Spark 2.4.
-These are the higher order functions for working with array and struct fields.
+But Spark 2.4 provides some additional *higher order functions* for manipulating nested data.
 
-I will leave the reader to consult the documentation for a full list of higher order functions, but to give a sense of what is possible I will use them to work through a simple example.
-Suppose we wish to replace the array field `family.spouses` in our example dataset with a struct field which assigns each spouse to their status (alive or dead).
-So for Sansa we want the value of `family.spouses` to be `{"tyrion": true, "ramsay": false}`.
+Suppose, for instance, we want to transform our example dataset so that the `family.spouses` column becomes a `struct` column whose keys come from the `name` column and whose values come from the `alive` column.
+This is exactly what the higher order function `map_from_arrays` is for:
 
+```python
+df.select('name', map_from_arrays('family.spouses.name', 'family.spouses.alive')).show(truncate=False)
+```
+```
++------+----------------------------------------------------------+
+|name  |map_from_arrays(family.spouses.name, family.spouses.alive)|
++------+----------------------------------------------------------+
+|arya  |null                                                      |
+|sansa |[tyrion -> true, ramsay -> false]                         |
+|cersei|[robert -> false]                                         |
+|jamie |null                                                      |
++------+----------------------------------------------------------+
+```
 
+Another example: suppose we want to construct a new column called `all_family` which contains the names of all available family members, including both spouses and children.
+For this we will use the `array_union` higher order function:
+
+```python
+(
+    df.select(
+        'name',
+        when(isnull('family.spouses.name'), array()).otherwise(col('family.spouses.name')).alias('spouse_name'),
+        when(isnull('family.children'), array()).otherwise(col('family.children')).alias('child_name')
+    )
+    .select('name', array_union('spouse_name', 'child_name').alias('all_family'))
+    .show(truncate=False)
+)
+```
+
+Note the use of the `when` and `otherwise` column functions in the initial selection to coerce null columns into empty arrays; these sorts of manipulations are quite common in the presence of messy nested data because Spark records missing JSON fields as nulls.
