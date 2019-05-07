@@ -53,8 +53,12 @@ df.show(truncate=False)
 As you can see Spark did a lot of work behind the scenes: it read each line from the file, deserialized the JSON, inferred a schema, and merged the schemas together into one global schema for the whole dataset, filling missing values with `null` when necessary.
 All of this work is great, but it can slow things down quite a lot, particularly in the schema inference step: Spark achieves this by reading in a sample of the data and inferring a schema from the sample before reading in the full dataset, and this can add quite a lot of overhead.
 
-There are two ways to deal with this.
-One is to reduce the sampling ratio:
+There are several ways to deal with this.
+The best way is to transform all of your data from JSON to parquet.
+There are many reasons why this is a great idea - I'll write another blog post about it - but one of them is that parquet files know their own schema and hence the schema inference step is eliminated.
+But reformatting large datasets isn't always a viable option, so it's worth exploring JSON-specific options.
+
+One is to reduce the schema sampling ratio:
 
 ```python
 spark.read.option('samplingRatio', 0.1).json(path_to_data)
@@ -101,7 +105,7 @@ For instance, maybe your dataset is split into thousands of separate files, but 
 Here's what it would look like:
 
 ```python
-sample_schema = spark.read.json(path_to_sample)
+sample_schema = spark.read.json(path_to_sample).schema
 df = spark.read.schema(sample_schema).json(path_to_data)
 ```
 
@@ -158,7 +162,6 @@ df.select('name', 'family.children').show(truncate=False)
 +------+---------------------------+
 ```
 
-Note that Spark fills missing fields with `null`.
 For array columns the `explode` function (available in the module `pyspark.sql.functions`) is handy; here is how to build a DataFrame of all parent / child relationships in the data:
 
 ```python
@@ -213,10 +216,52 @@ df.select('name', col('family.spouses.name').alias('spouse_name')).show(truncate
 +------+----------------+
 ```
 
+### Parsing the schema
+
+The nested selection syntax is very handy, but it requires the user to have a precise understanding of the schema.
+Spark DataFrames know their own schema and are happy to show it to you via `df.printSchema()`, but as indicated previously the schema can be very complicated even for relatively manageable datasets, particularly if the data is highly nested.
+So I wrote some helper code which parses the schema into ready-to-go selection strings; it looks like this:
+
+```python
+def spark_schema_to_string(schema_json, progress=''):
+    if schema['type'] == 'struct':
+        for field in schema['fields']:
+            key = field['name']
+            yield from spark_schema_to_string(field, f'{progress}.{key}')
+    elif schema['type'] == 'array':
+        if type(schema['elementType']) == dict:
+            yield from spark_schema_to_string(schema['elementType'], progress)
+        else:
+            yield progress.strip('.')
+    elif type(schema['type']) == dict:
+        yield from spark_schema_to_string(schema['type'], progress)
+    else:
+        yield progress.strip('.')
+```
+
+This function produces a generator which iterates through all possible nested selections in a DataFrame; it should be invoked on the JSON representation of the DataFrame's schema as follows:
+
+```python
+list(spark_schema_to_string(df.schema.jsonValue()))
+```
+```
+['family.children',
+ 'family.spouses.alive',
+ 'family.spouses.name',
+ 'name',
+ 'weapon']
+```
+
+You still have to look at the full schema to determine which fields are arrays, but I have found that this representation of the schema to be a much more convenient hook when first getting to know a dataset.
+The algorithm above is fairly Python-specific in that it makes crucial use of the `yield from` syntax, but it can be adapted relatively easily to Scala or Java using `flatMap` instead.
+
 ### Higher order SQL functions
 
-The basic selection syntax together with the rest of standard Spark functionality is enough to do most typical data processing tasks.
-But Spark 2.4 provides some additional *higher order functions* for manipulating nested data.
+I will conclude this post by providing a few tips and examples for manipulating nested data.
+When in doubt it is possible to do most things using a combination of `select`, `explode`, `groupBy`, and structured aggregations like `collect_list` and `collect_set`.
+And Spark 2.3 added the nuclear option of `pandas_udf` which allows you to apply pandas transformations to grouped data.
+But `groupBy` and `pandas_udf` aggregations can be quite expensive, particularly for unevenly distributed data, because they tend to trigger shuffles.
+Fortunately, Spark 2.4 introduced some handy higher order column functions which do some basic manipulations with arrays and structs, and they are worth a look.
 
 Suppose, for instance, we want to transform our example dataset so that the `family.spouses` column becomes a `struct` column whose keys come from the `name` column and whose values come from the `alive` column.
 This is exactly what the higher order function `map_from_arrays` is for:
@@ -249,5 +294,19 @@ For this we will use the `array_union` higher order function:
     .show(truncate=False)
 )
 ```
+```
++------+-----------------------------------+
+|name  |all_family                         |
++------+-----------------------------------+
+|arya  |[]                                 |
+|sansa |[tyrion, ramsay]                   |
+|cersei|[robert, joffrey, myrcella, tommen]|
+|jamie |[joffrey, myrcella, tommen]        |
++------+-----------------------------------+
+```
 
 Note the use of the `when` and `otherwise` column functions in the initial selection to coerce null columns into empty arrays; these sorts of manipulations are quite common in the presence of messy nested data because Spark records missing JSON fields as nulls.
+
+There are a variety of other higher order functions which can help manipulate standard data structures - the reader is invited to consult the `pyspark.sql.functions` [documentation][1] for more.
+
+[1]: https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.functions
