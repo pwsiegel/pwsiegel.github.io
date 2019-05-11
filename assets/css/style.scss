@@ -13,6 +13,7 @@ a {
 
 #navigation ul {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     list-style-type: none;
     overflow: hidden;
@@ -22,7 +23,7 @@ a {
 }
 
 #navigation li {
-    float: left;
+    align-self: stretch;
 }
 
 #navigation li a {
@@ -38,7 +39,32 @@ a {
     background-color: #4682b4;
 }
 
-.social {
+#navigation li.social {
+    display: flex;
+    align-self: stretch;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#navigation li.social a {
+    align-self: center;
+    padding: 0px; 
+}
+
+#navigation li.social img {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    border: unset;
+    border-image: unset;
+    box-shadow: unset;
+}
+
+// #navigation li.social:hover {
+//     background-color: #4682b4;
+// }
+
+.social2 {
     padding-left: 16px;
     padding-right: 16px;
     background-image: url("/resources/GitHub-Mark-Light-32px.png");
@@ -50,9 +76,6 @@ a {
         height: 32px;
 }
 
-#navigation li.social:hover {
-    background-color: #666;
-}
 
 #main_content {
     width: 55%;
