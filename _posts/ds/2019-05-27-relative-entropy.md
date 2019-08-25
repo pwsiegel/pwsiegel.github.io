@@ -78,7 +78,7 @@ $$H(p, q) = H(p) + D(p \| q)$$
 
 ## The continuous case
 
-[1]: {{ site.baseurl }}{% post_url ds/2017-03-05-entropy-defn %} "On the definition of Shannon entropy"
-[2]: {{ site.baseurl }}{% post_url ds/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
+[1]: {{ site.baseurl }}{% post_url ds/2017-02-18-entropy-defn %} "On the definition of Shannon entropy"
+[2]: {{ site.baseurl }}{% post_url math/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
 [3]: {{ site.baseurl }}{% post_url ds/2019-05-27-gibbs-inequality %} "Gibbs' inequality""
 

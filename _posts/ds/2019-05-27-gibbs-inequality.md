@@ -112,4 +112,4 @@ Since $p$ and $q$ are probability measures we have $p(X) = q(X) = 1$, so we must
 </div>
 
 [1]: {{ site.baseurl }}{% post_url ds/2019-05-27-relative-entropy %} "Relative Entropy"
-[2]: {{ site.baseurl }}{% post_url ds/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
+[2]: {{ site.baseurl }}{% post_url math/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
