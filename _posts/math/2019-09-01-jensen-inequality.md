@@ -294,7 +294,7 @@ Recall that the median is by definition the value $x_i$ occurring at index $i = 
 (In fact, any value between $x_i$ and $x_{i+1}$ would do for the present purposes.)
 
 This question has a very simple answer: the median is always within one standard deviation of the mean.
-This is a very elementary statement, but I don't think it is easy to prove - the proof that I will present here using Jensen's inequality is the simplest argument I know!
+This is a very elementary statement, but I don't think it is easy to prove - one way or the other some mechanism for estimating expectations of random variables is required.
 
 To begin, we will need a clever variational characterization of the median, which is interesting in its own right.
 As in the previous section, equip the finite set $\Omega = \br{\omega_1, \ldots, \omega_n}$ with the uniform probability measure, and let $X$ be the random variable on this probability space defined by $X(\omega_i) = x_i$.
@@ -355,5 +355,9 @@ $$\abs{\mu - m} \leq \E(\abs{X - \mu}) \leq \sqrt{\E((X - \mu)^2)} = \sigma$$
 
 Note that the equality case for the second application of Jensen's inequality requires that $\abs{X - \mu}$ is constant since $x^2$ is not linear on any interval, and this random variable can only be constant if $X$ is constant.
 </div>
+
+Both applications of Jensen's inequality in this argument were a little cheap; the first one is really just the triangle inequality, and the second one is the Cauchy-Schwarz inequality.
+But expressing the argument in this way buys a lot of generality for free; for instance if $x_1, \ldots, x_n$ are points in $\R^d$ instead of $\R$ then one can define the _spatial median_ to be any point which minimizes the absolute deviation function $t \mapsto \E(\abs{X - t})$, and the argument above gives an inequality between the mean, spatial median, and standard deviation almost verbatim.
+The argument also has generalizations to weighted and continuous probability distributions, all of which come for free without having to fuss about what the standard inequalities should look like.
 
 [1]: {{ site.baseurl }}{% post_url math/2017-03-11-averages %} "Averages"
