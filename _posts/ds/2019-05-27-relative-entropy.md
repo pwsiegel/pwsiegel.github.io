@@ -1,19 +1,21 @@
 ---
 layout: post
-permalink: /ds/relative-entropy/
-title: Relative Entropy
-abstract: Relative entropy - also known as the *Kullback-Leibler divergence* - measures the information gained by replacing one random model with another.  In this post and posts to come I will argue that relative entropy provides a good foundation for information theory in particular and statistical machine learning more generally.
+permalink: /ds/relative-entropy-bayes/
+title: Relative entropy and Bayesian statistics
+abstract: The mathematical foundations of machine learning revolve around two disciplines: Bayesian statistics and information theory.  In this post I will argue that relative entropy is the binding agent which glues these tools together.
 date: 2019-05-27
 categories: [math, data-science]
 comments: true
 ---
 
-Some time ago I [wrote][1] a bit about information theory as defined in Claude Shannon's seminal paper _A mathematical theory of communication_.
-Since then I have come to view information theory as a near-universal organizing principle in data science and machine learning, and I am going to try to develop this perspective in an ongoing series of blog posts.
+For the past few years I have been preoccupied off and on with the mathematical foundations of machine learning.
+The goal of machine learning is to construct probability distributions which accurately model known data and generalize well to unknown data.
 
-A key part of my current thinking on the subject is that _relative entropy_, rather than traditional Shannon entropy, is the fundamental object of study in the field.
-I was initially led to this perspective by the observation that relative entropy, unlike ordinary entropy, can be defined on an abstract probability space - this immediately guarantees that it has nice properties like coordinate invariance and various notions of continuity, and it also allows for a unified treatment of the discrete and continuous cases.
-As often happens in mathematics these theoretical advantages yield dividends in downstream applications.
+The main challenge, which drives the whole subject, is a certain tension between a model's obligations to known and unknown data.
+The model's obligation to known data is accuracy: its predictions given known inputs should more or less match the known outputs.
+Its obligation to unknown data is generalizability: the model should avoid signals which are "too specific" to known data.
+
+To build models which meet these two obligations, data scientists use two tools: Bayesian statistics and information theory.
 
 ## Relative entropy
 
