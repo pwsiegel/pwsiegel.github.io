@@ -45,7 +45,8 @@ $$S(E) = -\log_b \P(E)$$
 (where the base $b$ is arbitrary) is a surprise function on any probability space.
 </div>
 
-Now, consider a discrete random variable $X$ with possible values $\br{x_1, \ldots, x_n\}$.  We can define a new random variable $I_X$ (the *information* of $X$) by $I_X(x_i) = S(X = x_i)$, and Shannon defines the *entropy* of X to be the expected value of this random variable:
+Now, consider a discrete random variable $X$ with possible values $\br{x_1, \ldots, x_n\}$.
+We can define a new random variable $I_X$ (the *information* of $X$) by $I_X(x_i) = S(X = x_i)$, and Shannon defines the *entropy* of X to be the expected value of this random variable:
 
 $$H(X) = \E(I_X) = -\sum_i p_i \log p_i$$
 
