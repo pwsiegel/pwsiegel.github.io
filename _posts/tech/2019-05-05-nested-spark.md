@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: /tech/nested-spark/
-title: Working with badly nested data in Spark
+title: Working with Badly Nested Data in Spark
 abstract: Apache Spark is a distributed computing platform which can handle almost any kind of data you throw at it. But it has lots of optimizations that require SQL-like tables with consistent schemas.  This post includes some of what I have learned about taking advantage of these optimizations when the data has an inconsistent, deeply nested schema.
 date: 2019-05-11
 categories: tech

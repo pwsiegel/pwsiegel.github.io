@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: /ds/jensen-inquality/
-title: Jensen's inequality and statistics
+title: Jensen's Inequality and Statistics
 abstract: Jensen's inequality is a beautiful little workhorse lemma from convex geometry. I have stumbled into it an number of times recently as I have been reading and writing about statistics and information theory, so I decided to split it off into its own blog post.  After introducing the inequality (and proving that it holds), I will give a few snappy applications to basic statistics, including the classical inequality between arithmetic, geometric, and harmonic means as well as a basic inequality relating the mean, median, and standard deviation.
 date: 2019-09-01
 categories: [math, data-science]
