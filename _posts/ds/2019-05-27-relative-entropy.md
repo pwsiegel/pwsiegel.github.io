@@ -2,7 +2,7 @@
 layout: post
 permalink: /ds/relative-entropy-bayes/
 title: Relative entropy and Bayesian statistics
-abstract: The mathematical foundations of machine learning revolve around two disciplines: Bayesian statistics and information theory.  In this post I will argue that relative entropy is the binding agent which glues these tools together.
+abstract: The mathematical foundations of machine learning revolve around Bayesian statistics and information theory.  In this post I will argue that relative entropy is the binding agent which glues these disciplines together.
 date: 2019-05-27
 categories: [math, data-science]
 comments: true
