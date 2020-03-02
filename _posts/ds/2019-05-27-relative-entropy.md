@@ -50,12 +50,12 @@ It has a lot of other nice properties as well which may come up in subsequent po
 ## The finite case
 
 Let us explicitly compute relative entropy on a finite probability space $\Omega$ with $n$ elements and the power set $\sigma$-algebra.
-A probability measure on $\Omega$ is just a vector in $\R^n$ with nonnegative entries which sum to $1$, so we may write $p = (p_1, \ldots, p_n) \in \R^n$ and $q = (q_1, \ldots, q_n) \in \R^n$.
+A probability measure on $\Omega$ is just a vector in $\R^n$ with non-negative entries which sum to $1$, so we may write $p = (p_1, \ldots, p_n) \in \R^n$ and $q = (q_1, \ldots, q_n) \in \R^n$.
 In my [post][2] on the Radon-Nikodym theorem, I showed that the condition $p \ll q$ is equivalent to the statement that $p_i = 0$ whenever $q_i = 0$ and that $\frac{dp}{dq}$ is the vector whose $i$th coordinate is given by:
 
 $$\left. \frac{dp}{dq} \right|_i = \begin{cases} \frac{p_i}{q_i} & q_i \neq 0 \\ 0 & \text{otherwise} \end{cases}$$
 
-Viewing this as a function on $\Omega$, note that we can ignore the $i$'s for which $q_i = 0$ for the purposes of integrating against the measure $p$ because $p_i = 0$ by absolute continutiy.
+Viewing this as a function on $\Omega$, note that we can ignore the $i$'s for which $q_i = 0$ for the purposes of integrating against the measure $p$ because $p_i = 0$ by absolute continuity.
 So by contracting $\Omega$ if necessary we can assume without loss of generality that $q_i \neq 0$ for all $i$.
 We obtain:
 
