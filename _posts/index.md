@@ -28,4 +28,5 @@
 - [X] [Category Theory References](math/category-theory/2017-04-28-references.md)
 
 # Technology
+- [ ] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark.md)
