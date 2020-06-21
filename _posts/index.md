@@ -2,7 +2,7 @@
 - [X] [Math Test Page](test/2017-02-12-math-test)
 
 # Data science
-- [ ] [Computing quantiles at scale](ds/2020-03-26-distributed-quantiles)
+- [ ] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
 - [o] [Relative entropy and Bayesian statistics](ds/2019-05-27-relative-entropy)
 - [O] [Gibbs' Inequality](ds/2019-05-27-gibbs-inequality)
 - [X] [Annotator Agreement in Machine Learning Experiments](ds/2018-02-12-iaa)
@@ -31,3 +31,4 @@
 # Technology
 - [X] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark)
+- [ ] [Amazon's EKS: Access management](tech/2020-06-07-eks-iam)
