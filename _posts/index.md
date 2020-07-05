@@ -2,12 +2,13 @@
 - [X] [Math Test Page](test/2017-02-12-math-test)
 
 # Data science
-- [ ] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
-- [o] [Relative entropy and Bayesian statistics](ds/2019-05-27-relative-entropy)
-- [O] [Gibbs' Inequality](ds/2019-05-27-gibbs-inequality)
+- [X] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
 - [X] [Annotator Agreement in Machine Learning Experiments](ds/2018-02-12-iaa)
-- [X] [On the Definition of Shannon Entropy](ds/2017-02-18-entropy-defn)
-- [X] [Information Theory - the Basics](ds/2017-02-12-info-theory-basics)
+
+## Information theory
+- [O] [Gibbs' Inequality](ds/info-theory/2019-05-27-gibbs-inequality)
+- [X] [On the Definition of Shannon Entropy](ds/info-theory/2017-02-18-entropy-defn)
+- [X] [Information Theory - the Basics](ds/info-theory/2017-02-12-info-theory-basics)
 
 # Math
 - [X] [Jensen's Inequality and Statistics](math/2019-09-01-jensen-inequality)
