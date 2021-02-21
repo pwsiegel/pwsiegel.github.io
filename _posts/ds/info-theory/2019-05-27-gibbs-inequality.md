@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /ds/gibbs-inequality/
+permalink: /ds/info-theory/gibbs-inequality/
 title: Gibbs' Inequality
 abstract: It is a fairly standard fact that relative entropy (KL-divergence) is positive definite, but I was unsatisfied with the proofs of this fact that I saw when I glanced through the literature.  In this post I will provide a complete proof which works on a general probability space.
 date: 2019-05-27
@@ -26,7 +26,7 @@ The key ingredient is Jensen's inequality, which we will prove along the way jus
 
 <div class="proposition" text="Jensen's Inequality">
 Let $F$ be a random variable on a probability space $(X, \Sigma, p)$ and let $\varphi \colon \R \to \R$ be a convex function, meaning $\phi(tx + (1-t)y) \leq t\phi(x) + (1-t)\phi(y)$ for all $x, y \in \R$ and all $t \in [0,1]$.
-Then 
+Then
 
 $$\phi(\E(F)) \leq \E(\phi(F))$$
 
