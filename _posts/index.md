@@ -9,6 +9,7 @@
 - [O] [Gibbs' Inequality](ds/info-theory/2019-05-27-gibbs-inequality)
 - [X] [On the Definition of Shannon Entropy](ds/info-theory/2017-02-18-entropy-defn)
 - [X] [Information Theory - the Basics](ds/info-theory/2017-02-12-info-theory-basics)
+- [ ] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
 
 # Math
 - [X] [Jensen's Inequality and Statistics](math/2019-09-01-jensen-inequality)
