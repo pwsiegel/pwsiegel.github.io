@@ -9,18 +9,9 @@ tags: live
 comments: true
 ---
 
-In the course of writing a recent [post][1] on relative entropy I wanted to include a proof that it is always positive definite, a result known as Gibbs' inequality.
-As I argued in that post, relative entropy can be thought of as the change in information when updating a statistical model from one probability distribution to another in response to new data, and with this intuition in mind positive definiteness means:
-
-- Updating a model never destroys information.
-- The only "update" that doesn't increase information is the trivial update which doesn't change the distribution.
-
-Note that this does not say that the new model is in any way "better" than the old model - relative entropy is after all agnostic about how the model was updated.
-The more accurate intuition might be something like "a statistical model $p$ is surprised by every other model $q$ except $q = p$".
-The relative entropy of $p$ from $q$ can then be interpretted as a quantitative measure of how surprised $p$ is by $q$ on average.
-
-There are various proofs lying around the internet in the discrete or continuous case, but for a number of reasons (many of them ideological) I wanted an argument which uses the general measure theoretic formalism for probability theory.
-So I worked out the details, and now I'm sharing them here.
+Bayesian modeling is the task of updating one's probabilistic understanding of the world from a distribution $q$ to a distribution $p$ in response to data.
+It is a fundamental fact that this process always increases information unless $p$ and $q$ are the same; formally, the relative entropy $\KL{p}{q} \geq 0$ with equality if and only if $p = q$ almost everywhere.
+This fact is called Gibbs' inequality, and the aim of this post is to deduce it from Jensen's inequality.
 
 The key ingredient is Jensen's inequality, which we will prove along the way just for fun.
 
@@ -54,7 +45,7 @@ But $(\phi - \ell) \circ F = 0$ almost everywhere if and only if $\phi = \ell$ a
 To prove that relative entropy is positive definite we will need a few additional properties of the Radon-Nikodym derivative.
 Assume as usual that $p$ and $q$ are probability measures on $(X, \Sigma)$ and that $p \ll q$.
 It certainly need not be the case that $q \ll p$, but $q$ does have a decomposition $q = q_0 + q_1$ where $q_0 \ll p$ and $q_1$ is _mutually singular_ with $p$, meaning $X$ is the disjoint union of of measurable sets $A$ and $B$ such that $q_1 = 0$ on $A$ and $p = 0$ on $B$.
-This is called the Lebesgue decomposition theorem, and it can be proved using similar techniques as in the [proof][2] that I wrote up for the Radon-Nikodym theorem; roughly, the Lebesgue decomposition corresponds to the orthogonal decomposition of one vector relative to another in an appropriately chosen Hilbert space.
+This is called the Lebesgue decomposition theorem, and it can be proved using similar techniques as in the [proof][1] that I wrote up for the Radon-Nikodym theorem; roughly, the Lebesgue decomposition corresponds to the orthogonal decomposition of one vector relative to another in an appropriately chosen Hilbert space.
 
 Now, whenever we have three $\sigma$-finite measures which satisfy $\nu \ll \mu \ll \lambda$ there is a chain rule for Radon-Nikodym derivatives:
 
@@ -111,5 +102,4 @@ for all measurable sets $E$.
 Since $p$ and $q$ are probability measures we have $p(X) = q(X) = 1$, so we must have $C = 1$ and hence $p = q$.
 </div>
 
-[1]: {{ site.baseurl }}{% post_url ds/2019-05-27-relative-entropy %} "Relative Entropy"
-[2]: {{ site.baseurl }}{% post_url math/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
+[1]: {{ site.baseurl }}{% post_url math/2019-05-27-radon-nikodym %} "The Radon-Nikodym Theorem"
