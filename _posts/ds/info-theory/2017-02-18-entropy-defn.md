@@ -144,4 +144,4 @@ That said, there is a standard way to "fix" differential entropy, called the *Ku
 [1]: https://archive.org/details/FoundationsOfModernAnalysis_578 "Foundations of Modern Analysis"
 [2]: http://bayes.wustl.edu/etj/articles/prior.pdf "Prior Probabilities"
 [3]: http://mathoverflow.net/questions/162301/intrinsic-significance-of-differential-entropy "Intrinsic significance of differential entropy"
-[4]: {{ site.baseurl }}{% post_url ds/2017-02-12-info-theory-basics %} "Information Theory: The Basics"
+[4]: {{ site.baseurl }}{% post_url ds/info-theory/2017-02-12-info-theory-basics %} "Information Theory: The Basics"
