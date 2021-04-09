@@ -66,7 +66,7 @@ This is the property that we will need to show that relative entropy is nonnegat
 
 <div class="proposition" text="Gibb's Inequality">
 Let $p$ and $q$ be probability measures on a measurable space $(X, \Sigma)$ and assume that $p \ll q$.
-Then $D(p \| q) \geq 0$ with equality if and only if $p = q$.
+Then $\KL{p}{q} \geq 0$ with equality if and only if $p = q$.
 </div>
 <div class="proof">
 As above, let $q = q_0 + q_1$ denote the Lebesgue decomposition of $q$ with respect to $p$, and let $X = A \cup B$ be the decompositionof $X$ into disjoint mutually singular sets for $q_1$ and $p$.
@@ -74,7 +74,7 @@ We have:
 
 $$
 \begin{align*}
-   D(p \| q) &= \E\left( \log \frac{dp}{dq} \right) \\
+   \KL{p}{q} &= \E\left( \log \frac{dp}{dq} \right) \\
    &= \E\left( -\log \frac{dq_0}{dp} \right) \\
    &\geq -\log \E\left( \frac{dq_0}{dp} \right) \quad \text{by Jensen's inequality} \\
    &= -\log \int_X \frac{dq_0}{dp}\, dp \\
@@ -86,12 +86,12 @@ Here we used the fact that $\phi(x) = -\log x$ is a convex function to apply Jen
 
 Now $q_0 \leq q$ since $q = q_0 + q_1$, $-\log x$ is a decreasing function of $x$, and $q(X) = 1$ since $q$ is a probability measure, so we conclude:
 
-$$D(p \| q) \geq -\log q_0(X) \geq -\log q(X) = 0$$
+$$\KL{p}{q} \geq -\log q_0(X) \geq -\log q(X) = 0$$
 
 It remains only to analyze the equality case.
-Certainly if $p = q$ then $\frac{dp}{dq} = 1$ and $D(p \| q) = \E(\log 1) = 0$.
+Certainly if $p = q$ then $\frac{dp}{dq} = 1$ and $\KL{p}{q} = \E(\log 1) = 0$.
 
-Conversely, if $D(p \| q) = 0$ then the two inequalities in the calculation above must be equalities.
+Conversely, if $\KL{p}{q} = 0$ then the two inequalities in the calculation above must be equalities.
 The equality $q_0(X) = q(X)$ holds if and only if $q = q_0$, i.e. $q \ll p$.
 The other inequality was Jensen's inequality, and that gives equality if and only if the function $\phi(x) = -\log x$ restricts to a linear function almost everywhere on the range of the random variable $\frac{dq}{dp}$.
 But this forces $\frac{dq}{dp}$ to be some constant $C$ on $X$, meaning:
