@@ -12,6 +12,7 @@
 - [ ] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
 
 # Math
+- [ ] [Maintaining an investment portfolio across multiple accounts](math/2021-06-12-invest-multiple-accounts)
 - [X] [Jensen's Inequality and Statistics](math/2019-09-01-jensen-inequality)
 - [X] [Radon-Nikodym Theorem](math/2019-05-27-radon-nikodym)
 - [X] [Decimals are Hard](math/2018-04-14-decimals)
@@ -34,3 +35,5 @@
 - [X] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark)
 - [ ] [Amazon's EKS: Access management](tech/2020-06-07-eks-iam)
+
+# Ideas
