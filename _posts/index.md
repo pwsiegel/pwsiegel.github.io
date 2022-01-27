@@ -32,6 +32,5 @@
 # Technology
 - [X] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark)
-- [ ] [Amazon's EKS: Access management](tech/2020-06-07-eks-iam)
 
 # Ideas
