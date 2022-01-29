@@ -7,6 +7,7 @@
 
 ## Information theory
 - [O] [Gibbs' Inequality](ds/info-theory/2019-05-27-gibbs-inequality)
+- [ ] [The principle of maximum entropy](ds/info-theory/2022-01-27-max-entropy)
 - [ ] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
 
 # Math
