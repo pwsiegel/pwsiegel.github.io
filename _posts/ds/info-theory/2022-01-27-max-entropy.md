@@ -5,6 +5,7 @@ title: The principle of maximum entropy
 abstract: What is the correct way to select a prior in Bayesian modeling? This is a deep question which leads naturally to the principle of maximum entropy, a fundamental tool in statistics, machine learning, and beyond.
 date: 2022-01-27
 categories: [math, data-science]
+tags: live
 comments: true
 ---
 
