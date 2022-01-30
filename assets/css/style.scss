@@ -48,7 +48,7 @@ a {
 
 #navigation li.social a {
     align-self: center;
-    padding: 0px; 
+    padding: 0px;
 }
 
 #navigation li.social img {
@@ -149,6 +149,23 @@ a {
 }
 .lemma[text]::before {
     content: 'Lemma (' attr(text) '). ';
+}
+
+.corollary {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    background-color: rgba(70, 130, 180, 0.4);
+    padding: 5px;
+    border: 2px solid;
+}
+.corollary::before {
+    content: 'Lemma. ';
+    font-weight: bold;
+    font-style: normal;
+}
+.corollary[text]::before {
+    content: 'Corollary (' attr(text) '). ';
 }
 
 .conjecture {
