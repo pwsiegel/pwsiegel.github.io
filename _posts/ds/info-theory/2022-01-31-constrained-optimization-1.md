@@ -167,7 +167,7 @@ The denominator of the constant $K$, viewed as a function of the $\lambda_j$'s, 
 $$Z(\lambda_1, \ldots, \lambda_m) = \sum_i e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}$$
 
 The terminology and notation come from statistical mechanics, wherein $Z$ stands for Zustandssumme, or "sum over states".
-It is important because it mediates between the _local_ behavior of the system - the probabilities of the states $i = 1, \ldots, k$ - and the global behavior of the system as expressed by the constraints.
+It is important because it mediates between the _local_ behavior of the system - the probabilities of the states $i = 1, \ldots, k$ - and the _global_ behavior of the system as expressed by the constraints.
 Indeed, we can recover the constraints from the partition function as follows.
 
 To start, compute $\frac{\partial Z}{\partial \lambda_j}$:
@@ -184,7 +184,7 @@ $$
     \end{align*}
 $$
 
-Thus we can express the constraints as:
+We recognize this as the left-hand side of the $j$th constraint equation $g_j(p_1, \ldots, p_k) = C_j$, so we can rewrite this equation in terms of the partition function as:
 
 $$-\frac{\partial}{\partial \lambda_j} \log Z = C_j$$
 
