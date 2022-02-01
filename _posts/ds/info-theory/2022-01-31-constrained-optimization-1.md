@@ -133,7 +133,7 @@ $$\nabla H = \lambda \varphi$$
 This expands to:
 
 $$
-    \begin{pmatrix} \log p_1 + 1 & \ldots & \log p_k + 1 \end{pmatrix} =
+    -\begin{pmatrix} \log p_1 + 1 & \ldots & \log p_k + 1 \end{pmatrix} =
     \begin{pmatrix} \lambda_0 & \lambda_1 & \ldots & \lambda_m \end{pmatrix}
     \begin{pmatrix}
         1 & \ldots & 1 \\
@@ -155,7 +155,99 @@ Using the constraint $\sum_i p_i = 1$ allows us to compute the constant $K$:
 
 $$K = \frac{1}{\sum_i e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}}$$
 
+Finally, to compute numerical values for the $p_i$'s we can plug the formula above back into the $m$ constraint equations and solve for the $m$ unknowns $\lambda_1, \ldots, \lambda_m$.
+In practice there are usually many more states than there are constraints, so this process is a bit cumbersome.
+Fortunately we can simplify it by borrowing some ideas from statistical mechanics.
 
+### The partition function
+
+The denominator of the constant $K$, viewed as a function of the $\lambda_j$'s, is called the _partition function_ of the system and denoted by:
+
+$$Z(\lambda_1, \ldots, \lambda_m) = \sum_i e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}$$
+
+The terminology and notation come from statistical mechanics, wherein $Z$ stands for Zustandssumme, or "sum over states".
+It is important because it mediates between the _local_ behavior of the system - the probabilities of the states $i = 1, \ldots, k$ - and the global behavior of the system as expressed by the constraints.
+Indeed, we can recover the constraints from the partition function as follows.
+
+To start, compute $\frac{\partial Z}{\partial \lambda_j}$:
+
+$$\frac{\partial Z}{\partial \lambda_j} = -\sum_i \varphi_j(i) e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}$$
+
+Now use this to compute the partial derivative of $-\log Z$:
+
+$$
+    \begin{align*}
+        -\frac{\partial}{\partial \lambda_j} \log Z &= -\frac{1}{Z} \frac{\partial Z}{\partial \lambda_j} \\
+        &= \sum_i \varphi_j(i) \frac{1}{Z} e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)} \\
+        &= \sum_i \varphi_j(i) p_i
+    \end{align*}
+$$
+
+Thus we can express the constraints as:
+
+$$-\frac{\partial}{\partial \lambda_j} \log Z = C_j$$
+
+This form of the constraints presents them directly as $m$ equations in $m$ unknowns.
+Sometimes the partition function $Z$ can be simplified quite a bit by exploiting the structure of the constraints or the underlying system, and this version of the constraints becomes much easier to work with.
+
+## Back to the die problem
+
+Let us apply what we have learned to our original problem: maximize
+
+$$H(p_1, \ldots, p_6) = -\sum_{i=1}^6 p_i \log p_i$$
+
+subject to the constraints:
+
+$$\sum_{i=1}^6 p_i = 1, \quad \sum_{i=1}^6 i p_i = 4.5$$
+
+We only have to worry about one constraint function, $\varphi_1(i) = i$, and one Lagrange multiplier $\lambda_1$.
+The partition function is:
+
+$$Z = \sum_{i=1}^6 e^{-\lambda_1 i}$$
+
+We can simplify this by recognizing it as the sum of a geometric series with ratio $e^{-\lambda_1}$ and applying the formula $\sum_{i=1}^n r^i = \frac{r^{n+1} - r}{r-1}$.
+This gives:
+
+$$Z = \frac{e^{-7 \lambda_1 - e^{-\lambda_1}}}{e^{-\lambda_1 - 1}} = \frac{e^{-6 \lambda_1 - 1}}{1 - e^{\lambda_1}}$$
+
+Hence:
+
+$$-\log Z = -\log(e^{-6 \lambda_1 - 1}) + \log(1 - e^{\lambda_1})$$
+
+Differentiating gives:
+
+$$
+    \begin{align*}
+        -\frac{\partial}{\partial \lambda_1} \log Z &= \frac{6 e^{-6 \lambda_1}}{e^{-6 \lambda_1} - 1}
+            - \frac{e^\lambda_1}{1 - e^{\lambda_1}} \\
+        &= \frac{6}{1 - e^{6 \lambda_1}} + \frac{1}{1 - e^{-\lambda_1}}
+    \end{align*}
+$$
+
+So we have reduced our constraint equation down to:
+
+$$\frac{6}{1 - e^{6 \lambda_1}} + \frac{1}{1 - e^{-\lambda_1}} = 4.5$$
+
+This can easily be solved with a computer; here is some python code which solves the equation and uses the solution to compute the final probability vector $p$:
+
+```python
+from scipy.optimize import fsolve
+import math
+
+def partition(lambda1):
+    return (math.exp(-6 * lambda1) - 1) / (1 - math.exp(lambda1))
+
+def constraint(lambda1):
+    return 6 / (1 - math.exp(6*lambda1)) + 1 / (1 - math.exp(-lambda1)) - 4.5
+
+lambda1 = fsolve(constraint, 1)[0]
+Z = partition(lambda1)
+p = [math.exp(-lambda1 * i) / Z for i in range(1,7)]
+
+print([round(val,4) for val in p])
+```
+
+Output: `[0.0544, 0.0788, 0.1142, 0.1654, 0.2398, 0.3475]`
 
 
 
