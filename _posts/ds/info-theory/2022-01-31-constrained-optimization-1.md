@@ -1,11 +1,10 @@
 ---
 layout: post
 permalink: /ds/info-theory/constrained-optimization-1/
-title: Computational constrained optimization 1: Lagrange multipliers
-abstract: In my post on the principle of maximum entropy I showed how choosing good priors in Bayesian modeling can be expressed as a constrained optimization problem, using (relative) entropy as the objective function. This is the first in a series of posts on computational methods for solving constrained optimization problems, using entropy as a source of examples. This post covers the method of Lagrange multipliers.
+title: "Computational constrained optimization 1 Lagrange multipliers"
+abstract: "In my post on the principle of maximum entropy I showed how choosing good priors in Bayesian modeling can be expressed as a constrained optimization problem, using (relative) entropy as the objective function. This is the first in a series of posts on computational methods for solving constrained optimization problems, using entropy as a source of examples. This post covers the method of Lagrange multipliers."
 date: 2022-01-27
 categories: [math, data-science]
-tags: live
 comments: true
 ---
 
