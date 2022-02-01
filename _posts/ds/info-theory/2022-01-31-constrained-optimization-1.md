@@ -209,7 +209,7 @@ $$Z = \sum_{i=1}^6 e^{-\lambda_1 i}$$
 We can simplify this by recognizing it as the sum of a geometric series with ratio $e^{-\lambda_1}$ and applying the formula $\sum_{i=1}^n r^i = \frac{r^{n+1} - r}{r-1}$.
 This gives:
 
-$$Z = \frac{e^{-7 \lambda_1} - e^{-\lambda_1}}{e^{-\lambda_1 - 1}} = \frac{e^{-6 \lambda_1} - 1}{1 - e^{\lambda_1}}$$
+$$Z = \frac{e^{-7 \lambda_1} - e^{-\lambda_1}}{e^{-\lambda_1} - 1} = \frac{e^{-6 \lambda_1} - 1}{1 - e^{\lambda_1}}$$
 
 Hence:
 
