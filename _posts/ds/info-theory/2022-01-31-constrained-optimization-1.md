@@ -44,7 +44,7 @@ Differentiating both sides with respect to $t$ and applying the chain rule, we g
 
 $$\nabla g(a) \cdot r'(0) = 0$$
 
-Since $a$ is an extremal point for the restriction of $f$ to $N$ it must also be an extremal point for $f$ restricted to the range of $r$, and hence the derivative of $f(r(t)$ at $t=0$ must vanish.
+Since $a$ is an extremal point for the restriction of $f$ to $N$ it must also be an extremal point for $f$ restricted to the range of $r$, and hence the derivative of $f(r(t))$ at $t=0$ must vanish.
 Applying the chain rule again, we get:
 
 $$\nabla f(a) \cdot r'(0) = 0$$
@@ -209,11 +209,11 @@ $$Z = \sum_{i=1}^6 e^{-\lambda_1 i}$$
 We can simplify this by recognizing it as the sum of a geometric series with ratio $e^{-\lambda_1}$ and applying the formula $\sum_{i=1}^n r^i = \frac{r^{n+1} - r}{r-1}$.
 This gives:
 
-$$Z = \frac{e^{-7 \lambda_1 - e^{-\lambda_1}}}{e^{-\lambda_1 - 1}} = \frac{e^{-6 \lambda_1 - 1}}{1 - e^{\lambda_1}}$$
+$$Z = \frac{e^{-7 \lambda_1} - e^{-\lambda_1}}{e^{-\lambda_1 - 1}} = \frac{e^{-6 \lambda_1} - 1}{1 - e^{\lambda_1}}$$
 
 Hence:
 
-$$-\log Z = -\log(e^{-6 \lambda_1 - 1}) + \log(1 - e^{\lambda_1})$$
+$$-\log Z = -\log(e^{-6 \lambda_1} - 1) + \log(1 - e^{\lambda_1})$$
 
 Differentiating gives:
 

@@ -61,7 +61,7 @@ At this point we invoke a remarkable and ubiquitous asymptotic formula due to St
 <div class="proposition" text="Stirling's formula">
 We have:
 
-$$n! = \sqrt{2 \pi n} \left( \frac{n}{e} \right)^n \left( 1 + O(\frac{1}{n} \right)$$
+$$n! = \sqrt{2 \pi n} \left( \frac{n}{e} \right)^n \left( 1 + O(\frac{1}{n}) \right)$$
 
 as $n \to \infty$
 </div>
