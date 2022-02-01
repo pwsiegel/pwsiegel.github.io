@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: /ds/info-theory/constrained-optimization-1/
-title: "Computational constrained optimization 1 Lagrange multipliers"
+title: "Computational constrained optimization 1: Lagrange multipliers"
 abstract: "In my post on the principle of maximum entropy I showed how choosing good priors in Bayesian modeling can be expressed as a constrained optimization problem, using (relative) entropy as the objective function. This is the first in a series of posts on computational methods for solving constrained optimization problems, using entropy as a source of examples. This post covers the method of Lagrange multipliers."
 date: 2022-01-27
 categories: [math, data-science]
@@ -29,8 +29,8 @@ Let us consider the general problem of optimizing an objective function $f(x_1, 
 Our goal is to find _necessary_ conditions for $f$ to attain its maximum or minimum value at $x = (x_1, \ldots, x_k)$ - these conditions will not be _sufficient_, but they will narrow down the search for optima significantly.
 This is similar to using calculus to optimize $f$ without constraints: the equation $\nabla f(x) = 0$ is a necessary but not sufficient condition for $f$ to attain its maximum or minimum value at $x$.
 
-We will assume that $f$ and the $g_j$'s are smooth functions, and that the vector $C = (C_1, \ldots, C_m)$ is a regular value of the function $G \colon \R^k \to \R^m$ with components $g_j$.
-The latter condition ensures that the constraint space $G(x) = C$ is a smooth $k-m$-dimensional submanifold of $\R^k$; otherwise we would have to check the values of $f$ at the singular locus for this space.
+We will assume that $f$ and the $g_j$'s are smooth functions, and that the vector $C = (C_1, \ldots, C_m)$ is a regular value of the function $g \colon \R^k \to \R^m$ with components $g_j$.
+The latter condition ensures that the constraint space $g(x) = C$ is a smooth $k-m$-dimensional submanifold of $\R^k$; otherwise we would have to check the values of $f$ at the singular locus for this space.
 
 ### One constraint
 
@@ -63,7 +63,7 @@ $\lambda$ is called the _Lagrange multiplier_ for the constrained optimization p
 
 ### Multiple constraints
 
-Now let us return to the case where we have $m$ constraints $g_j(x_1, \dlots, x_k) = C_j$ for $j = 1, \ldots m$, and we assume that $C = (C_1, \ldots, C_m)$ is a regular value for this system of equations.
+Now let us return to the case where we have $m$ constraints $g_j(x_1, \ldots, x_k) = C_j$ for $j = 1, \ldots m$, and we assume that $C = (C_1, \ldots, C_m)$ is a regular value for this system of equations.
 Let $N$ denote the common solution space for these $m$ equations as before; now $N$ is a $k-m$-dimensional submanifold of $\R^k$.
 
 As before, assume $a = (a_1, \ldots, a_k)$ is an extremal point for $f \vert_N$, and consider a smooth curve $r \colon \R \to N$ which satisfies $r(0) = a$.
@@ -87,7 +87,79 @@ So we can divide through by $\mu_0$ and obtain a dependence relation of the form
 
 $$\nabla f(a) = \lambda_1 \nabla g_1(a) + \ldots + \lambda_m \nabla g_m(a)$$
 
+Or, more compactly:
+
+$$\nabla f(a) = \lambda \nabla g(a)$$
+
+where $\lambda$ is the $1 \times m$ matrix $(\lambda_1, \ldots, \lambda_m)$ and $\nabla g$ is the $m \times k$ Jacobian matrix of $g = (g_1, \ldots, g_m)$.
+
 The components of this equation give $k$ equations with $k + m$ unknowns, and the constraints $g_j(x) = C_j$ give $m$ more equations, so once again we can expect a discrete set of solutions which must contain the maxima and minima of $f$.
 The $m$ constants $\lambda_1, \ldots, \lambda_m$ are still called Lagrange multipliers for the constrained optimization problem.
+
+## Entropy optimization with moment constraints
+
+Lagrange multipliers can help us solve nearly arbitrary constrained optimization problems.
+Now we shall consider the specific problem of maximizing the entropy functional
+
+$$H(p_1, \ldots, p_k) = -\sum_i p_i \log p_i$$
+
+with constraints that involve _moments_ of the probability distribution $p = (p_1, \ldots, p_k)$.
+Recall that a moment is an expression of the form:
+
+$$\E(\varphi(i)) = \sum_i \varphi(i) p_i$$
+
+For instance, the mean of the distribution is the moment corresponding to $\varphi(i) = i$, and the entropy is the moment corresponding to $\varphi(i) = -\log i$.
+Express the moment constraints as:
+
+$$g_j(p_1, \ldots, p_k) = \sum_i \varphi_j(i) p_i = C_j$$
+
+for $j = 1, \ldots, m$.
+We will always include a $0$th moment constraint with $\varphi_0(i) = C_0 = 1$ to ensure that $(p_1, \ldots, p_k)$ really is a probability distribution:
+
+$$g_0(p_1, \ldots, p_k) = \sum_i p_i = 1$$
+
+Finally, let us assume that the matrix $\varphi = (\varphi_j(i))$ has rank $m+1 \leq k$ to ensure that the regularity assumption in our construction of the Lagrange multipliers is satisfied.
+
+### The Lagrange multiplier equation
+
+The derivative of the function $x \mapsto x \log x$ is $\log x + 1$, so the gradient of $H$ is given by:
+
+$$\nabla H = -(\log p_1 + 1, \log p_2 + 1, \ldots, \log p_k + 1)$$
+
+Meanwhile the gradient of the total constraint function $g = (g_0, \ldots, g_m)$ is just the coefficient matrix $\varphi = (\varphi_j(i))$, so the Lagrange multiplier equation is:
+
+$$\nabla H = \lambda \varphi$$
+
+This expands to:
+
+$$
+    \begin{pmatrix} \log p_1 + 1 & \ldots & \log p_k + 1 \end{pmatrix} =
+    \begin{pmatrix} \lambda_0 & \lambda_1 & \ldots & \lambda_m \end{pmatrix}
+    \begin{pmatrix}
+        1 & \ldots & 1 \\
+        \varphi_1(1) & \ldots & \varphi_1(k) \\
+        \vdots & & \vdots \\
+        \varphi_m(1) & \ldots & \varphi_m(k)
+    \end{pmatrix}
+$$
+
+Multiplying out the right-hand side, we get:
+
+$$-\log p_i - 1 = \lambda_0 + \sum_{j=1}^m \lambda_j \varphi_j(i)$$
+
+Solving for $p_i$ gives:
+
+$$p_i = K e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}$$
+
+Using the constraint $\sum_i p_i = 1$ allows us to compute the constant $K$:
+
+$$K = \frac{1}{\sum_i e^{-\lambda_1 \varphi_1(i) - \ldots - \lambda_m \varphi_m(i)}}$$
+
+
+
+
+
+
+
 
 [1]: {{ site.baseurl }}{% post_url /ds/info-theory/2022-01-27-max-entropy %} "The principle of maximum entropy"
