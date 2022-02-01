@@ -8,7 +8,10 @@
 ## Information theory
 - [X] [Gibbs' Inequality](ds/info-theory/2019-05-27-gibbs-inequality)
 - [X] [The principle of maximum entropy](ds/info-theory/2022-01-27-max-entropy)
-- [ ] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
+- [o] [Computational constrained optimization 1: Lagrange multipliers](ds/info-theory/2022-01-31-constrained-optimization-1)
+- [ ] [Computational constrained optimization 2: Dual Lagrangians](ds/info-theory/2022-01-31-constrained-optimization-2)
+- [ ] [Computational constrained optimization 3: Gradient projections](ds/info-theory/2022-01-31-constrained-optimization-3)
+- [.] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
 
 # Math
 - [ ] [Maintaining an investment portfolio across multiple accounts](math/2021-06-12-invest-multiple-accounts)
