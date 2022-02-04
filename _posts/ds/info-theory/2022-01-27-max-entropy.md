@@ -61,7 +61,7 @@ At this point we invoke a remarkable and ubiquitous asymptotic formula due to St
 <div class="proposition" text="Stirling's formula">
 We have:
 
-$$n! = \sqrt{2 \pi n} \left( \frac{n}{e} \right)^n \left( 1 + O(\frac{1}{n}) \right)$$
+$$n! = \sqrt{2 \pi n} \left( \frac{n}{e} \right)^n \left( 1 + O \left(\frac{1}{n} \right) \right)$$
 
 as $n \to \infty$
 </div>
@@ -95,9 +95,8 @@ $$\log \P(p \vert q) \approx -N \sum_i \left( p_i \log p_i - p_i \log q_i \right
 
 ### Relative entropy
 
-We have stumbed into the quantity $\sum_i p_i \frac{p_i}{q_i}$, which the reader may recognize as from information theory.
-Indeed, the problem of choosing disinterested priors would have been an independent reason to invent information theory if it didn't already exist.
-Let us introduce the relevant terminology before carrying on:
+We have stumbed into the quantity $\sum_i p_i \frac{p_i}{q_i}$, which the reader may recognize from information theory.
+If not, the terminology is as follows:
 
 <div class="definition">
 Let $p$ and $q$ be probability distributions defined on the same finite probability space, and assume that $p$ is absolutely continuous with respect to $q$, meaning an event has $p$-probability $0$ whenever it has $q$-probability $0$.
