@@ -1,10 +1,10 @@
 ---
 layout: post
 permalink: /ds/jensen-inquality/
-title: Jensen's Inequality and Statistics
+title: Jensen's inequality and probability
 abstract: Jensen's inequality is a beautiful little workhorse lemma from convex geometry. I have stumbled into it an number of times recently as I have been reading and writing about statistics and information theory, so I decided to split it off into its own blog post.  After introducing the inequality (and proving that it holds), I will give a few snappy applications to basic statistics, including the classical inequality between arithmetic, geometric, and harmonic means as well as a basic inequality relating the mean, median, and standard deviation.
 date: 2019-09-01
-categories: [math, data-science]
+categories: [math]
 tags: live
 comments: true
 ---
@@ -172,7 +172,7 @@ In the case where $\Omega$ is finite, this just reduces to $\E(X) = \sum_{i=1}^n
 We will only really use three properties of the expectation operator:
 
 - $\E$ is monotone: if $X \leq Y$ almost everywhere with respect to $\P$ then $\E(X) \leq \E(Y)$
-- $\E$ is linear: if $X$ and $Y$ are random variables and $a, b \in \R$ then $\E(a X + b Y) = a \E(X) + b \E(Y)$ 
+- $\E$ is linear: if $X$ and $Y$ are random variables and $a, b \in \R$ then $\E(a X + b Y) = a \E(X) + b \E(Y)$
 - $\E$ is positive definite: if $X \geq 0$ and $\E(X) = 0$ then $X = 0$ almost everywhere with respect to $\P$.
 
 Finally, given a random variable $X \colon \Omega \to \R$ and a function $f \colon \R \to \R$, recall that $f(X)$ is by definition the random variable $f \circ X \colon \Omega \to \R$.
@@ -223,15 +223,15 @@ Let $x_1, \ldots, x_n$ be a list of positive numbers.
 There are a number of different notions of "average" for such a list - I wrote an elementary blog post about the subject [here][1].
 These include:
 
-- Arithmetic mean: 
+- Arithmetic mean:
 
 $$A(x_1, \ldots, x_n) = \frac{x_1 + \ldots + x_n}{n}$$
 
-- Geometric mean: 
+- Geometric mean:
 
 $$G(x_1, \ldots, x_n) = (x_1 \cdot \ldots \cdot x_n)^{\frac{1}{n}}$$
 
-- Harmonic mean: 
+- Harmonic mean:
 
 $$H(x_1, \ldots, x_n) = \frac{n}{\frac{1}{x_1} + \ldots + \frac{1}{x_n}}$$
 
@@ -251,7 +251,7 @@ The proof of the inequality will use several identities which follow immediately
 4. $G(X) = \frac{1}{\E(1/X)}$
 
 <div class="proposition">
-For any finite set $x_1, \ldots, x_n$ of positive numbers: 
+For any finite set $x_1, \ldots, x_n$ of positive numbers:
 
 $$H(x_1, \ldots, x_n) \leq G(x_1, \ldots, x_n) \leq A(x_1, \ldots, x_n)$$
 

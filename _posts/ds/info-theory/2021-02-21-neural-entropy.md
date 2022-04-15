@@ -4,7 +4,7 @@ permalink: /ds/info-theory/neural-entropy/
 title: Neural Models and Entropy Optimization
 abstract: We show how neural networks are solutions to an information-theoretic variational principle.
 date: 2021-02-21
-categories: [math, data-science]
+categories: [data-science]
 comments: true
 ---
 
