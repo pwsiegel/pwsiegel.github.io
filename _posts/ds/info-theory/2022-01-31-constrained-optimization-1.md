@@ -2,15 +2,14 @@
 layout: post
 permalink: /ds/info-theory/constrained-optimization-1/
 title: "Computational constrained optimization 1: Lagrange multipliers"
-abstract: "In my post on the principle of maximum entropy I showed how choosing good priors in Bayesian modeling can be expressed as a constrained optimization problem, using (relative) entropy as the objective function. This is the first in a series of posts on computational methods for solving constrained optimization problems, using entropy as a source of examples. This post covers the method of Lagrange multipliers."
-date: 2022-01-27
-categories: [math, data-science]
+abstract: "In my post on the principle of maximum entropy I showed how choosing good priors in Bayesian modeling can be expressed as a constrained optimization problem, using (relative) entropy as the objective function. This post introduces the general technique of Lagrange multipliers, as well as the concept of a partition function which simplifies calculations when the optimization objective involves entropy."
+date: 2022-01-31
+categories: [data-science]
 tags: live
 comments: true
 ---
 
 In my post on the [principle of maximum entropy][1], we began with the following problem: given an otherwise normal looking six sided die whose average roll is known to be $4.5$, what should we guess is the probability of rolling a $2$?
-This is an example of the more general problem of constructing uninformative priors in Bayesian modeling, and we argued that we should solve it by maximizing the entropy function:
 
 $$H(p_1, \ldots, p_6) = -\sum_{i=1}^6 p_i \log p_i$$
 
@@ -18,11 +17,8 @@ subject to the constraints:
 
 $$\sum_{i=1}^6 p_i = 1, \quad \sum_{i=1}^6 i p_i = 4.5$$
 
-The first constraint ensures that $(p_1, \ldots, p_n)$ is a probability vector, and the second ensures that the average die roll is $4.5$.
-(Strictly speaking we should also include $p_i \geq 0$ for each $i$ as a constraint; it will turn out that this is satisfied automatically, but it is possible to impose this sort of constraint using similar techniques as in this post.)
-
-We did not go into detail about how to actually solve constrained optimization problems of this sort.
-In this post, the first in a series on the computational aspects of constrained optimization, we will use the method of Lagrange multipliers.
+The first constraint ensures that $(p_1, \ldots, p_6)$ is a probability vector, and the second ensures that the average die roll is $4.5$.
+In this post we will show how to solve this problem using the method of Lagrange multipliers, using the notion of a partition function borrowed from statistical mechanics to simplify calculations.
 
 ## Lagrange multipliers
 
@@ -99,18 +95,20 @@ The $m$ constants $\lambda_1, \ldots, \lambda_m$ are still called Lagrange multi
 
 ## Entropy optimization with moment constraints
 
-Lagrange multipliers can help us solve nearly arbitrary constrained optimization problems.
-Now we shall consider the specific problem of maximizing the entropy functional
+So far the techniques that we have discussed make no assumptions about the objective function or the constraints.
+We now turn to the more specific task of optimizing the entropy of a probability distribution subject to linear constraints.
+This sort of problem has been studied extensively in statistical physics, and we will be able to dramatically simplify our calculations by borrowing from that discipline.
+
+So let us consider the problem of maximizing the entropy function
 
 $$H(p_1, \ldots, p_k) = -\sum_i p_i \log p_i$$
 
-with constraints that involve _moments_ of the probability distribution $p = (p_1, \ldots, p_k)$.
-Recall that a moment is an expression of the form:
+with a finite set of constraints for the form
 
-$$\E(\varphi(i)) = \sum_i \varphi(i) p_i$$
+$$\E(\varphi) = \sum_i \varphi(i) p_i = C$$
 
-For instance, the mean of the distribution is the moment corresponding to $\varphi(i) = i$, and the entropy is the moment corresponding to $\varphi(i) = -\log i$.
-Express the moment constraints as:
+$$\E(\varphi)$$ is called a _moment_ of the probability distribution; for instance, the mean of the distribution is the moment corresponding to $\varphi(i) = i$, and the entropy is the moment corresponding to $\varphi(i) = -\log i$.
+Express our collection of moment constraints as:
 
 $$g_j(p_1, \ldots, p_k) = \sum_i \varphi_j(i) p_i = C_j$$
 
