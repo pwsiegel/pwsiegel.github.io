@@ -12,10 +12,9 @@
 - [ ] [Computational constrained optimization 2: Dual Lagrangians](ds/info-theory/2022-01-31-constrained-optimization-2)
 - [ ] [Computational constrained optimization 3: Gradient projections](ds/info-theory/2022-01-31-constrained-optimization-3)
 - [.] [Neural models and entropy optimization](ds/info-theory/2021-02-21-neural-entropy)
+- [X] [Jensen's Inequality and Probability](math/2019-09-01-jensen-inequality)
 
 # Math
-- [ ] [Maintaining an investment portfolio across multiple accounts](math/2021-06-12-invest-multiple-accounts)
-- [X] [Jensen's Inequality and Statistics](math/2019-09-01-jensen-inequality)
 - [X] [Radon-Nikodym Theorem](math/2019-05-27-radon-nikodym)
 - [X] [Decimals are Hard](math/2018-04-14-decimals)
 - [X] [What's in a Mean](math/2017-03-11-averages)
