@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: navigation
 title: Commentary
 category: commentary
 ---
