@@ -1,5 +1,17 @@
+# Reminder: vimwiki shortcuts
+- `+`: turn text into vimwiki link
+- `<leader>td`: add or toggle checkbox
+- `<leader>rtd`: remove checkbox
+- `<leader>+`: increase doneness level
+- `<leader>-`: decrease doneness level
+- `<leader>wd`: delete current wiki page
+- `<leader>wr`: rename current wiki page
+
 # Testing
 - [X] [Math Test Page](test/2017-02-12-math-test)
+
+# Commentary
+- [ ] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
 
 # Data science
 - [X] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
@@ -35,5 +47,3 @@
 # Technology
 - [X] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark)
-
-# Ideas
