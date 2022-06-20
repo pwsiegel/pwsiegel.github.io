@@ -2,7 +2,7 @@
 layout: post
 permalink: /commentary/slavery-peonage
 title: Except as punishment
-abstract:
+abstract: I learned in school that slavery in America was formally ended by the 13th ammendment. But for decades after the Civil War, southern states found creative ways to preserve slavery by manipulating the legal system.
 date: 2022-06-19
 categories: commentary
 tags: live
