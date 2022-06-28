@@ -14,7 +14,7 @@ MathJax.Hub.Config({
         Macros: {
             wt: "\\widetilde",
             tbf: "\\textbf",
-            br: ["\\lbrace #1 \\rbrace", 1],
+            set: ["\\lbrace #1 \\rbrace", 1],
 
             into: "\\hookrightarrow",
             onto: "\\twoheadrightarrow",
@@ -29,9 +29,11 @@ MathJax.Hub.Config({
             abs: ["\\left| #1 \\right|", 1],
             norm: ["\\left\\| #1 \\right\\|", 1],
             inner: ["\\left\\langle #1 \\right\\rangle", 1],
+            argmin: "\\mathop{\\mathrm{argmin}}",
+            argmax: "\\mathop{\\mathrm{argmax \\:}}",
+
             B: "\\mathbb{B}",
             K: "\\mathbb{K}",
-
             E: "\\mathbb{E}",
             P: "\\mathbb{P}",
             KL: ["\\text{D} \\left(#1 \\middle\\| #2 \\right)", 2],
