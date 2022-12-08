@@ -20,38 +20,14 @@ The framework is an application of the principle of maximum entropy laid out in 
 
 ## Definitions and notation
 
-Let $\mathcal{F} \colon \R^d \to L$ be the unknown function that we wish to approximate, where $L = \set{1, 2, \ldots, m}$ is a finite set of labels.
-Let $S \subseteq \R^d$ of inputs on which the values of $\mathcal{F}$ are known, and let $f \colon S \to L$ be the restriction of $\mathcal{F}$ to $S$.
-We will refer to $f$ as the _training data_ for the supervised classification task, and we will enumerate the elements of $S$ as:
+Supervised machine learning begins with a training dataset, consisting a finite set of tuples:
 
-$$S = \set{x_1, \ldots, x_n}$$
+$$(x_1, y_1), \ldots, (x_n, y_n)$$
 
-We will refer to a generic element of $S$ using the index $i$, as in $x_i \in S$, and we will use $f_i$ as shorthand for $f(x_i)$.
-
-The value of $\mathcal{F}$ outside of $S$ cannot be inferred precisely from just $f$.
-In acknowledgement of this fact, we will aim to approximate the values of $\mathcal{F}$ with probability distributions.
-Let $P^m$ denote the set of all probability vectors in $\R^m$, where $m = \abs{L}$.
-Thus a vector $p = (p_1, \ldots, p_m) \in \R^m$ lies in $P^m$ if and only if:
-
-$$0 \leq p_j \leq 1, \quad \sum_j p_j = 1$$
-
-Given a fixed label $k \in L$, let $\delta^k$ denote the probability vector:
-
-$$\delta^k_j = \begin{cases} 1 & j = k \\ 0 & j \neq q \end{cases}$$
-
-We will occasionally abuse notation and identify the label $k \in L$ with the probability distribution $\delta^k \in P^m$, and in particular we will speak of $\delta^k$ as if it were an element of $L$.
-This is often called the _one-hot encoding_ of $L$.
-
-Our goal is to construct a function $p \colon \R^d \to P^m$ which approximates $f$ in a sense to be explained in the next section.
-We will denote the values of $p$ on the known inputs $x_i \in S$ as $p_i = p(x_i)$, and we will denote the components of these probability vectors using double index notation:
-
-$$p_{ij} = p(x_i)_j$$
-
-According to the definition of probability vector, we have:
-
-$$0 \leq p_{ij} \leq 1, \quad \sum_j p_{ij} = 1$$
-
-for each $i$.
+where the $x_i$'s are vectors in some Euclidean space $\R^d$ and the $y_i$'s lie in some finite set $L$ of labels.
+Let $m = \abs{L}$ and let $\set{e_1, \ldots, e_m}$ denote the standard basis of $\R^m$, meaning the coordinates of $e_j$ are all $0$ except for a $1$ in the $j$th slot.
+Choosing an enumeration of $L$ yields a bijection between $L$ and this basis, so for the remainder of this post we will identify these two sets and view the elements of $L$ as standard basis vectors in $\R^m$.
+This is called the _one-hot encoding_ of $L$.
 
 ## Classifier of maximal entropy
 
