@@ -8,3 +8,9 @@ categories: tech
 tags:
 comments: true
 ---
+
+Normally the best way to configure your computer to interact with a GitHub account is as follows:
+1. Create a SSH keypair, and upload the public key to GitHub
+2. Add github.com as a host in `~/.ssh/config`, and link that host to the private key
+3. Add the private key to your computer's SSH agent
+4. Add your name and e-mail address to `~/.gitconfig` to sign your commits
