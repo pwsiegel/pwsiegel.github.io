@@ -11,7 +11,7 @@
 - [X] [Math Test Page](test/2017-02-12-math-test)
 
 # Commentary
-- [ ] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
+- [X] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
 
 # Data science
 - [X] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
