@@ -11,8 +11,8 @@
 - [X] [Math Test Page](test/2017-02-12-math-test)
 
 # Commentary
-- [ ] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
-- [ ] [What is the moral basis for the pro-life argument?](commentary/2022-07-17-pro-life-morality)
+- [X] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
+- [o] [What is the moral basis for the pro-life argument?](commentary/2022-07-17-pro-life-morality)
 
 # Data science
 - [X] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
@@ -48,3 +48,4 @@
 # Technology
 - [X] [Working with Python Project Directories](tech/2020-03-05-gitroot)
 - [X] [Working with Badly Nested Data in Spark](tech/2019-05-05-nested-spark)
+- [.] [Multiple GitHub Accounts on the Same Computer](tech/2023-01-03-multiple-github-accounts)
