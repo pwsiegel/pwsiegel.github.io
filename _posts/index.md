@@ -12,6 +12,7 @@
 
 # Commentary
 - [ ] [Except as punishment for crime](commentary/2022-06-19-slavery-peonage)
+- [ ] [What is the moral basis for the pro-life argument?](commentary/2022-07-17-pro-life-morality)
 
 # Data science
 - [X] [Computing quantiles at scale](ds/2020-06-21-compute-quantiles)
