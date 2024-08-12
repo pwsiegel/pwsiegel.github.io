@@ -6,5 +6,3 @@ show_downloads: false
 markdown: kramdown
 kramdown:
     parse_block_html: true
-plugins:
-    - jemoji
